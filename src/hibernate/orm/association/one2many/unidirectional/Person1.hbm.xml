@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.orm.association.one2many.unidirectional">
+	<class name="Person1" table="tb_person_1" dynamic-insert="true" dynamic-update="true">
+		<id name="id" column="pk_person">
+			<generator class="increment" />
+		</id>
+		<property name="name" />
+		
+		<!-- 被动方(CreditCard1)的数据由Hibernate负责读取，之后存放在主控方(Person1)指定的Collection类型属性中。 -->
+		<!-- 
+		cascade属性表明对象的级联关系，all值表明如果发生对主控方(Person1)对象的操作，则需要对其所关联的被动方(CreditCard1)对象也进行同样的操作。 
+		key元素的column属性用来指定被动方表与主控方表进行关联的外键列。
+		-->
+		<set name="creditCard" table="tb_creditcard_1" cascade="all" order-by="no asc">
+			<key column="pk_person" />
+			<one-to-many class="CreditCard1" />
+		</set>
+	</class>
+	
+	<!-- 单向 one-to-many 关系：被动方对象的配置中不需要关联主动方 -->
+	<class name="CreditCard1" table="tb_creditcard_1">
+		<id name="id" column="pk_card">
+			<generator class="increment" />
+		</id>
+		<property name="no" />
+		<property name="expiry" type="date" />
+		<property name="pk_person" />
+		<!-- <property name="pk_person" not-null="true" /> -->
+	</class>
+</hibernate-mapping>

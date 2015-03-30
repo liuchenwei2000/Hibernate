@@ -1,0 +1,5 @@
+
+Hibernate实体属性映射关系定义时，需要提供属性的数据类型设定，通过这些类型定义，Hibernate即可完成Java数据类型到数据库特定数据类型的映射关联。
+
+Hibernate中提供了丰富的数据类型支持，其中包括了传统的Java数据类型，如String、Integer，以及JDBC数据类型，如CLOB、BLOB等。
+此外，Hibernate还提供用户自定义的数据类型支持。

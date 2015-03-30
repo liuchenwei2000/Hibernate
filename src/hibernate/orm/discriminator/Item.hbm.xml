@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.orm.discriminator">
+	<class name="Item" table="tb_item">
+		<id name="id" column="pk_item">
+			<generator class="increment" />
+		</id>
+		<!-- 为了让Hibernate根据category自动识别对应的class类型，可以使用discriminator元素进行配置。 -->
+		<discriminator column="category" />
+		
+		<property name="name" />
+		
+		<!-- 当辨别字段值为0时，对应子类为Book -->
+		<subclass name="Book" discriminator-value="0">
+			<property name="pageCount" column="page_count" />
+		</subclass>
+		<!-- 当辨别字段值为1时，对应子类为DVD -->
+		<subclass name="DVD" discriminator-value="1">
+			<property name="regionCode" column="region_code" />
+		</subclass>
+	</class>
+</hibernate-mapping>

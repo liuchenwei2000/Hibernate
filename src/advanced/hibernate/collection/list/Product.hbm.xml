@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.collection.list">
+	<class name="Product" table="tb_products_list" dynamic-insert="true" dynamic-update="true">
+		<id name="id" column="pk_product">
+			<generator class="increment" />
+		</id>
+		<property name="name" />
+		
+		<list name="parts" table="tb_parts_list" cascade="all">
+			<key column="pk_product" />
+			<!-- 需要指定表示顺序的列 -->
+			<index column="serial_number" />
+			<one-to-many class="Part" />
+		</list>
+	</class>
+	
+	<class name="Part" table="tb_parts_list">
+		<id name="id" column="pk_part">
+			<generator class="increment" />
+		</id>
+		<property name="name" />
+		<property name="serialNumber" column="serial_number" />
+		<property name="pk_product" />
+	</class>
+</hibernate-mapping>

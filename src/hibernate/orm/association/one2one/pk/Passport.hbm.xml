@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping package="hibernate.orm.association.one2one.pk">
+	<class name="Passport" table="tb_passport">
+		<id name="id" column="pk_passport">
+		    <!-- foreign 类型的主键生成器与外键共享主键值 -->
+			<generator class="foreign">
+			    <!-- 即与 citizen属性代表的外键共享主键值 -->
+			    <param name="property">citizen</param>
+			</generator>
+		</id>
+		<property name="serial" />
+		<property name="expiry" type="date" />
+		<!-- constrained属性必须为true，以告知Hibernate当前表主键上存在一个约束：tb_passport表引用了tb_citizen表的主键。 -->
+		<one-to-one name="citizen" class="Citizen" constrained="true" />
+	</class>
+</hibernate-mapping>

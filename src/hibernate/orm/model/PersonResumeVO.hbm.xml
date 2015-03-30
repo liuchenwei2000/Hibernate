@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.orm.model">
+    <!-- PersonResumeVO的映射包括所有的字段，包括Clob字段 -->
+    <!-- polymorphism="explicit" 声明了一个显式多态关系，这意味着只有在明确指定类名的时候才会返回此类实例。 -->
+    <class name="PersonResumeVO" table="tb_person_clob" polymorphism="explicit">
+		<id name="id" column="pk_person">
+			<generator class="increment" />
+		</id>
+		<property name="firstName" />
+		<property name="lastName" />
+		<property name="timestamp" type="timestamp" column="ts" />
+		<property name="sex" column="gender" />
+		<property name="resume" type="clob" />
+	</class>
+</hibernate-mapping>

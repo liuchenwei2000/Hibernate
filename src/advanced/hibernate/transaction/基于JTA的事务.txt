@@ -1,0 +1,8 @@
+
+JTA提供了跨Session的事务管理能力，这一点是与JDBC Transaction最大的差异。
+
+JDBC事务由Connection管理，也就是说，事务管理实际上是在JDBC Connection中实现，事务周期限于Connection的生命周期之内。
+同样，对于基于JDBC Transaction的Hibernate事务管理机制而言，事务管理在Session所依托的JDBC Connection中实现，事务周期限于Session的生命周期。
+
+JTA事务管理则由JTA容器实现，JTA容器对当前加入事务的众多Connection进行调度，实现其事务性要求。
+JTA的事务周期可以跨多个JDBC Connection生命周期，同样对于基于JTA事务的Hibernate而言，事务周期可以跨域多个Session。

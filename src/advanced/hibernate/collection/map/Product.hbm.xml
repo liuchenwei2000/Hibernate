@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.collection.map">
+	<class name="Product" table="tb_products_map" dynamic-insert="true" dynamic-update="true">
+		<id name="id" column="pk_product">
+			<generator class="increment" />
+		</id>
+		<property name="name" />
+		
+		<map name="parts" table="tb_parts_map" cascade="all">
+			<key column="pk_product" />
+			<!-- map-key 用于指定用作Key的列名，此列要求在数据集中取值唯一 -->
+		    <map-key column="type" type="string" />
+			<one-to-many class="Part" />
+		</map>
+	</class>
+	
+	<class name="Part" table="tb_parts_map">
+		<id name="id" column="pk_part">
+			<generator class="increment" />
+		</id>
+		<property name="name" />
+		<property name="type" />
+		<property name="pk_product" />
+	</class>
+</hibernate-mapping>

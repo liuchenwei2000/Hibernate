@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 实体映射，主要包括三部分 -->
+<hibernate-mapping package="hibernate">
+    <!-- 1，类名-表名映射 -->
+    <class name="PersonVO" table="tb_person">
+        <!-- 2，主键映射 -->
+        <!-- 
+                     推荐对于每个表都定义一个与业务逻辑无关的id字段用作库表记录的唯一识别，
+                     而尽量不要讲业务逻辑牵扯到数据逻辑中去（如以user_code作为主键）。 
+        -->
+        <id name="id" column="pk_person">
+            <!-- 采用数据库自身的主键生成方式 -->
+            <generator class="native"/>
+        </id>
+        <!-- 3，字段映射 -->
+        <!-- Without the column attribute, Hibernate by default uses the property name as the column name.  -->
+        <property name="firstName"/>
+        <property name="lastName"/>
+        <!-- 将属性 timestamp 映射到数据库表字段 timestamp，映射类型为timestamp -->
+        <property name="timestamp" type="timestamp" column="ts"/>
+        <property name="sex" column="gender"/>
+    </class>
+</hibernate-mapping>

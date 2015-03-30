@@ -1,0 +1,11 @@
+
+session.saveOrUpdate方法包含了以下几个主要步骤：
+
+1，在session内部缓存中进行查找待处理实体对象，如果命中则直接返回。
+2，如果有Interceptor的话，执行实体的Interceptor.isUnsaved方法。
+3，根据unsaved-value判断对象是否处于未保存状态。
+4，如果对象未保存（Transient状态），则调用save方法保存对象。
+5，如果对象已保存（Detached状态），则调用update方法将对象与session重新关联。
+
+saveOrUpdate实际上是save和update方法的组合应用，本身并没有增加新的功能特性，但却为应用层开发提供了一个相当便捷的功能选择。
+尤其是在多层开发时，持久层往往无法预先得知业务层传递过来的实体对象处于怎样一个状态。

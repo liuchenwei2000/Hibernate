@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping package="hibernate.orm.model">
+    <!-- 根据component定义，表tb_person4实际被映射到了2个类：PersonVO4和NameVO -->
+	<class name="PersonVO4" table="tb_person4">
+		<id name="id" column="pk_person">
+			<generator class="increment" />
+		</id>
+		<!--
+		对于单表的对象细分，可以使用Component元素来完成。
+		在Hibernate语义中，将某个实体对象中的一个逻辑组成称为Component。
+		Component与实体对象的根本差别，在于Component没有标识（id），它作为一个逻辑组成，完全从属于实体对象。
+	    -->
+		<component name="name" class="NameVO">
+			<property name="firstName" column="first_name" />
+			<property name="lastName" column="last_name" />
+		</component>
+		<property name="timestamp" type="timestamp" column="ts" />
+		<property name="sex" column="gender" />
+	</class>
+</hibernate-mapping>

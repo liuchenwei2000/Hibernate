@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping package="hibernate.orm.association.one2one.pk">
+	<class name="Citizen" table="tb_citizen">
+		<id name="id" column="pk_citizen">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" />
+		<property name="age" />
+		<!-- 通过 one-to-one 元素设置关联关系 -->
+		<!-- 
+		级联（cascade）指的是当主控方执行操作时，关联对象（被动方）是否同步执行同一操作。
+		如对主控对象调用save-update-delete方法时，是否同时对关联对象执行save-update-delete。
+		all表示无论主控方执行任何动作都对其关联对象进行同样的操作。
+		 -->
+		<one-to-one name="passport" class="Passport" cascade="all" outer-join="true" />
+	</class>
+</hibernate-mapping>

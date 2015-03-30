@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.collection.bag">
+	<class name="Product" table="tb_products_bag" dynamic-insert="true" dynamic-update="true">
+		<id name="id" column="pk_product">
+			<generator class="increment" />
+		</id>
+		<property name="name" />
+		
+		<!-- 如果表中没有 序号列而又想使用List作为容器，那么可以使用 bag 元素，并指定 order-by 属性  -->
+		<bag name="parts" table="tb_parts_bag" cascade="all" order-by="name desc">
+			<key column="pk_product" />
+			<one-to-many class="Part" />
+		</bag>
+	</class>
+	
+	<class name="Part" table="tb_parts_bag">
+		<id name="id" column="pk_part">
+			<generator class="increment" />
+		</id>
+		<property name="name" />
+		<property name="pk_product" />
+	</class>
+</hibernate-mapping>

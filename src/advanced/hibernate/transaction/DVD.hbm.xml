@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.transaction">
+    <!-- 
+    Hibernate在数据访问引擎中内置了乐观锁实现，利用它提供的透明化乐观锁实现，将大大提高生产力。
+          通过version实现的乐观锁机制是Hibernate官方推荐的乐观锁实现，同时也是唯一在实体对象脱离session发生修改的情况下依然有效的锁机制。
+          
+    1，通过class元素中的 optimistic-lock属性结合version描述符指定使用基于version的乐观锁机制
+    -->
+    <class name="DVD" table="tb_dvds" optimistic-lock="version">
+        <id name="id" column="pk_dvd">
+            <generator class="increment"/>
+        </id>
+        <!-- 
+        2，添加一个version属性描述符
+        version节点必须出现在id节点之后，指明version对应的属性(name)和列名(column) 
+        -->
+        <version name="version" column="vs" type="java.lang.Integer" />
+        <property name="name"/>
+    </class>
+</hibernate-mapping>

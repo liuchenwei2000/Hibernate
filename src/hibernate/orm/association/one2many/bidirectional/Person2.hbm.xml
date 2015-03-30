@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.orm.association.one2many.bidirectional">
+	<class name="Person2" table="tb_person_2" dynamic-insert="true" dynamic-update="true" >
+		<id name="id" column="pk_person">
+			<generator class="increment" />
+		</id>
+		<property name="name" />
+		
+		<!-- 
+		属性和单向 one-to-many 大致是一样的，只多了一个 inverse 属性 
+		inverse被设为true，意味着Person2不再作为主控方，而是将关联关系的维护工作交给关联对象CreditCard2来完成。
+		这样CreditCard2对象在持久化过程中，就可以主动获取其关联的Person2对象的主键，
+		并将其作为自己的外键，之后执行一次 insert 操作即可完成全部工作。
+		
+		关联关系中，inverse="false"的为主动方，由主动方负责维护关联关系。
+		-->
+		<set name="creditCard" table="tb_creditcard_2" inverse="true" lazy="false" cascade="all" order-by="no asc">
+			<key column="pk_person" />
+			<one-to-many class="CreditCard2" />
+		</set>
+	</class>
+	
+	<class name="CreditCard2" table="tb_creditcard_2">
+		<id name="id" column="pk_card">
+			<generator class="increment" />
+		</id>
+		<property name="no" />
+		<property name="expiry" type="date" />
+		
+		<!-- 双向one-to-many 需要使用 many-to-one 元素指定关联的对象 -->
+		<many-to-one name="person" class="Person2" column="pk_person"
+			not-null="true" cascade="all" outer-join="auto" insert="true" update="true"
+			access="property" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping package="hibernate.query.SQL">
+	<class name="Dog" table="tb_dog">
+		<id name="id" column="pk_dog">
+			<generator class="increment"></generator>
+		</id>
+		<property name="parentid" column="pk_parent" />
+		<property name="name" />
+		<property name="age" />
+
+        <!-- 
+                     自定义持久化机制可以在配置文件中引入以下3个元素(这三个元素必须放到 class 元素体中):
+                     直接指定用于实体insert、update、delete操作的SQL语句，从而避免了Hibernate自生成SQL所带来的局限。 
+        -->
+		<sql-insert>INSERT INTO TB_DOG (PK_PARENT, NAME, AGE, PK_DOG) VALUES(?, ?, ?, ?)</sql-insert>
+		<sql-update>UPDATE TB_DOG SET PK_PARENT=?,NAME=?,AGE=? WHERE PK_DOG=?</sql-update>
+		<!-- 将 callable 属性设为 true 也可以调用 存储过程 实现CUD操作 -->
+		<sql-delete callable="true" check ="none">{CALL deleteDog(?)}</sql-delete>
+	</class>
+
+	<!-- 通过sql-query节点定义查询语句调用存储过程，参数使用了名称占位符 -->
+	<sql-query name="getDogByName" callable="true">
+		<return alias="dog" class="Dog"></return>
+		CALL getDogByName(:name)
+	</sql-query>
+</hibernate-mapping>

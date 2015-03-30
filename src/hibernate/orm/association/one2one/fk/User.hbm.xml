@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping package="hibernate.orm.association.one2one.fk">
+	<class name="User" table="tb_user">
+		<id name="id" column="pk_user">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" />
+		<property name="age" />
+		<!-- 惟一外键关联由 many-to-one 元素定义 -->
+		<!-- 
+		单向 one-to-one 与 many-to-one 的实质是相同的，one-to-one是 many-to-one的特例，单向 one-to-one与 many-to-one的配置非常相似。
+		只需要将 many-to-one 元素增加 unique="true" 属性（惟一性约束），用于表示 many的一端也必须是唯一的，即成为单向 one-to-one。
+		 -->
+		<many-to-one name="userGroup" class="UserGroup" column="pk_group" unique="true" />
+	</class>
+	
+	<class name="UserGroup" table="tb_group">
+		<id name="id" column="pk_group">
+			<generator class="increment" />
+		</id>
+		<property name="name" />
+	</class>
+</hibernate-mapping>

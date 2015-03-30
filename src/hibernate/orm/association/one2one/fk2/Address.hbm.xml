@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping package="hibernate.orm.association.one2one.fk2">
+	<class name="Address" table="tb_address">
+		<id name="id" column="pk_address">
+			<generator class="increment" />
+		</id>
+		<property name="city" />
+		<property name="street" />
+		<property name="phone1" />
+		<property name="phone2" />
+		<property name="phone3" />
+		<!-- 惟一外键关联由 many-to-one 元素定义 -->
+		<!-- 
+		unique="true" 属性（惟一性约束），用于表示 many的一端也必须是唯一的，即成为 one-to-one。
+		-->
+		<many-to-one name="customer" class="Customer" column="pk_customer" unique="true" />
+	</class>
+</hibernate-mapping>

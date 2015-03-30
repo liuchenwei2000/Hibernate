@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.orm.association.many2many">
+	<class name="Group" table="tb_group" dynamic-insert="false" dynamic-update="false" >
+		<id name="id" column="pk_group">
+			<generator class="increment" />
+		</id>
+		<property name="name" />
+		
+		<!-- 
+		tb_group_role 为中间表，保存了tb_group 和 tb_role之间的映射关系。
+		一般情况下，cascade应该设置为"save-update"，对于多对多逻辑而言，很少出现删除一方需要级联删除所有关联数据的情况。
+		-->
+		<set name="roles" table="tb_group_role" inverse="false" lazy="false" cascade="save-update" >
+		    <!-- 映射表 tb_group_role 中关联 tb_group 表的外键。 -->
+			<key column="pk_group" />
+			<!-- 使用 many-to-many 元素，并指定 映射表 tb_group_role 中关联 tb_role 表的外键。 -->
+			<many-to-many class="Role" column="pk_role" />
+		</set>
+	</class>
+</hibernate-mapping>

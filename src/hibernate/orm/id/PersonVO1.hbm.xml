@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="hibernate.orm.id">
+    <!-- 
+          对于新系统地设计开发而言，应该尽量避免在库表中引入与业务逻辑相关的主键关系。
+          复合主键的引入，很大程度上意味着业务逻辑已经入侵到数据存储逻辑之中，因此要避免这种情况。
+    -->
+    <class name="PersonVO1" table="tb_person1">
+        <!-- 
+                     推荐对于每个表都定义一个与业务逻辑无关的id字段用作库表记录的唯一识别，
+                     而尽量不要讲业务逻辑牵扯到数据逻辑中去（如以user_code作为主键）。 
+        -->
+        <composite-id>
+            <key-property name="firstName" column="first_name"></key-property>
+            <key-property name="lastName" column="last_name"></key-property>
+        </composite-id>
+        <property name="timestamp" type="timestamp" column="ts"/>
+        <property name="sex" column="gender"/>
+    </class>
+</hibernate-mapping>

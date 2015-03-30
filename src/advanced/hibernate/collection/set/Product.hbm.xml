@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.collection.set">
+	<class name="Product" table="tb_products_set" dynamic-insert="true" dynamic-update="true">
+		<id name="id" column="pk_product">
+			<generator class="increment" />
+		</id>
+		<property name="name" />
+		
+		<set name="parts" table="tb_parts_set" cascade="all">
+			<key column="pk_product" />
+			<!-- one-to-many 只需要指定类名，而无需指定列名和表名 -->
+			<one-to-many class="Part" />
+		</set>
+	</class>
+	
+	<class name="Part" table="tb_parts_set">
+		<id name="id" column="pk_part">
+			<generator class="increment" />
+		</id>
+		<property name="name"/>
+		<property name="pk_product" />
+	</class>
+</hibernate-mapping>

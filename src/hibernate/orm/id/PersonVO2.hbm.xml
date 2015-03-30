@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="hibernate.orm.id">
+    <class name="PersonVO2" table="tb_person2">
+        <!-- 
+        name 指定了实体类中的主键类属性名，class 指定了主键类类型
+        -->
+        <composite-id name="pk" class="PersonPK">
+            <key-property name="firstName" column="first_name"></key-property>
+            <key-property name="lastName" column="last_name"></key-property>
+        </composite-id>
+        <property name="timestamp" type="timestamp" column="ts"/>
+        <property name="sex" column="gender"/>
+    </class>
+</hibernate-mapping>

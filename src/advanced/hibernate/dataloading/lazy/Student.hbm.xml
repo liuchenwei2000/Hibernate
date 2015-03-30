@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate.dataloading.lazy">
+	<class name="Student" table="tb_students" dynamic-insert="true" dynamic-update="true" lazy="false">
+		<id name="id" column="pk_student">
+			<generator class="increment" />
+		</id>
+		<property name="name" />
+		
+		<set name="contacts" table="tb_contacts" cascade="all" order-by="address asc">
+			<key column="pk_student" />
+			<one-to-many class="Contact" />
+		</set>
+	</class>
+	
+	<class name="Contact" table="tb_contacts">
+		<id name="id" column="pk_contact">
+			<generator class="increment" />
+		</id>
+		<property name="address" />
+		<property name="phone"/>
+		<property name="pk_student" />
+	</class>
+</hibernate-mapping>

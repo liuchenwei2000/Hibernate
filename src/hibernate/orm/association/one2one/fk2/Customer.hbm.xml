@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping package="hibernate.orm.association.one2one.fk2">
+	<class name="Customer" table="tb_customer">
+		<id name="id" column="pk_customer">
+			<generator class="increment"></generator>
+		</id>
+		<property name="name" />
+		<property name="age" />
+		<!-- 实现双向的 one-to-one 关系，需要在这追加 one-to-one 配置 -->
+		<!-- property-ref 会指定关联类（Address）的属性名，这个属性将会和本类的主键相对应。 -->
+		<one-to-one name="address" class="Address" property-ref="customer" />
+	</class>
+</hibernate-mapping>
