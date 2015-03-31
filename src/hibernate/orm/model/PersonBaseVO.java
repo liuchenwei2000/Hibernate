@@ -11,7 +11,7 @@ import java.util.Date;
  * 对于需要处理resume的应用逻辑而言，这样的代价无法避免，
  * 而对于那些无需resume信息的操作而言，如此性能损耗实属不必要。
  * 
- * 对象在集成层次上的粒度划分可以解决这个问题：
+ * 对象在继承层次上的粒度划分可以解决这个问题：
  * 将原本的PersonVO对象拆分成包含基本信息的PersonBaseVO和包含resume信息的PersonResumeVO。
  * 这样一来，需要处理resume的应用通过PersonResumeVO加载数据，其他应用通过PersonBaseVO加载数据。
  * 

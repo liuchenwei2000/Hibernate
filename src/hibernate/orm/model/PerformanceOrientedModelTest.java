@@ -43,8 +43,7 @@ public class PerformanceOrientedModelTest extends AbstractHibernateTestCase {
 		}
 
 		/** 需要resume信息的查询方式，使用PersonResumeVO */
-		PersonResumeVO rvo = (PersonResumeVO) session.load(
-				PersonResumeVO.class, 1L);
+		PersonResumeVO rvo = (PersonResumeVO) session.load(PersonResumeVO.class, 1L);
 		Clob resume = rvo.getResume();
 		System.out.println(rvo.getFirstName() + " " + rvo.getLastName()
 				+ "'s resume is "

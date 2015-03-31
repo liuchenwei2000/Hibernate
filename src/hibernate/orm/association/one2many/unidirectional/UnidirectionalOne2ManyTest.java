@@ -12,7 +12,7 @@ import java.util.Set;
 /**
  * 单向 one-to-many 关联示例
  * <p>
- * 信用卡表中包含一个pk_person 字段，此字段与 tb_persons 表的  pk_person 字段相关联。
+ * 信用卡表中包含一个 pk_person 字段，此字段与 tb_persons 表的  pk_person 字段相关联。
  * 
  * @author 刘晨伟
  * 

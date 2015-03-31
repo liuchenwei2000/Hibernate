@@ -11,12 +11,10 @@
 		<property name="name" />
 		
 		<!-- 
-		属性和单向 one-to-many 大致是一样的，只多了一个 inverse 属性 
-		inverse被设为true，意味着Person2不再作为主控方，而是将关联关系的维护工作交给关联对象CreditCard2来完成。
+		属性和单向 one-to-many 大致是一样的，只多了一个 inverse 属性，inverse被设为true，
+		意味着Person2不再作为主控方，而是将关联关系的维护工作交给关联对象CreditCard2来完成。
 		这样CreditCard2对象在持久化过程中，就可以主动获取其关联的Person2对象的主键，
 		并将其作为自己的外键，之后执行一次 insert 操作即可完成全部工作。
-		
-		关联关系中，inverse="false"的为主动方，由主动方负责维护关联关系。
 		-->
 		<set name="creditCard" table="tb_creditcard_2" inverse="true" lazy="false" cascade="all" order-by="no asc">
 			<key column="pk_person" />

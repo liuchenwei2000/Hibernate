@@ -48,7 +48,8 @@
         <mapping resource="hibernate/callback/interceptor/Account.hbm.xml"/>
         <mapping resource="hibernate/pagination/Record.hbm.xml"/>
         <mapping resource="hibernate/lifecycle/Entity.hbm.xml"/>
-        -->
         <mapping resource="hibernate/template/City.hbm.xml"/>
+        -->
+        <mapping resource="hibernate/PersonVO.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

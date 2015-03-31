@@ -113,10 +113,6 @@ public class ParameterBindingTest extends AbstractQueryTestCase {
 		queryBean.setAge(age);
 		queryBean.setName("Tom");
 		
-		Map<String, Object> queryMap = new HashMap<String, Object>();
-		queryMap.put("age", age);
-		queryMap.put("name", "Tom");
-		
 		query.setProperties(queryBean);// 进行参数绑定
 		
 		List<Person4> result = query.list();

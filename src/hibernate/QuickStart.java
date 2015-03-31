@@ -50,7 +50,7 @@ public class QuickStart {
 		
 		/*
 		 * 在Hibernate中，Session负责完成对象的持久化操作，Hibernate Session之于Hibernate，相当于JDBC Connection 之于 JDBC。
-		 * Session对象提供了众多持久化方法，可以透明的完成对象的CRUD操作。
+		 * Session 对象提供了众多持久化方法，可以透明的完成对象的CRUD操作。
 		 * Session 是非线程安全的，也就是说一个Session实例同时只可由一个线程使用。
 		 */
 		/** 保存操作 */
