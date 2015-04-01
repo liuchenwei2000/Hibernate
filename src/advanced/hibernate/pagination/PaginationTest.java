@@ -49,6 +49,7 @@ public class PaginationTest extends AbstractHibernateTestCase {
 			while (true) {
 				// 设置从结果集的第 firstResult 条开始取（基于0开始）
 				criteria.setFirstResult((counter++) * numberPerPage);
+				// MySQL下的SQL如：select * from tb_records limit 21, 20
 				List<Record> result = criteria.list();
 				if (!result.isEmpty()) {
 					System.out.println("第 " + counter + "批：");

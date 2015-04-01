@@ -27,7 +27,7 @@ public class BatchDeleteTest extends AbstractHibernateTestCase {
 		System.out.println("【Total time】: " + (end - begin)/1000.0 + "s");
 		
 		// bulk delete/update 只是提供了面向高性能批量操作的一种实现途径，但无法保证缓存数据的有效性和一致性。
-		// 下面的对象仍然能够查询出来（来自内部缓存），虽然它在数据库中已经被删除了
+		// 下面的对象仍然能够查询出来（来自内部缓存），虽然它在数据库中已经被删除了。
 		Entity entity = (Entity) session.load(Entity.class, 1L);
 		System.out.println(entity);
 	}

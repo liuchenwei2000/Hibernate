@@ -48,7 +48,7 @@ public class Product {
 	}
 
 	public Map<String, Part> getParts() {
-		if(parts == null) {
+		if (parts == null) {
 			parts = new HashMap<String, Part>();
 		}
 		return parts;

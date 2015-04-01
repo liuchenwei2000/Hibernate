@@ -63,6 +63,7 @@ public class LogInterceptor extends EmptyInterceptor {
 				System.out.println("¡¾AUDIT LOG¡¿account " + account.getNo()
 						+ " is updated, amount=" + account.getAmount());
 			}
+			accountUpdated.clear();
 		}
 	}
 }

@@ -12,7 +12,7 @@
 		
 		<map name="parts" table="tb_parts_map" cascade="all">
 			<key column="pk_product" />
-			<!-- map-key 用于指定用作Key的列名，此列要求在数据集中取值唯一 -->
+			<!-- map-key 指定当作 Key 的列名，此列要求在数据集中取值唯一 -->
 		    <map-key column="type" type="string" />
 			<one-to-many class="Part" />
 		</map>

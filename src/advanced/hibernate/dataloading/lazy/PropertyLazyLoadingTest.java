@@ -56,7 +56,9 @@ public class PropertyLazyLoadingTest extends AbstractHibernateTestCase {
 	@Override
 	protected void prepareData() {
 		session.beginTransaction();
-		session.save(new Computer("Lenovo"));
+		Computer computer = new Computer("Lenovo");
+		computer.setBigdata("this is a big data");
+		session.save(computer);
 		session.getTransaction().commit();
 	}
 }

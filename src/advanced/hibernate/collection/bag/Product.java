@@ -48,7 +48,7 @@ public class Product {
 	}
 
 	public List<Part> getParts() {
-		if(parts == null) {
+		if (parts == null) {
 			parts = new ArrayList<Part>();
 		}
 		return parts;

@@ -8,10 +8,10 @@ import org.hibernate.Session;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * Lifecycle接口使用 示例
+ * Lifecycle 接口使用 示例
  * <p>
- * Lifecycle接口定义了一种自然地回调机制，但是这种机制要求实体类必须实现Hibernate的接口，
- * Hibernate原生接口的介入，使得实体类移植性大大降低（实际上此时的实体类已经不再是严格意义上的POJO）
+ * Lifecycle 接口定义了一种自然的回调机制，但是这种机制要求实体类必须实现Hibernate的接口，
+ * Hibernate 原生接口的介入，使得实体类移植性大大降低（实际上此时的实体类已经不再是严格意义上的POJO）
  * 
  * @author 刘晨伟
  * 

@@ -30,7 +30,7 @@ public class ListTest extends AbstractHibernateTestCase {
 		product.getParts().add(new Part("tire4"));
 		// 保存的时候，Hibernate会根据List内元素的顺序自动维护指定的序号列
 		session.save(product);
-		// 注意这里的List实例已经被Hibernate替换为其自身实现，而不再是ArrayList
+		// 注意这里的List实例已经被Hibernate替换为其自身实现，而不再是 ArrayList
 		System.out.println("【List class is】" + product.getParts().getClass());
 		session.getTransaction().commit();
 		

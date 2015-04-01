@@ -16,7 +16,7 @@ import org.hibernate.Session;
  * Session在进行数据查询操作时，会首先在自身内部的一级缓存中查找，
  * 如果未能命中，则将在二级缓存中查找，如果命中则将缓存数据返回。
  * <p>
- * Hibernate对缓存进行了良好的封装，透明化的缓存机制使得我们在上层结构的实现中无需面对繁琐的缓存维护细节。
+ * Hibernate对缓存进行了良好的封装，透明化的缓存机制使得在上层结构的实现中无需面对繁琐的缓存维护细节。
  * Hibernate本身并未提供二级缓存的工业化实现，而是为众多的第三方缓存组件提供了接入接口。
  * 比较常用的第三方缓存包括EHCache、OSCache、JCS、JBoss Cache。
  * <p>
@@ -56,7 +56,7 @@ public class SessionFactoryLevelCacheTest extends AbstractHibernateTestCase  {
 			Worker worker2 = (Worker) session2.load(Worker.class, 1L);
 			System.out.println("worker2 " + worker1);
 			
-			// 虽然都是从二级缓存取出来的数据，但是并不 equals
+			// 虽然都是从二级缓存取出来的数据，但是并不 ==
 			System.out.println("worker1 == worker2 ? " + (worker1 == worker2));// false
 		} catch (Exception e) {
 			e.printStackTrace();

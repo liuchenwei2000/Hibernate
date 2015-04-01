@@ -40,7 +40,7 @@ public class SessionLevelCacheTest extends AbstractHibernateTestCase  {
 			 * 缓存将在以下情况中发挥作用：
 			 * 1，通过主键加载数据时
 			 * 包括根据id查询数据的session.load方法，以及session.iterate等批量查询方法。
-			 *  2，延迟加载
+			 * 2，延迟加载
 			 */
 			Book book1 = (Book) newSession.load(Book.class, 1L);
 			System.out.println("book1 " + book1);

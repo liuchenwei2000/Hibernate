@@ -34,22 +34,22 @@
         
         <!-- add the mapping file(s) for persistent classes -->
         <!-- 用到哪个就把哪个从 注释 块中拿出来，否则全加载效率太低
-        <mapping resource="hibernate/cache/Book.hbm.xml"/>
-        <mapping resource="hibernate/cache/Worker.hbm.xml"/>
         <mapping resource="hibernate/transaction/DVD.hbm.xml"/>
         <mapping resource="hibernate/dataloading/Car.hbm.xml"/>
-        <mapping resource="hibernate/dataloading/lazy/Computer.hbm.xml"/>
-        <mapping resource="hibernate/dataloading/lazy/Student.hbm.xml"/>
         <mapping resource="hibernate/collection/list/Product.hbm.xml"/>
         <mapping resource="hibernate/collection/set/Product.hbm.xml"/>
         <mapping resource="hibernate/collection/bag/Product.hbm.xml"/>
         <mapping resource="hibernate/collection/map/Product.hbm.xml"/>
         <mapping resource="hibernate/callback/Photo.hbm.xml"/>
-        <mapping resource="hibernate/callback/interceptor/Account.hbm.xml"/>
-        <mapping resource="hibernate/pagination/Record.hbm.xml"/>
         <mapping resource="hibernate/lifecycle/Entity.hbm.xml"/>
         <mapping resource="hibernate/template/City.hbm.xml"/>
-        -->
         <mapping resource="hibernate/PersonVO.hbm.xml"/>
+        <mapping resource="hibernate/pagination/Record.hbm.xml"/>
+        <mapping resource="hibernate/callback/interceptor/Account.hbm.xml"/>
+        <mapping resource="hibernate/cache/Book.hbm.xml"/>
+        <mapping resource="hibernate/cache/Worker.hbm.xml"/>
+        -->
+        <mapping resource="hibernate/dataloading/lazy/Computer.hbm.xml"/>
+        <mapping resource="hibernate/dataloading/lazy/Student.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

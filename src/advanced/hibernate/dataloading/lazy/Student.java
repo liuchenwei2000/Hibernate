@@ -48,7 +48,7 @@ public class Student {
 	}
 
 	public Set<Contact> getContacts() {
-		if(contacts == null) {
+		if (contacts == null) {
 			contacts = new HashSet<Contact>();
 		}
 		return contacts;

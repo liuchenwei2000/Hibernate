@@ -11,7 +11,7 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
 /**
- * bean validation 使用示例
+ * Bean validation 使用示例
  * <p>
  * 这个示例中的代码既可以在持久层使用，也可以在表现层使用。
  * 在持久层使用的时候，可以跟Hibernate配合，在CRUD操作之前，对传入的Bean做验证。

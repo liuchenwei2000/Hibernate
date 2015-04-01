@@ -48,7 +48,7 @@ public class Product {
 	}
 
 	public Set<Part> getParts() {
-		if(parts == null) {
+		if (parts == null) {
 			parts = new HashSet<Part>();
 		}
 		return parts;

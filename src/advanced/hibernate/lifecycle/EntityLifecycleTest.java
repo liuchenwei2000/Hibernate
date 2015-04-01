@@ -10,7 +10,7 @@ import hibernate.util.AbstractHibernateTestCase;
 /**
  * 实体对象生命周期 示例
  * <p>
- * 实体对象特指O/R Mapping中的"O"域对象。
+ * 实体对象特指O/R Mapping中的"O"————域对象。
  * <p>
  * 实体对象生命周期中有三种状态：Transient（自由态）、Persistent（持久态）、Detached（游离态）。
  * <li>Transient（自由态）：

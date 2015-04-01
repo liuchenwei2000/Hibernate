@@ -21,7 +21,7 @@ import org.hibernate.validator.constraints.Length;
 /**
  * 实体对象
  * <p>
- * 验证逻辑和实体对象通过annotations进行绑定，这里标明了需要验证哪些逻辑以及怎样验证。
+ * 验证逻辑和实体对象通过 annotations 进行绑定，这里标明了需要验证哪些逻辑以及怎样验证。
  * 
  * @author 刘晨伟
  * 
@@ -38,7 +38,7 @@ public class User implements Serializable {
 	@Null
 	private Long id;
 	
-	// 必须不为 null，后面的 message 属性是Bean违反此约束时的返回信息
+	// 必须为 非null，后面的 message 属性是Bean违反此约束时的返回信息
 	@NotNull(message = "first name cannot be null.")
 	private String firstName;
 	

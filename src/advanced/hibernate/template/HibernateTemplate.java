@@ -18,6 +18,8 @@ import org.hibernate.Session;
  * 3，执行具体操作
  * 4，提交事务/遇到异常回滚事务，抛出异常
  * 5，关闭session
+ * <p>
+ * 这是模板方法模式的一种应用。
  * 
  * @author 刘晨伟
  * 
