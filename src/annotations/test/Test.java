@@ -34,8 +34,8 @@ public class Test {
 		
 		session = sessionFactory.openSession();
 		session.beginTransaction();
-		List<PersonX> result = session.createQuery( "from Person" ).list();// select from Óï¾ä
-		for ( PersonX person : result ) {
+		List<Person> result = session.createQuery( "from Person" ).list();// select from Óï¾ä
+		for ( Person person : result ) {
 		    System.out.println( "Person : " + person.getFirstName() + " " + person.getLastName());
 		}
 		session.getTransaction().commit();
@@ -44,8 +44,8 @@ public class Test {
 		sessionFactory.close();
 	}
 
-	private static PersonX createPerson(){
-		PersonX person = new PersonX();
+	private static Person createPerson(){
+		Person person = new Person();
 		person.setFirstName("Tom");
 		person.setLastName("Green");
 		person.setSex(1);
