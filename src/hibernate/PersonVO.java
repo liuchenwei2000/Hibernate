@@ -6,7 +6,7 @@ package hibernate;
 import java.util.Date;
 
 /**
- * ÆÕÍ¨µÄJavaBean
+ * JavaBean
  * 
  * @author Áõ³¿Î°
  * 
