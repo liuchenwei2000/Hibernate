@@ -1,5 +1,5 @@
 
-Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。
+Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的封装，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。
 Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，
 最具革命意义的是，Hibernate可以在应用EJB的JavaEE架构中取代CMP，完成数据持久化的重任。
 
@@ -44,4 +44,4 @@ Configuration
 
 Configuration 接口的作用是对Hibernate 进行配置，以及对它进行启动。
 在Hibernate 的启动过程中，Configuration 类的实例首先定位映射文档的位置，读取这些配置，然后创建一个SessionFactory对象。
-虽然Configuration 接口在整个Hibernate 项目中只扮演着一个很小的角色，但它是启动hibernate 时所遇到的每一个对象。
+虽然Configuration 接口在整个Hibernate 项目中只扮演着一个很小的角色，但它是启动hibernate 时所遇到的第一个对象。
