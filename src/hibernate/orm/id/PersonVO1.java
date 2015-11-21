@@ -7,15 +7,15 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * »ùÓÚÊµÌåÀàÊôĞÔµÄ¸´ºÏÖ÷¼ü
+ * åŸºäºå®ä½“ç±»å±æ€§çš„å¤åˆä¸»é”®
  * <p>
- * HibernateÒªÇó¸´ºÏÖ÷¼üÀàÊµÏÖequalsºÍhashcode·½·¨£¬ÒÔ×÷Îª²»Í¬Êı¾İÖ®¼äÊ¶±ğµÄ±êÖ¾¡£
+ * Hibernateè¦æ±‚å¤åˆä¸»é”®ç±»å®ç°equalså’Œhashcodeæ–¹æ³•ï¼Œä»¥ä½œä¸ºä¸åŒæ•°æ®ä¹‹é—´è¯†åˆ«çš„æ ‡å¿—ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ24ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ24æ—¥
  */
-// ¸´ºÏÖ÷¼üÀà±ØĞëÊµÏÖSerializable½Ó¿Ú
+// å¤åˆä¸»é”®ç±»å¿…é¡»å®ç°Serializableæ¥å£
 public class PersonVO1 implements Serializable {
 
 	/**
@@ -23,7 +23,7 @@ public class PersonVO1 implements Serializable {
 	 */
 	private static final long serialVersionUID = -2693429279210857661L;
 	
-	// firstName + lastName ¹¹³ÉÁË¸´ºÏÖ÷¼ü
+	// firstName + lastName æ„æˆäº†å¤åˆä¸»é”®
 	private String firstName;
 	private String lastName;
 	

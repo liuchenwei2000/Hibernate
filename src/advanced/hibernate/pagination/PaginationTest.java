@@ -11,48 +11,48 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 
 /**
- * ²éÑ¯½á¹û·ÖÒ³Ê¾Àı
+ * æŸ¥è¯¢ç»“æœåˆ†é¡µç¤ºä¾‹
  * <p>
- * HibernateÖĞ£¬Í¨¹ı¶Ô²»Í¬Êı¾İ¿âµÄÍ³Ò»½Ó¿ÚÉè¼Æ£¬ÊµÏÖÁËÍ¸Ã÷»¯¡¢Í¨ÓÃ»¯µÄ·ÖÒ³ÊµÏÖ»úÖÆ¡£
+ * Hibernateä¸­ï¼Œé€šè¿‡å¯¹ä¸åŒæ•°æ®åº“çš„ç»Ÿä¸€æ¥å£è®¾è®¡ï¼Œå®ç°äº†é€æ˜åŒ–ã€é€šç”¨åŒ–çš„åˆ†é¡µå®ç°æœºåˆ¶ã€‚
  * <p>
- * ³éÏóÀà org.hibernate.dialect.Dialect Ö¸¶¨ÁËËùÓĞµ×²ãÊı¾İ¿âµÄ¶ÔÍâÍ³Ò»½Ó¿Ú£¬Í¨¹ıÕë¶Ô²»Í¬Êı¾İ¿â
- * Ìá¹©ÏàÓ¦µÄdialectÊµÏÖ£¬Êı¾İ¿âÖ®¼äµÄ²îÒìĞÔµÃÒÔÏû³ı£¬´Ó¶øÎªÉÏ²ã»úÖÆÌá¹©ÁËÍ¸Ã÷µÄ¡¢Êı¾İ¿âÎŞ¹ØµÄ´æ´¢²ã»ù´¡¡£
- * ÔÚhibernate.cfg.cmlÖĞĞèÒªÅäÖÃ <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+ * æŠ½è±¡ç±» org.hibernate.dialect.Dialect æŒ‡å®šäº†æ‰€æœ‰åº•å±‚æ•°æ®åº“çš„å¯¹å¤–ç»Ÿä¸€æ¥å£ï¼Œé€šè¿‡é’ˆå¯¹ä¸åŒæ•°æ®åº“
+ * æä¾›ç›¸åº”çš„dialectå®ç°ï¼Œæ•°æ®åº“ä¹‹é—´çš„å·®å¼‚æ€§å¾—ä»¥æ¶ˆé™¤ï¼Œä»è€Œä¸ºä¸Šå±‚æœºåˆ¶æä¾›äº†é€æ˜çš„ã€æ•°æ®åº“æ— å…³çš„å­˜å‚¨å±‚åŸºç¡€ã€‚
+ * åœ¨hibernate.cfg.cmlä¸­éœ€è¦é…ç½® <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ19ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ19æ—¥
  */
 public class PaginationTest extends AbstractHibernateTestCase {
 
 	/**
-	 * ½«ËùÓĞµÄÊı¾İ½øĞĞ·ÖÒ³£¬Ã¿Ò³20Ìõ
+	 * å°†æ‰€æœ‰çš„æ•°æ®è¿›è¡Œåˆ†é¡µï¼Œæ¯é¡µ20æ¡
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void doTest() throws Exception {
-		int numberPerPage = 20;// Ã¿Ò³Êı¾İÌõÊı
+		int numberPerPage = 20;// æ¯é¡µæ•°æ®æ¡æ•°
 		Session newSession = null;
 		try {
 			newSession = sessionFactory.openSession();
 			
-			// Criteria ºÍ Query¶ÔÏó¶¼¿ÉÒÔÍê³É·ÖÒ³µÄ¹¦ÄÜ£¬Ê¹ÓÃ·½Ê½ÊÇÒ»ÑùµÄ
+			// Criteria å’Œ Queryå¯¹è±¡éƒ½å¯ä»¥å®Œæˆåˆ†é¡µçš„åŠŸèƒ½ï¼Œä½¿ç”¨æ–¹å¼æ˜¯ä¸€æ ·çš„
 			
-			// Í¨¹ı setMaxResults ºÍ  setFirstResult ÅäºÏÊ¹ÓÃ´ïµ½·ÖÒ³»ñÈ¡Êı¾İµÄÄ¿µÄ
+			// é€šè¿‡ setMaxResults å’Œ  setFirstResult é…åˆä½¿ç”¨è¾¾åˆ°åˆ†é¡µè·å–æ•°æ®çš„ç›®çš„
 			
 			Criteria criteria = newSession.createCriteria(Record.class);
 //			Query query = newSession.createQuery(" from Record");
-			// ÉèÖÃ²éÑ¯½á¹û×î´óÊıÄ¿£¬ÕâÀïÉèÎªÃ¿´Î»ñÈ¡20Ìõ£¬¼´Ò»Ò³
+			// è®¾ç½®æŸ¥è¯¢ç»“æœæœ€å¤§æ•°ç›®ï¼Œè¿™é‡Œè®¾ä¸ºæ¯æ¬¡è·å–20æ¡ï¼Œå³ä¸€é¡µ
 			criteria.setMaxResults(numberPerPage);
 
 			int counter = 0;
 			while (true) {
-				// ÉèÖÃ´Ó½á¹û¼¯µÄµÚ firstResult Ìõ¿ªÊ¼È¡£¨»ùÓÚ0¿ªÊ¼£©
+				// è®¾ç½®ä»ç»“æœé›†çš„ç¬¬ firstResult æ¡å¼€å§‹å–ï¼ˆåŸºäº0å¼€å§‹ï¼‰
 				criteria.setFirstResult((counter++) * numberPerPage);
-				// MySQLÏÂµÄSQLÈç£ºselect * from tb_records limit 21, 20
+				// MySQLä¸‹çš„SQLå¦‚ï¼šselect * from tb_records limit 21, 20
 				List<Record> result = criteria.list();
 				if (!result.isEmpty()) {
-					System.out.println("µÚ " + counter + "Åú£º");
+					System.out.println("ç¬¬ " + counter + "æ‰¹ï¼š");
 					for (Record record : result) {
 						System.out.println(record);
 					}

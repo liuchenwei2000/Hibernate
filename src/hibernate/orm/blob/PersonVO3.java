@@ -9,16 +9,16 @@ import java.sql.Clob;
 import java.util.Date;
 
 /**
- * ĞèÒª½«Í·ÏñÍ¼Æ¬ºÍ¼òÀú´æÈëÊı¾İ¿âÖĞ¡£
+ * éœ€è¦å°†å¤´åƒå›¾ç‰‡å’Œç®€å†å­˜å…¥æ•°æ®åº“ä¸­ã€‚
  * <p>
- * BlobºÍClob×Ö¶ÎµÄÇø±ğÔÚÓÚ:
- * Blob×Ö¶Î²ÉÓÃµ¥×Ö½Ú´æ´¢£¬ÊÊºÏ±£´æ¶ş½øÖÆÊı¾İ£»
- * Clob×Ö¶Î²ÉÓÃ¶à×Ö½Ú´æ´¢£¬ÊÊºÏ±£´æ´óĞÍÎÄ±¾Êı¾İ¡£
- * BlobºÍClobÔÚ¸÷ÖÖÊı¾İ¿âÖĞÓĞÆä¶ÀÁ¢ÊµÏÖ¡£
+ * Blobå’ŒClobå­—æ®µçš„åŒºåˆ«åœ¨äº:
+ * Blobå­—æ®µé‡‡ç”¨å•å­—èŠ‚å­˜å‚¨ï¼Œé€‚åˆä¿å­˜äºŒè¿›åˆ¶æ•°æ®ï¼›
+ * Clobå­—æ®µé‡‡ç”¨å¤šå­—èŠ‚å­˜å‚¨ï¼Œé€‚åˆä¿å­˜å¤§å‹æ–‡æœ¬æ•°æ®ã€‚
+ * Blobå’ŒClobåœ¨å„ç§æ•°æ®åº“ä¸­æœ‰å…¶ç‹¬ç«‹å®ç°ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ24ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ24æ—¥
  */
 public class PersonVO3 implements Serializable {
 
@@ -33,8 +33,8 @@ public class PersonVO3 implements Serializable {
 	private Date timestamp;
 	private int sex;
 	
-	private Blob image;// Í·ÏñÍ¼Æ¬£¬BLOB
-	private Clob resume;// ¼òÀú£¬CLOB
+	private Blob image;// å¤´åƒå›¾ç‰‡ï¼ŒBLOB
+	private Clob resume;// ç®€å†ï¼ŒCLOB
 	
 	public PersonVO3() {
 		super();

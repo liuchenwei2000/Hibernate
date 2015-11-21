@@ -12,23 +12,23 @@ import org.hibernate.Session;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * ±¯¹ÛËøÊ¾Àı
+ * æ‚²è§‚é”ç¤ºä¾‹
  * <p>
- * ±¯¹ÛËø£¬Ö¸µÄÊÇÊı¾İ±»Íâ½ç£¨°üÀ¨µ±Ç°ÏµÍ³ÒÔ¼°ÆäËûÏµÍ³£©ĞŞ¸ÄÊ±³Ö±£ÊØÌ¬¶È£¬Òò´ËÔÚÕû¸öÊı¾İ´¦Àí¹ı³ÌÖĞ£¬½«Êı¾İ´¦ÓÚËø¶¨×´Ì¬¡£
- * ±¯¹ÛËøµÄÊµÏÖ£¬ÍùÍùÒÀ¿¿Êı¾İ¿âÌá¹©µÄËø»úÖÆ£¨Ò²Ö»ÓĞÊı¾İ¿â²ãÌá¹©µÄËø»úÖÆ²ÅÄÜÕæÕı±£Ö¤Êı¾İ·ÃÎÊµÄÅÅËûĞÔ£¬
- * ·ñÔò¼´Ê¹ÔÚ±¾ÏµÍ³ÖĞÊµÏÖÁË¼ÓËø»úÖÆ£¬Ò²ÎŞ·¨±£Ö¤Íâ²¿ÏµÍ³²»»áĞŞ¸ÄÊı¾İ£©¡£
+ * æ‚²è§‚é”ï¼ŒæŒ‡çš„æ˜¯æ•°æ®è¢«å¤–ç•Œï¼ˆåŒ…æ‹¬å½“å‰ç³»ç»Ÿä»¥åŠå…¶ä»–ç³»ç»Ÿï¼‰ä¿®æ”¹æ—¶æŒä¿å®ˆæ€åº¦ï¼Œå› æ­¤åœ¨æ•´ä¸ªæ•°æ®å¤„ç†è¿‡ç¨‹ä¸­ï¼Œå°†æ•°æ®å¤„äºé”å®šçŠ¶æ€ã€‚
+ * æ‚²è§‚é”çš„å®ç°ï¼Œå¾€å¾€ä¾é æ•°æ®åº“æä¾›çš„é”æœºåˆ¶ï¼ˆä¹Ÿåªæœ‰æ•°æ®åº“å±‚æä¾›çš„é”æœºåˆ¶æ‰èƒ½çœŸæ­£ä¿è¯æ•°æ®è®¿é—®çš„æ’ä»–æ€§ï¼Œ
+ * å¦åˆ™å³ä½¿åœ¨æœ¬ç³»ç»Ÿä¸­å®ç°äº†åŠ é”æœºåˆ¶ï¼Œä¹Ÿæ— æ³•ä¿è¯å¤–éƒ¨ç³»ç»Ÿä¸ä¼šä¿®æ”¹æ•°æ®ï¼‰ã€‚
  * <p>
- * Ò»¸öµäĞÍµÄÒÀÀµÊı¾İ¿âÊµÏÖµÄ±¯¹ÛËøµ÷ÓÃ£º
+ * ä¸€ä¸ªå…¸å‹çš„ä¾èµ–æ•°æ®åº“å®ç°çš„æ‚²è§‚é”è°ƒç”¨ï¼š
  * select * from tb_person where name='tom' for update
  * 
- * Í¨¹ı for update ×Ó¾ä£¬ÕâÌõSQLËø¶¨ÁË tb_person ±íÖĞËùÓĞ·ûºÏ¼ìË÷Ìõ¼ş£¨name='tom'£©µÄ¼ÇÂ¼¡£
- * ÔÚ±¾´ÎÊÂÎñÌá½»Ö®Ç°£¨ÊÂÎñÌá½»Ê±»áÊÍ·ÅÊÂÎñ¹ı³ÌÖĞµÄËø£©£¬Íâ½çÎŞ·¨ĞŞ¸ÄÕâĞ©¼ÇÂ¼¡£
+ * é€šè¿‡ for update å­å¥ï¼Œè¿™æ¡SQLé”å®šäº† tb_person è¡¨ä¸­æ‰€æœ‰ç¬¦åˆæ£€ç´¢æ¡ä»¶ï¼ˆname='tom'ï¼‰çš„è®°å½•ã€‚
+ * åœ¨æœ¬æ¬¡äº‹åŠ¡æäº¤ä¹‹å‰ï¼ˆäº‹åŠ¡æäº¤æ—¶ä¼šé‡Šæ”¾äº‹åŠ¡è¿‡ç¨‹ä¸­çš„é”ï¼‰ï¼Œå¤–ç•Œæ— æ³•ä¿®æ”¹è¿™äº›è®°å½•ã€‚
  * <p>
- * HibernateµÄ±¯¹ÛËø£¬Ò²ÊÇ»ùÓÚÊı¾İ¿âµÄËø»úÖÆÊµÏÖ¡£
+ * Hibernateçš„æ‚²è§‚é”ï¼Œä¹Ÿæ˜¯åŸºäºæ•°æ®åº“çš„é”æœºåˆ¶å®ç°ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ7ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ7æ—¥
  */
 public class PessimisticLockTest extends AbstractHibernateTestCase  {
 
@@ -36,39 +36,39 @@ public class PessimisticLockTest extends AbstractHibernateTestCase  {
 	protected void doTest() throws Exception {
 		Session querySession = sessionFactory.openSession();
 		
-		System.out.println("¡¾QueryTask¡¿Transaction begins");
+		System.out.println("ã€QueryTaskã€‘Transaction begins");
 		querySession.beginTransaction();
 		Query query = querySession.createQuery(" from DVD dvd where dvd.id=1");
 		/*
-		 * HibernateÍ¨¹ıÊ¹ÓÃÊı¾İ¿âµÄfor update×Ó¾äÊµÏÖÁË±¯¹ÛËø»úÖÆ£¬¼ÓËøÄ£Ê½ÓĞ£º
+		 * Hibernateé€šè¿‡ä½¿ç”¨æ•°æ®åº“çš„for updateå­å¥å®ç°äº†æ‚²è§‚é”æœºåˆ¶ï¼ŒåŠ é”æ¨¡å¼æœ‰ï¼š
 		 * 
-		 * LockMode.NONE£ºÎŞËø»úÖÆ
-		 * LockMode.WRITE£ºHibernateÔÚInsertºÍUpdate¼ÇÂ¼µÄÊ±ºò»á×Ô¶¯»ñÈ¡
-		 * LockMode.READ£ºHibernateÔÚ¶ÁÈ¡¼ÇÂ¼µÄÊ±ºò»á×Ô¶¯»ñÈ¡
+		 * LockMode.NONEï¼šæ— é”æœºåˆ¶
+		 * LockMode.WRITEï¼šHibernateåœ¨Insertå’ŒUpdateè®°å½•çš„æ—¶å€™ä¼šè‡ªåŠ¨è·å–
+		 * LockMode.READï¼šHibernateåœ¨è¯»å–è®°å½•çš„æ—¶å€™ä¼šè‡ªåŠ¨è·å–
 		 * 
-		 * ÒÔÉÏ3ÖÖËø»úÖÆÒ»°ãÓÉHibernateÄÚ²¿Ê¹ÓÃ£¬ÈçÎªÁË±£Ö¤Update¹ı³ÌÖĞ¶ÔÏó²»»á±»Íâ½çĞŞ¸Ä£¬»áÔÚsave·½·¨ÊµÏÖÖĞ×Ô¶¯ÎªÄ¿±ê¶ÔÏó¼ÓÉÏWRITEËø£¬
-		 * ÕâĞ©¶¼ÊÇHibernateÄÚ²¿¶ÔÊı¾İµÄËø¶¨»úÖÆ£¬ÓëÊı¾İ¿âÎŞ¹Ø¡£
+		 * ä»¥ä¸Š3ç§é”æœºåˆ¶ä¸€èˆ¬ç”±Hibernateå†…éƒ¨ä½¿ç”¨ï¼Œå¦‚ä¸ºäº†ä¿è¯Updateè¿‡ç¨‹ä¸­å¯¹è±¡ä¸ä¼šè¢«å¤–ç•Œä¿®æ”¹ï¼Œä¼šåœ¨saveæ–¹æ³•å®ç°ä¸­è‡ªåŠ¨ä¸ºç›®æ ‡å¯¹è±¡åŠ ä¸ŠWRITEé”ï¼Œ
+		 * è¿™äº›éƒ½æ˜¯Hibernateå†…éƒ¨å¯¹æ•°æ®çš„é”å®šæœºåˆ¶ï¼Œä¸æ•°æ®åº“æ— å…³ã€‚
 		 * 
-		 * LockMode.PESSIMISTIC_WRITE£ºÀûÓÃÊı¾İ¿âµÄfor update×Ó¾ä¼Ó±¯¹ÛËø
-		 * ¼ÓËøÒ»°ãÍ¨¹ıÒÔÏÂ·½·¨ÊµÏÖ£º
+		 * LockMode.PESSIMISTIC_WRITEï¼šåˆ©ç”¨æ•°æ®åº“çš„for updateå­å¥åŠ æ‚²è§‚é”
+		 * åŠ é”ä¸€èˆ¬é€šè¿‡ä»¥ä¸‹æ–¹æ³•å®ç°ï¼š
 		 * Query.setLockMode
 		 * Criteria.setLockMode
 		 * 
-		 * Ö»ÓĞÔÚ²éÑ¯Ö®Ç°£¨Ò²¾ÍÊÇÉú³ÉSQLÖ®Ç°£©½øĞĞ¼ÓËø²Å»áÕæÕıÍ¨¹ıÊı¾İ¿âµÄËø»úÖÆ½øĞĞ¼ÓËø´¦Àí£¬
-		 * ·ñÔòÊı¾İÒÑ¾­Í¨¹ı²»°üº¬for update×Ó¾äµÄSelect SQL¼ÓÔØ½øÀ´£¬ËùÎ½Êı¾İ¿â¼ÓËøÒ²¾ÍÊ§Ğ§ÁË¡£
+		 * åªæœ‰åœ¨æŸ¥è¯¢ä¹‹å‰ï¼ˆä¹Ÿå°±æ˜¯ç”ŸæˆSQLä¹‹å‰ï¼‰è¿›è¡ŒåŠ é”æ‰ä¼šçœŸæ­£é€šè¿‡æ•°æ®åº“çš„é”æœºåˆ¶è¿›è¡ŒåŠ é”å¤„ç†ï¼Œ
+		 * å¦åˆ™æ•°æ®å·²ç»é€šè¿‡ä¸åŒ…å«for updateå­å¥çš„Select SQLåŠ è½½è¿›æ¥ï¼Œæ‰€è°“æ•°æ®åº“åŠ é”ä¹Ÿå°±å¤±æ•ˆäº†ã€‚
 		 */
-		// ¶ÔÌØ¶¨±ğÃûËù¶ÔÓ¦µÄ¼ÇÂ¼½øĞĞ¼ÓËø£¬ÕâÀï¾ÍÊÇ¶Ô·µ»ØµÄËùÓĞDVD¼ÇÂ¼½øĞĞ¼ÓËø¡£
+		// å¯¹ç‰¹å®šåˆ«åæ‰€å¯¹åº”çš„è®°å½•è¿›è¡ŒåŠ é”ï¼Œè¿™é‡Œå°±æ˜¯å¯¹è¿”å›çš„æ‰€æœ‰DVDè®°å½•è¿›è¡ŒåŠ é”ã€‚
 		query.setLockMode("dvd", LockMode.PESSIMISTIC_WRITE);
-		System.out.println("¡¾QueryTask¡¿Query starts");
+		System.out.println("ã€QueryTaskã€‘Query starts");
 		List<DVD> result = query.list();
 		System.out.println(result);
-		System.out.println("¡¾QueryTask¡¿Query finished");
+		System.out.println("ã€QueryTaskã€‘Query finished");
 		
 		new Thread(new UpdateTask()).start();
 		Thread.sleep(1000);
-		// Ö±µ½ÊÂÎñÌá½»Ö®ºó²Å»áÊÍ·ÅËø£¬Ò²¾ÍÊÇËµUpdateTaskÖĞµÄÊÂÎñÌá½»ÓÀÔ¶»áÔÚ±¾ÊÂÎñÌá½»Ö®ºó
+		// ç›´åˆ°äº‹åŠ¡æäº¤ä¹‹åæ‰ä¼šé‡Šæ”¾é”ï¼Œä¹Ÿå°±æ˜¯è¯´UpdateTaskä¸­çš„äº‹åŠ¡æäº¤æ°¸è¿œä¼šåœ¨æœ¬äº‹åŠ¡æäº¤ä¹‹å
 		querySession.getTransaction().commit();
-		System.out.println("¡¾QueryTask¡¿Transaction commits");
+		System.out.println("ã€QueryTaskã€‘Transaction commits");
 		Thread.sleep(1000);
 		querySession.close();
 	}
@@ -79,13 +79,13 @@ public class PessimisticLockTest extends AbstractHibernateTestCase  {
 		public void run() {
 			Session updateSession = sessionFactory.openSession();
 			updateSession.beginTransaction();
-			System.out.println("¡¾UpdateTask¡¿Transaction begins");
-			// ÕâÀï»áµÈ´ıÖ÷Ïß³ÌµÄÊÂÎñÌá½»ºó£¨ÊÍ·ÅÁËËø£©²ÅÄÜÖ´ĞĞ pk_dvd=1 Êı¾İµÄ¸üĞÂ²Ù×÷
+			System.out.println("ã€UpdateTaskã€‘Transaction begins");
+			// è¿™é‡Œä¼šç­‰å¾…ä¸»çº¿ç¨‹çš„äº‹åŠ¡æäº¤åï¼ˆé‡Šæ”¾äº†é”ï¼‰æ‰èƒ½æ‰§è¡Œ pk_dvd=1 æ•°æ®çš„æ›´æ–°æ“ä½œ
 			updateSession.createSQLQuery("update tb_dvds set name='New name' where pk_dvd=1").executeUpdate();
-			// Èç¹ûÖ´ĞĞµÄÊÇÏÂÃæ¸üĞÂ  pk_dvd=2µÄÊı¾İÔòÍêÈ«²»ÊÜÖ÷Ïß³Ì¼ÓËøµÄÓ°Ïì£¬ÒòÎªËü¼ÓËøµÄÊı¾İÊÇ pk_dvd=1
+			// å¦‚æœæ‰§è¡Œçš„æ˜¯ä¸‹é¢æ›´æ–°  pk_dvd=2çš„æ•°æ®åˆ™å®Œå…¨ä¸å—ä¸»çº¿ç¨‹åŠ é”çš„å½±å“ï¼Œå› ä¸ºå®ƒåŠ é”çš„æ•°æ®æ˜¯ pk_dvd=1
 //			updateSession.createSQLQuery("update tb_dvds set name='New name' where pk_dvd=1").executeUpdate();
 			updateSession.getTransaction().commit();
-			System.out.println("¡¾UpdateTask¡¿Transaction commits");
+			System.out.println("ã€UpdateTaskã€‘Transaction commits");
 			updateSession.close();
 		}
 	}

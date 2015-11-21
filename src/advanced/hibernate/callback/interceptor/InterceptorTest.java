@@ -8,14 +8,14 @@ import hibernate.util.AbstractHibernateTestCase;
 import org.hibernate.Session;
 
 /**
- * À¹½ØÆ÷Ê¹ÓÃ Ê¾Àı
+ * æ‹¦æˆªå™¨ä½¿ç”¨ ç¤ºä¾‹
  * <p>
- * Interceptor£¨À¹½ØÆ÷£©½Ó¿Ú¶¨ÒåÁËHibernateÖĞµÄÍ¨ÓÃÀ¹½Ø»úÖÆ¡£
- * session´´½¨Ê±¼´¿ÉÒÔÖ¸¶¨¼ÓÔØÏàÓ¦µÄInterceptor£¬Ö®ºó´ËsessionµÄ³Ö¾Ã»¯²Ù×÷¶¯×÷¶¼½«Ê×ÏÈ¾­ÓÉÀ¹½ØÆ÷²¶»ñ´¦Àí¡£
+ * Interceptorï¼ˆæ‹¦æˆªå™¨ï¼‰æ¥å£å®šä¹‰äº†Hibernateä¸­çš„é€šç”¨æ‹¦æˆªæœºåˆ¶ã€‚
+ * sessionåˆ›å»ºæ—¶å³å¯ä»¥æŒ‡å®šåŠ è½½ç›¸åº”çš„Interceptorï¼Œä¹‹åæ­¤sessionçš„æŒä¹…åŒ–æ“ä½œåŠ¨ä½œéƒ½å°†é¦–å…ˆç»ç”±æ‹¦æˆªå™¨æ•è·å¤„ç†ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public class InterceptorTest extends AbstractHibernateTestCase {
 
@@ -23,9 +23,9 @@ public class InterceptorTest extends AbstractHibernateTestCase {
 	protected void doTest() throws Exception {
 		Session newSession = null;
 		try {
-			// Ê¹ÓÃÖ¸¶¨Interceptor´´½¨Ò»¸ösession£¨À¹½ØÆ÷ÊÇsession·¶Î§µÄ£©
+			// ä½¿ç”¨æŒ‡å®šInterceptoråˆ›å»ºä¸€ä¸ªsessionï¼ˆæ‹¦æˆªå™¨æ˜¯sessionèŒƒå›´çš„ï¼‰
 			newSession = sessionFactory.withOptions().interceptor(new LogInterceptor()).openSession();
-			// Ò²¿ÉÒÔÍ¨¹ıÏÂÃæµÄ·½Ê½ÉèÖÃÒ»¸ö session factory ·¶Î§µÄ Interceptor£¬±ÈÈçÓÃÀ´Ö´ĞĞÉèÖÃ timestamp ±ê¼Ç²Ù×÷
+			// ä¹Ÿå¯ä»¥é€šè¿‡ä¸‹é¢çš„æ–¹å¼è®¾ç½®ä¸€ä¸ª session factory èŒƒå›´çš„ Interceptorï¼Œæ¯”å¦‚ç”¨æ¥æ‰§è¡Œè®¾ç½® timestamp æ ‡è®°æ“ä½œ
 //			new Configuration().setInterceptor(new LogInterceptor()).configure().buildSessionFactory(serviceRegistry);
 			newSession.beginTransaction();
 			Account account = (Account) newSession.load(Account.class, 1L);

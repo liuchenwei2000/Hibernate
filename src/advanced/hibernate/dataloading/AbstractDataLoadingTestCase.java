@@ -6,11 +6,11 @@ package hibernate.dataloading;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * Êı¾İ¼ÓÔØ²âÊÔÓÃÀı»ùÀà
+ * æ•°æ®åŠ è½½æµ‹è¯•ç”¨ä¾‹åŸºç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public abstract class AbstractDataLoadingTestCase extends AbstractHibernateTestCase {
 

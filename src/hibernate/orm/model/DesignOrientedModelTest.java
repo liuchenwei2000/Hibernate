@@ -8,11 +8,11 @@ import hibernate.util.AbstractHibernateTestCase;
 import java.util.Date;
 
 /**
- * ÃæÏòÉè¼ÆµÄÁ£¶ÈÏ¸·Ö½¨Ä£
+ * é¢å‘è®¾è®¡çš„ç²’åº¦ç»†åˆ†å»ºæ¨¡
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ24ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ24æ—¥
  */
 public class DesignOrientedModelTest extends AbstractHibernateTestCase {
 

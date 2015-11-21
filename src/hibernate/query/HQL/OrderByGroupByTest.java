@@ -11,26 +11,26 @@ import hibernate.query.Person4;
 import org.hibernate.Query;
 
 /**
- * ÅÅĞò¡¢·Ö×éÊ¾Àı
+ * æ’åºã€åˆ†ç»„ç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ29ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ29æ—¥
  */
 public class OrderByGroupByTest extends AbstractQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() {
-		/** ÅÅĞò£¬order by */
-		String orderBy = "from Person4 person order by person.age desc";// °´ageµ¹ĞòÅÅÁĞ
+		/** æ’åºï¼Œorder by */
+		String orderBy = "from Person4 person order by person.age desc";// æŒ‰ageå€’åºæ’åˆ—
 		Query query = session.createQuery(orderBy);
 		List<Person4> result = query.list();
 		for (Person4 perosn : result) {
 			System.out.println(perosn);
 		}
 		
-		/** ·Ö×é£¬group by */
-		// °´age½øĞĞ·Ö×é£¬Ö»È¡Êı¾İÌõÊı´óÓÚ1µÄ×é
+		/** åˆ†ç»„ï¼Œgroup by */
+		// æŒ‰ageè¿›è¡Œåˆ†ç»„ï¼Œåªå–æ•°æ®æ¡æ•°å¤§äº1çš„ç»„
 		String groupBy = "select count(*), age from Person4 group by age having count(age)>1";
 		query = session.createQuery(groupBy);
 		List<Object[]> result2 = query.list();

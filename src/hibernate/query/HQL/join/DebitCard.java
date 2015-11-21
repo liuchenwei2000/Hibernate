@@ -4,11 +4,11 @@
 package hibernate.query.HQL.join;
 
 /**
- * ½è¼Ç¿¨
+ * å€Ÿè®°å¡
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ30ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ30æ—¥
  */
 public class DebitCard {
 

@@ -10,13 +10,13 @@ import org.hibernate.Session;
 import org.hibernate.classic.Lifecycle;
 
 /**
- * ÊµÌå¶ÔÏó£¬ÊµÏÖÁËLifecycle½Ó¿Ú
+ * å®ä½“å¯¹è±¡ï¼Œå®ç°äº†Lifecycleæ¥å£
  * <p>
- * HibernateÍ¨¹ıLifecycle½Ó¿ÚÖÆ¶¨ÁËÊµÌå¶ÔÏóCRUD¹ı³ÌÖĞµÄ»Øµ÷»úÖÆ¡£
+ * Hibernateé€šè¿‡Lifecycleæ¥å£åˆ¶å®šäº†å®ä½“å¯¹è±¡CRUDè¿‡ç¨‹ä¸­çš„å›è°ƒæœºåˆ¶ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public class Photo implements Lifecycle{
 
@@ -63,13 +63,13 @@ public class Photo implements Lifecycle{
 	}
 
 	/**
-	 * ±£´æÇ°´¥·¢
+	 * ä¿å­˜å‰è§¦å‘
 	 * 
 	 * @see org.hibernate.classic.Lifecycle#onSave(org.hibernate.Session)
 	 */
 	@Override
 	public boolean onSave(Session s) throws CallbackException {
-		// Èç¹û·µ»ØtrueÔòÒâÎ¶×ÅĞèÒªÖĞÖ¹Ö´ĞĞ¶ÔÓ¦µÄ²Ù×÷¹ı³Ì£¬Èç¹ûÅ×³öCallbackException²Ù×÷Ò²»á±»ÖĞÖ¹¡£
+		// å¦‚æœè¿”å›trueåˆ™æ„å‘³ç€éœ€è¦ä¸­æ­¢æ‰§è¡Œå¯¹åº”çš„æ“ä½œè¿‡ç¨‹ï¼Œå¦‚æœæŠ›å‡ºCallbackExceptionæ“ä½œä¹Ÿä¼šè¢«ä¸­æ­¢ã€‚
 		if(size > 100) {
 			throw new CallbackException("size is too large.");
 		}
@@ -77,7 +77,7 @@ public class Photo implements Lifecycle{
 	}
 
 	/**
-	 * ¸üĞÂÇ°´¥·¢
+	 * æ›´æ–°å‰è§¦å‘
 	 * 
 	 * @see org.hibernate.classic.Lifecycle#onUpdate(org.hibernate.Session)
 	 */
@@ -90,7 +90,7 @@ public class Photo implements Lifecycle{
 	}
 
 	/**
-	 * É¾³ıÇ°´¥·¢
+	 * åˆ é™¤å‰è§¦å‘
 	 * 
 	 * @see org.hibernate.classic.Lifecycle#onDelete(org.hibernate.Session)
 	 */
@@ -104,12 +104,12 @@ public class Photo implements Lifecycle{
 	}
 
 	/**
-	 * ÊµÌå¶ÔÏó±»¼ÓÔØÊ±´¥·¢
+	 * å®ä½“å¯¹è±¡è¢«åŠ è½½æ—¶è§¦å‘
 	 * 
 	 * @see org.hibernate.classic.Lifecycle#onLoad(org.hibernate.Session, java.io.Serializable)
 	 */
 	@Override
 	public void onLoad(Session s, Serializable id) {
-		System.out.println("¡¾haha, I'm loaded¡¿");
+		System.out.println("ã€haha, I'm loadedã€‘");
 	}
 }

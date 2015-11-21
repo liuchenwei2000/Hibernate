@@ -10,22 +10,22 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Ë«Ïò one-to-many ¹ØÁªÊ¾Àı
+ * åŒå‘ one-to-many å…³è”ç¤ºä¾‹
  * <p>
- * ĞÅÓÃ¿¨±íÖĞ°üº¬Ò»¸ö pk_person ×Ö¶Î£¬´Ë×Ö¶ÎÓë tb_persons ±íµÄ  pk_person ×Ö¶ÎÏà¹ØÁª¡£
+ * ä¿¡ç”¨å¡è¡¨ä¸­åŒ…å«ä¸€ä¸ª pk_person å­—æ®µï¼Œæ­¤å­—æ®µä¸ tb_persons è¡¨çš„  pk_person å­—æ®µç›¸å…³è”ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class BidirectionalOne2ManyTest extends AbstractHibernateTestCase {
 
 	@Override
 	protected void doTest() {
-		// ±£´æÒ»¸öPerson¼°ÆäĞÅÓÃ¿¨ĞÅÏ¢
+		// ä¿å­˜ä¸€ä¸ªPersonåŠå…¶ä¿¡ç”¨å¡ä¿¡æ¯
 		Person2 person = createPerson();
 		Set<CreditCard2> creditCards = createCreditCards();
-		// ÏÖÔÚÓÉCreditCard2¶ÔÏóÎ¬»¤¹ØÁª¹ØÏµ£¬ËùÒÔ±ØĞëÓÉËü×Ô¼ºÈ¥Î¬»¤Íâ¼ü¡£
+		// ç°åœ¨ç”±CreditCard2å¯¹è±¡ç»´æŠ¤å…³è”å…³ç³»ï¼Œæ‰€ä»¥å¿…é¡»ç”±å®ƒè‡ªå·±å»ç»´æŠ¤å¤–é”®ã€‚
 		for (CreditCard2 creditCard : creditCards) {
 			creditCard.setPerson(person);
 		}
@@ -33,17 +33,17 @@ public class BidirectionalOne2ManyTest extends AbstractHibernateTestCase {
 
 		session.beginTransaction();
 		/*
-		 * ¾ßÌåÖ´ĞĞSQLÖ»ÓĞinsert¶øÃ»ÓĞupdate£¬Ìá¸ßÁËĞÔÄÜ£º
+		 * å…·ä½“æ‰§è¡ŒSQLåªæœ‰insertè€Œæ²¡æœ‰updateï¼Œæé«˜äº†æ€§èƒ½ï¼š
 		 * insert into tb_person_2 (name, pk_person) values (?, ?) 
 		 * insert into tb_creditcard_2 (no, expiry, pk_person, pk_card) values (?, ?, ?, ?)
 		 */
 		session.save(person);
 		session.getTransaction().commit();
 
-		// ¸ù¾İCreditCard¶ÔÏóÄÜ»ñµÃ¹ØÁªµÄPerson¶ÔÏóĞÅÏ¢£¨Ë«Ïòone-to-many£©
+		// æ ¹æ®CreditCardå¯¹è±¡èƒ½è·å¾—å…³è”çš„Personå¯¹è±¡ä¿¡æ¯ï¼ˆåŒå‘one-to-manyï¼‰
 		CreditCard2 c1 = (CreditCard2) session.load(CreditCard2.class, 1L);
-		System.out.println("Credit card is ¡¾" + c1.getNo() + "¡¿");
-		System.out.println("Card holder is ¡¾" + c1.getPerson().getName() + "¡¿");
+		System.out.println("Credit card is ã€" + c1.getNo() + "ã€‘");
+		System.out.println("Card holder is ã€" + c1.getPerson().getName() + "ã€‘");
 	}
 
 	private static Set<CreditCard2> createCreditCards() {

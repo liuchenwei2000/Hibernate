@@ -6,13 +6,13 @@ package hibernate.cache;
 import org.hibernate.Session;
 
 /**
- * Session Level CacheÊ¾Àı2
+ * Session Level Cacheç¤ºä¾‹2
  * <p>
- * ÊÂÊµÖ¤Ã÷£¬Ò»¼¶»º´æ²¢²»ÄÜ×Ô¶¯¸üĞÂ»º´æÊı¾İ¡£
+ * äº‹å®è¯æ˜ï¼Œä¸€çº§ç¼“å­˜å¹¶ä¸èƒ½è‡ªåŠ¨æ›´æ–°ç¼“å­˜æ•°æ®ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ6ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ6æ—¥
  */
 public class SessionLevelCacheTest2 extends SessionLevelCacheTest  {
 
@@ -21,18 +21,18 @@ public class SessionLevelCacheTest2 extends SessionLevelCacheTest  {
 		Session newSession = null;
 		try {
 			newSession = sessionFactory.openSession();
-			System.out.println("¡¾QueryTask¡¿session.load(book) 1st time");
+			System.out.println("ã€QueryTaskã€‘session.load(book) 1st time");
 			Book book1 = (Book) newSession.load(Book.class, 1L);
 			System.out.println("book1 " + book1);
 			
-			// ÁíÆğÒ»¸öÏß³ÌÈ¥×ö¶Ô book1 ¶ÔÓ¦¼ÇÂ¼µÄ¸üĞÂ²Ù×÷
+			// å¦èµ·ä¸€ä¸ªçº¿ç¨‹å»åšå¯¹ book1 å¯¹åº”è®°å½•çš„æ›´æ–°æ“ä½œ
 			new Thread(new UpdateTask()).start();
 			
 			Thread.sleep(1000);
-			// ÕâÊ±ºò book1 µÄ¸üĞÂ²Ù×÷ÒÑ¾­Íê³ÉÁË
+			// è¿™æ—¶å€™ book1 çš„æ›´æ–°æ“ä½œå·²ç»å®Œæˆäº†
 			
-			System.out.println("¡¾QueryTask¡¿session.load(book) 2nd time");
-			// µÚ¶ş´Î²éÑ¯µÄÊ±ºò£¬Ã»ÓĞSQLÓï¾äÊä³ö£¬Ö±½Ó´Ó»º´æÖĞ»ñÈ¡ÁËÊı¾İ£¬µ«Êµ¼ÊÉÏÕâÊı¾İÒÑ¾­¹ıÆÚÁË
+			System.out.println("ã€QueryTaskã€‘session.load(book) 2nd time");
+			// ç¬¬äºŒæ¬¡æŸ¥è¯¢çš„æ—¶å€™ï¼Œæ²¡æœ‰SQLè¯­å¥è¾“å‡ºï¼Œç›´æ¥ä»ç¼“å­˜ä¸­è·å–äº†æ•°æ®ï¼Œä½†å®é™…ä¸Šè¿™æ•°æ®å·²ç»è¿‡æœŸäº†
 			Book book2 = (Book) newSession.load(Book.class, 1L);
 			System.out.println("book2 " + book1);
 			
@@ -53,10 +53,10 @@ public class SessionLevelCacheTest2 extends SessionLevelCacheTest  {
 			Session mySession = null;
 			try {
 				mySession = sessionFactory.openSession();
-				System.out.println("¡¾UpdateTask¡¿session.load(book) 1st time");
-				// ĞŞ¸ÄÁËÖ÷¼üÎª1LµÄBook¶ÔÏóname
+				System.out.println("ã€UpdateTaskã€‘session.load(book) 1st time");
+				// ä¿®æ”¹äº†ä¸»é”®ä¸º1Lçš„Bookå¯¹è±¡name
 				Book book1 = (Book) mySession.load(Book.class, 1L);
-				System.out.println("¡¾UpdateTask¡¿book1 " + book1);
+				System.out.println("ã€UpdateTaskã€‘book1 " + book1);
 				mySession.beginTransaction();
 				book1.setName("Hello World");
 				mySession.getTransaction().commit();

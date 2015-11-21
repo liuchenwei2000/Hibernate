@@ -8,31 +8,31 @@ import hibernate.util.AbstractHibernateTestCase;
 import org.hibernate.Session;
 
 /**
- * SessionFactory Level CacheÊ¾Àı
+ * SessionFactory Level Cacheç¤ºä¾‹
  * <p>
- * HibernateÊı¾İ»º´æ·ÖÎªÁ½¸ö²ã´Î£º
- * 2£¬¶ş¼¶»º´æ£ºSessionFactory Level Cache£¬ÊôÓÚÓ¦ÓÃ¼¶»º´æ¡£
- * ´ÓÊôÓÚSessionFactoryµÄËùÓĞSessionÊµÀı»á¹²Ïí¶ş¼¶»º´æ¡£
- * SessionÔÚ½øĞĞÊı¾İ²éÑ¯²Ù×÷Ê±£¬»áÊ×ÏÈÔÚ×ÔÉíÄÚ²¿µÄÒ»¼¶»º´æÖĞ²éÕÒ£¬
- * Èç¹ûÎ´ÄÜÃüÖĞ£¬Ôò½«ÔÚ¶ş¼¶»º´æÖĞ²éÕÒ£¬Èç¹ûÃüÖĞÔò½«»º´æÊı¾İ·µ»Ø¡£
+ * Hibernateæ•°æ®ç¼“å­˜åˆ†ä¸ºä¸¤ä¸ªå±‚æ¬¡ï¼š
+ * 2ï¼ŒäºŒçº§ç¼“å­˜ï¼šSessionFactory Level Cacheï¼Œå±äºåº”ç”¨çº§ç¼“å­˜ã€‚
+ * ä»å±äºSessionFactoryçš„æ‰€æœ‰Sessionå®ä¾‹ä¼šå…±äº«äºŒçº§ç¼“å­˜ã€‚
+ * Sessionåœ¨è¿›è¡Œæ•°æ®æŸ¥è¯¢æ“ä½œæ—¶ï¼Œä¼šé¦–å…ˆåœ¨è‡ªèº«å†…éƒ¨çš„ä¸€çº§ç¼“å­˜ä¸­æŸ¥æ‰¾ï¼Œ
+ * å¦‚æœæœªèƒ½å‘½ä¸­ï¼Œåˆ™å°†åœ¨äºŒçº§ç¼“å­˜ä¸­æŸ¥æ‰¾ï¼Œå¦‚æœå‘½ä¸­åˆ™å°†ç¼“å­˜æ•°æ®è¿”å›ã€‚
  * <p>
- * Hibernate¶Ô»º´æ½øĞĞÁËÁ¼ºÃµÄ·â×°£¬Í¸Ã÷»¯µÄ»º´æ»úÖÆÊ¹µÃÔÚÉÏ²ã½á¹¹µÄÊµÏÖÖĞÎŞĞèÃæ¶Ô·±ËöµÄ»º´æÎ¬»¤Ï¸½Ú¡£
- * Hibernate±¾Éí²¢Î´Ìá¹©¶ş¼¶»º´æµÄ¹¤Òµ»¯ÊµÏÖ£¬¶øÊÇÎªÖÚ¶àµÄµÚÈı·½»º´æ×é¼şÌá¹©ÁË½ÓÈë½Ó¿Ú¡£
- * ±È½Ï³£ÓÃµÄµÚÈı·½»º´æ°üÀ¨EHCache¡¢OSCache¡¢JCS¡¢JBoss Cache¡£
+ * Hibernateå¯¹ç¼“å­˜è¿›è¡Œäº†è‰¯å¥½çš„å°è£…ï¼Œé€æ˜åŒ–çš„ç¼“å­˜æœºåˆ¶ä½¿å¾—åœ¨ä¸Šå±‚ç»“æ„çš„å®ç°ä¸­æ— éœ€é¢å¯¹ç¹ççš„ç¼“å­˜ç»´æŠ¤ç»†èŠ‚ã€‚
+ * Hibernateæœ¬èº«å¹¶æœªæä¾›äºŒçº§ç¼“å­˜çš„å·¥ä¸šåŒ–å®ç°ï¼Œè€Œæ˜¯ä¸ºä¼—å¤šçš„ç¬¬ä¸‰æ–¹ç¼“å­˜ç»„ä»¶æä¾›äº†æ¥å…¥æ¥å£ã€‚
+ * æ¯”è¾ƒå¸¸ç”¨çš„ç¬¬ä¸‰æ–¹ç¼“å­˜åŒ…æ‹¬EHCacheã€OSCacheã€JCSã€JBoss Cacheã€‚
  * <p>
- * HibernateÖĞÆôÓÃ¶ş¼¶»º´æ£¬ĞèÒªÔÚhibernate.cfg.xmlÖĞÅäÖÃ cache.provider_class ²ÎÊı¡£
- * ÁíÍâ»¹ĞèÒª¶ÔCacheÊµÏÖ±¾Éí½øĞĞÅäÖÃ£¬±ÈÈçEHCacheµÄÅäÖÃÎÄ¼şehcache.xml¡£
+ * Hibernateä¸­å¯ç”¨äºŒçº§ç¼“å­˜ï¼Œéœ€è¦åœ¨hibernate.cfg.xmlä¸­é…ç½® cache.provider_class å‚æ•°ã€‚
+ * å¦å¤–è¿˜éœ€è¦å¯¹Cacheå®ç°æœ¬èº«è¿›è¡Œé…ç½®ï¼Œæ¯”å¦‚EHCacheçš„é…ç½®æ–‡ä»¶ehcache.xmlã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ6ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ6æ—¥
  */
 public class SessionFactoryLevelCacheTest extends AbstractHibernateTestCase  {
 
 	@Override
 	protected void prepareData() {
 		session.beginTransaction();
-		// ÔÚ±£´æµÄÊ±ºò£¬SessionFactory¾ÍÒÑ¾­°ÑÊı¾İ»º´æÆğÀ´ÁË£¬ËùÒÔÒÔºó²»Í¬sessionÊµÀı²éÑ¯µÄÊ±ºò²»»á·¢ÆğÕæÕıµÄSQL²éÑ¯
+		// åœ¨ä¿å­˜çš„æ—¶å€™ï¼ŒSessionFactoryå°±å·²ç»æŠŠæ•°æ®ç¼“å­˜èµ·æ¥äº†ï¼Œæ‰€ä»¥ä»¥åä¸åŒsessionå®ä¾‹æŸ¥è¯¢çš„æ—¶å€™ä¸ä¼šå‘èµ·çœŸæ­£çš„SQLæŸ¥è¯¢
 		session.save(new Worker("Johnny Walker", 20));
 		session.getTransaction().commit();
 	}
@@ -42,21 +42,21 @@ public class SessionFactoryLevelCacheTest extends AbstractHibernateTestCase  {
 		Session session1 = null;
 		Session session2 = null;
 		try {
-			// Ê¹ÓÃÒ»¸öĞÂµÄsessionÊµÀıÑéÖ¤
+			// ä½¿ç”¨ä¸€ä¸ªæ–°çš„sessionå®ä¾‹éªŒè¯
 			session1 = sessionFactory.openSession();
-			System.out.println("¡¾session1.load(worker) 1st time.¡¿");
-			// ´ËÊ±²»»á´òÓ¡³ö²éÑ¯SQL£¬Ö¤Ã÷Êı¾İÊÇ´Ó¶ş¼¶»º´æÈ¡³öÀ´µÄ
+			System.out.println("ã€session1.load(worker) 1st time.ã€‘");
+			// æ­¤æ—¶ä¸ä¼šæ‰“å°å‡ºæŸ¥è¯¢SQLï¼Œè¯æ˜æ•°æ®æ˜¯ä»äºŒçº§ç¼“å­˜å–å‡ºæ¥çš„
 			Worker worker1 = (Worker) session1.load(Worker.class, 1L);
 			System.out.println("worker1 " + worker1);
 
-			// Ê¹ÓÃÒ»¸öĞÂµÄsessionÊµÀıÑéÖ¤
+			// ä½¿ç”¨ä¸€ä¸ªæ–°çš„sessionå®ä¾‹éªŒè¯
 			session2 = sessionFactory.openSession();
-			System.out.println("¡¾session.load(worker) 2nd time.¡¿");
-			// ´ËÊ±²»»á´òÓ¡³ö²éÑ¯SQL£¬Ö¤Ã÷Êı¾İÊÇ´Ó¶ş¼¶»º´æÈ¡³öÀ´µÄ
+			System.out.println("ã€session.load(worker) 2nd time.ã€‘");
+			// æ­¤æ—¶ä¸ä¼šæ‰“å°å‡ºæŸ¥è¯¢SQLï¼Œè¯æ˜æ•°æ®æ˜¯ä»äºŒçº§ç¼“å­˜å–å‡ºæ¥çš„
 			Worker worker2 = (Worker) session2.load(Worker.class, 1L);
 			System.out.println("worker2 " + worker1);
 			
-			// ËäÈ»¶¼ÊÇ´Ó¶ş¼¶»º´æÈ¡³öÀ´µÄÊı¾İ£¬µ«ÊÇ²¢²» ==
+			// è™½ç„¶éƒ½æ˜¯ä»äºŒçº§ç¼“å­˜å–å‡ºæ¥çš„æ•°æ®ï¼Œä½†æ˜¯å¹¶ä¸ ==
 			System.out.println("worker1 == worker2 ? " + (worker1 == worker2));// false
 		} catch (Exception e) {
 			e.printStackTrace();

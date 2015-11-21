@@ -7,13 +7,13 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * »ùÓÚÖ÷¼üÀàµÄ¸´ºÏÖ÷¼ü
+ * åŸºäºä¸»é”®ç±»çš„å¤åˆä¸»é”®
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ24ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ24æ—¥
  */
-//¸´ºÏÖ÷¼üÀà±ØĞëÊµÏÖSerializable½Ó¿Ú
+//å¤åˆä¸»é”®ç±»å¿…é¡»å®ç°Serializableæ¥å£
 public class PersonVO2 implements Serializable {
 
 	/**

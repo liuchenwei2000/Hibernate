@@ -4,13 +4,13 @@
 package hibernate.orm.association.one2one.pk;
 
 /**
- * CitizenÀà
+ * Citizenç±»
  * <p>
- * Ã¿Ò»¸ö¹«Ãñ¶¼ÓĞÎ¨Ò»µÄ»¤ÕÕÓëÖ®¶ÔÓ¦¡£
+ * æ¯ä¸€ä¸ªå…¬æ°‘éƒ½æœ‰å”¯ä¸€çš„æŠ¤ç…§ä¸ä¹‹å¯¹åº”ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class Citizen {
 
@@ -18,7 +18,7 @@ public class Citizen {
 	private String name;
 	private int age;
 	
-	// ÕâÀï´æÓĞ¹ØÁªµÄPassportÊôĞÔ
+	// è¿™é‡Œå­˜æœ‰å…³è”çš„Passportå±æ€§
 	private Passport passport;
 
 	public Citizen() {
@@ -61,7 +61,7 @@ public class Citizen {
 
 	public void setPassport(Passport passport) {
 		this.passport = passport;
-		// ÉèÖÃpassportÊ±Ò²½«×ÔÉíÉèÖÃµ½passport¶ÔÏóÖĞ
+		// è®¾ç½®passportæ—¶ä¹Ÿå°†è‡ªèº«è®¾ç½®åˆ°passportå¯¹è±¡ä¸­
 		passport.setCitizen(this);
 	}
 }

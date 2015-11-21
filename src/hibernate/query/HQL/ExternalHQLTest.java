@@ -11,16 +11,16 @@ import java.util.List;
 import org.hibernate.Query;
 
 /**
- * Íâ²¿HQL²éÑ¯Ê¾Àı
+ * å¤–éƒ¨HQLæŸ¥è¯¢ç¤ºä¾‹
  * <p>
- * ÓĞÊ±ºò´úÂëÖĞ²»ÔÊĞí³öÏÖSQLÓï¾ä£¬SQLÓï¾ä»ìÔÓÔÚ´úÂëÖ®¼ä½«ÆÆ»µ´úÂëµÄ¿É¶ÁĞÔ£¬²¢Ê¹µÃÏµÍ³µÄ¿ÉÎ¬»¤ĞÔ½µµÍ¡£
- * Òò´Ë£¬Í¨³£²ÉÈ¡½«SQLÅäÖÃ»¯µÄ·½Ê½±£´æÔÚÅäÖÃÎÄ¼şÎÄ¼şÖĞ£¬ĞèÒªµÄÊ±ºòÔÙ¶ÁÈ¡¡£
+ * æœ‰æ—¶å€™ä»£ç ä¸­ä¸å…è®¸å‡ºç°SQLè¯­å¥ï¼ŒSQLè¯­å¥æ··æ‚åœ¨ä»£ç ä¹‹é—´å°†ç ´åä»£ç çš„å¯è¯»æ€§ï¼Œå¹¶ä½¿å¾—ç³»ç»Ÿçš„å¯ç»´æŠ¤æ€§é™ä½ã€‚
+ * å› æ­¤ï¼Œé€šå¸¸é‡‡å–å°†SQLé…ç½®åŒ–çš„æ–¹å¼ä¿å­˜åœ¨é…ç½®æ–‡ä»¶æ–‡ä»¶ä¸­ï¼Œéœ€è¦çš„æ—¶å€™å†è¯»å–ã€‚
  * <p>
- * HibernateÌá¹©ÁËHQL¿ÉÅäÖÃ»¯µÄÄÚÖÃÖ§³Ö¡£
+ * Hibernateæä¾›äº†HQLå¯é…ç½®åŒ–çš„å†…ç½®æ”¯æŒã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ29ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ29æ—¥
  */
 public class ExternalHQLTest extends AbstractQueryTestCase {
 
@@ -28,9 +28,9 @@ public class ExternalHQLTest extends AbstractQueryTestCase {
 	protected void doTest() {
 		int age = 18;
 		
-		// ´ÓÅäÖÃÎÄ¼şÖĞ£¬¸ù¾İÃû³Æµ÷ÓÃÅäÖÃµÄHQL£¬Ïê¼ûÅäÖÃÎÄ¼ş hibernate\query\Person4.hbm.xml
+		// ä»é…ç½®æ–‡ä»¶ä¸­ï¼Œæ ¹æ®åç§°è°ƒç”¨é…ç½®çš„HQLï¼Œè¯¦è§é…ç½®æ–‡ä»¶ hibernate\query\Person4.hbm.xml
 		Query query = session.getNamedQuery("queryByAge");
-		query.setParameter("age", age);// ½øĞĞ²ÎÊı°ó¶¨
+		query.setParameter("age", age);// è¿›è¡Œå‚æ•°ç»‘å®š
 		
 		List<Person4> result = query.list();
 		for (Person4 person : result) {

@@ -8,17 +8,17 @@ import hibernate.util.HibernateUtil;
 import org.hibernate.Session;
 
 /**
- * ²»ºÃµÄSession¹ÜÀíÊ¾Àı
+ * ä¸å¥½çš„Sessionç®¡ç†ç¤ºä¾‹
  * <p>
- * ±¾ÀıÄ£ÄâÒ»¸öServlet¡£
+ * æœ¬ä¾‹æ¨¡æ‹Ÿä¸€ä¸ªServletã€‚
  * <p>
- * ÎªÁË±ÜÃâSessionµÄÆµ·±´´½¨ºÍÏú»Ù£¬ServletÖĞÖØÓÃÁËÒ»¸öSession¡£
- * µ«session²¢·ÇÏß³Ì°²È«£¬Ò²¾ÍÊÇËµ£¬Èç¹û¶à¸öÏß³ÌÍ¬Ê±Ê¹ÓÃÒ»¸öSessionÊµÀı½øĞĞÊı¾İCRUD²Ù×÷£¬½«»áµ¼ÖÂSession²Ù×÷µÄÂß¼­»ìÂÒ¡£
- * µ±servlet²¿Êğµ½Web·şÎñÆ÷Ö®ºó£¬ºÜ¿ì¾Í»á³öÏÖ´íÎó¡£
+ * ä¸ºäº†é¿å…Sessionçš„é¢‘ç¹åˆ›å»ºå’Œé”€æ¯ï¼ŒServletä¸­é‡ç”¨äº†ä¸€ä¸ªSessionã€‚
+ * ä½†sessionå¹¶éçº¿ç¨‹å®‰å…¨ï¼Œä¹Ÿå°±æ˜¯è¯´ï¼Œå¦‚æœå¤šä¸ªçº¿ç¨‹åŒæ—¶ä½¿ç”¨ä¸€ä¸ªSessionå®ä¾‹è¿›è¡Œæ•°æ®CRUDæ“ä½œï¼Œå°†ä¼šå¯¼è‡´Sessionæ“ä½œçš„é€»è¾‘æ··ä¹±ã€‚
+ * å½“servletéƒ¨ç½²åˆ°WebæœåŠ¡å™¨ä¹‹åï¼Œå¾ˆå¿«å°±ä¼šå‡ºç°é”™è¯¯ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ19ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ19æ—¥
  */
 public class BadSessionManageServlet {
 
@@ -30,7 +30,7 @@ public class BadSessionManageServlet {
 	}
 
 	private void doSomething() {
-		// »ùÓÚSessionµÄCRUD²Ù×÷
+		// åŸºäºSessionçš„CRUDæ“ä½œ
 	}
 
 	private Session getSession() {

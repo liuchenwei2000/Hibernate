@@ -16,68 +16,68 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.type.StringType;
 
 /**
- * RestrictionsÊ¾Àı
+ * Restrictionsç¤ºä¾‹
  * <p>
- * Restrictions¶ÔÏó¾ßÌåÃèÊöÁË²éÑ¯Ìõ¼ş£¬Ìá¹©ÁËÓëSQL¶ÔÓ¦µÄ²éÑ¯ÏŞ¶¨»úÖÆ¡£
+ * Restrictionså¯¹è±¡å…·ä½“æè¿°äº†æŸ¥è¯¢æ¡ä»¶ï¼Œæä¾›äº†ä¸SQLå¯¹åº”çš„æŸ¥è¯¢é™å®šæœºåˆ¶ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ28ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ28æ—¥
  */
 public class RestrictionsTest extends AbstractQueryTestCase {
 
 	@SuppressWarnings("rawtypes")
 	protected void doTest() {
-		/** ÊôĞÔ(ÁĞ)ÓëÖµ±È½Ï£ºÕâÀïµÄÊôĞÔÃûÊÇPOJOÖĞ¶ÔÓ¦Êµ¼Ê¿â±í×Ö¶ÎµÄÊôĞÔÃû(´óĞ¡Ğ´Ãô¸Ğ)£¬¶ø·Ç¿â±íÖĞµÄÊµ¼Ê×Ö¶ÎÃû³Æ¡£ */
-		// SQL£ºname='Tom'
+		/** å±æ€§(åˆ—)ä¸å€¼æ¯”è¾ƒï¼šè¿™é‡Œçš„å±æ€§åæ˜¯POJOä¸­å¯¹åº”å®é™…åº“è¡¨å­—æ®µçš„å±æ€§å(å¤§å°å†™æ•æ„Ÿ)ï¼Œè€Œéåº“è¡¨ä¸­çš„å®é™…å­—æ®µåç§°ã€‚ */
+		// SQLï¼šname='Tom'
 		Criterion criteria = Restrictions.eq("name", "Tom");
 
 		Map<String, Object> name_value_map = new HashMap<String, Object>();
 		name_value_map.put("name", "Tome");
 		name_value_map.put("age", 19);
-		// SQL£ºname='Tom' and age=19
+		// SQLï¼šname='Tom' and age=19
 		criteria = Restrictions.allEq(name_value_map);
 		
-		// SQL£ºage>19
+		// SQLï¼šage>19
 		criteria = Restrictions.gt("age", 19);
-		// SQL£ºage>=19
+		// SQLï¼šage>=19
 		criteria = Restrictions.ge("age", 19);
-		// SQL£ºage<19
+		// SQLï¼šage<19
 		criteria = Restrictions.lt("age", 19);
-		// SQL£ºage<=19
+		// SQLï¼šage<=19
 		criteria = Restrictions.le("age", 19);
 		
-		// SQL£ºage>19 and age<22
+		// SQLï¼šage>19 and age<22
 		criteria = Restrictions.between("age", 19, 22);
-		// SQL£ºname like 'T%'
+		// SQLï¼šname like 'T%'
 		criteria = Restrictions.like("name", "T%");
-		// SQL£ºname in ('Tom', 'Ann')
+		// SQLï¼šname in ('Tom', 'Ann')
 		criteria = Restrictions.in("name", new String[] { "Tome", "Ann" });
 		
-		/** ÊôĞÔ(ÁĞ)ÓëÊôĞÔ(ÁĞ)±È½Ï */
-		// SQL£ºage=id
+		/** å±æ€§(åˆ—)ä¸å±æ€§(åˆ—)æ¯”è¾ƒ */
+		// SQLï¼šage=id
 		criteria = Restrictions.eqProperty("age", "id");
-		// SQL£ºage>id
+		// SQLï¼šage>id
 		criteria = Restrictions.gtProperty("age", "id");
-		// SQL£ºage>=id
+		// SQLï¼šage>=id
 		criteria = Restrictions.geProperty("age", "id");
-		// SQL£ºage<id
+		// SQLï¼šage<id
 		criteria = Restrictions.ltProperty("age", "id");
-		// SQL£ºage<=id
+		// SQLï¼šage<=id
 		criteria = Restrictions.leProperty("age", "id");
 		
-		/** ¹ØÏµ×éºÏ */
-		// AND¹ØÏµ×éºÏ£¬SQL£ºname='Tom' and age=19
+		/** å…³ç³»ç»„åˆ */
+		// ANDå…³ç³»ç»„åˆï¼ŒSQLï¼šname='Tom' and age=19
 		criteria = Restrictions.and(Restrictions.eq("name", "Tom"),
 				Restrictions.gt("age", 19));
-		// OR¹ØÏµ×éºÏ£¬SQL£ºname='Tom' or age=19
+		// ORå…³ç³»ç»„åˆï¼ŒSQLï¼šname='Tom' or age=19
 		criteria = Restrictions.or(Restrictions.eq("name", "Tom"),
 				Restrictions.gt("age", 19));
-		// Ìá¹©ÁË¶ÔÔ­ÉúSQLµÄÖ§³Ö£¬ÆäÖĞ¡°{alias}¡±½«ÓÉHibernateÔÚÔËĞĞÆÚÊ¹ÓÃµ±Ç°¹ØÁªµÄPOJO±ğÃûÌæ»»
+		// æä¾›äº†å¯¹åŸç”ŸSQLçš„æ”¯æŒï¼Œå…¶ä¸­â€œ{alias}â€å°†ç”±Hibernateåœ¨è¿è¡ŒæœŸä½¿ç”¨å½“å‰å…³è”çš„POJOåˆ«åæ›¿æ¢
 		criteria = Restrictions.sqlRestriction("{alias}.name like 'A%'");
 		criteria = Restrictions.sqlRestriction("{alias}.name like ?", "A%", StringType.INSTANCE);
 		
-		// Ê¹ÓÃCriteria¶ÔÏó½øĞĞ²éÑ¯
+		// ä½¿ç”¨Criteriaå¯¹è±¡è¿›è¡ŒæŸ¥è¯¢
 		Criteria totalCriteria = session.createCriteria(Person4.class);
 		totalCriteria.add(criteria);
 		List result = totalCriteria.list();

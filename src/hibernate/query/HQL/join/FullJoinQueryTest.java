@@ -8,19 +8,19 @@ import java.util.List;
 import org.hibernate.Query;
 
 /**
- * È«ÍâÁ¬½Ó(full join)²éÑ¯Ê¾Àı
+ * å…¨å¤–è¿æ¥(full join)æŸ¥è¯¢ç¤ºä¾‹
  * <p>
- * ×óÍâÁ¬½ÓºÍÓÒÍâÁ¬½ÓµÄ²¢¼¯£¬²»³£ÓÃ¡£
+ * å·¦å¤–è¿æ¥å’Œå³å¤–è¿æ¥çš„å¹¶é›†ï¼Œä¸å¸¸ç”¨ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ30ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ30æ—¥
  */
 public class FullJoinQueryTest extends AbstractJoinQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() throws Exception {
-		System.out.println("¡¾full join¡¿");
+		System.out.println("ã€full joinã€‘");
 		String hql = "from Employee employee full join employee.cards";
 
 		Query query = session.createQuery(hql);

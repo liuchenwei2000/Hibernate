@@ -4,13 +4,13 @@
 package hibernate.collection.bag;
 
 /**
- * PartÀà
+ * Partç±»
  * <p>
- * Ã¿¸öPart¶¼ÊôÓÚÒ»¸öProduct¡£
+ * æ¯ä¸ªPartéƒ½å±äºä¸€ä¸ªProductã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ18ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ18æ—¥
  */
 public class Part {
 

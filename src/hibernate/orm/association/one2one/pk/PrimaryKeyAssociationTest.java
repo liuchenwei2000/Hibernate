@@ -8,18 +8,18 @@ import hibernate.util.AbstractHibernateTestCase;
 import java.util.Date;
 
 /**
- * Ö÷¼ü¹ØÁªÊ¾Àı
+ * ä¸»é”®å…³è”ç¤ºä¾‹
  * <p>
- * Ò»¶ÔÒ»¹ØÁª°üÀ¨Á½ÖÖÀàĞÍ£º
+ * ä¸€å¯¹ä¸€å…³è”åŒ…æ‹¬ä¸¤ç§ç±»å‹ï¼š
  * 
- * 1£¬Ö÷¼ü¹ØÁª
- * Á½ÕÅ¹ØÁª±íÍ¨¹ıÖ÷¼üĞÎ³ÉÒ»¶ÔÒ»Ó³Éä¹ØÏµ¡£
- * ÓÉÓÚ²ÉÓÃÁËÖ÷¼ü¹ØÁª·½Ê½£¬ÄÇÃ´Í¨¹ıÖ÷¼ü¹ØÁªµÄÁ½ÕÅ±í£¬Æä¹ØÁª¼ÇÂ¼µÄÖ÷¼üÖµĞë±£³ÖÍ¬²½¡£
- * Õâ¾ÍÒâÎ¶×Å£¬Ö»ĞèÎªÒ»ÕÅ±íÉè¶¨Ö÷¼üÉú³ÉÆ÷£¬¶øÁíÒ»ÕÅ±íµÄÖ÷¼üÓëÖ®¹²ÏíÏàÍ¬µÄÖ÷¼üÖµ¡£
+ * 1ï¼Œä¸»é”®å…³è”
+ * ä¸¤å¼ å…³è”è¡¨é€šè¿‡ä¸»é”®å½¢æˆä¸€å¯¹ä¸€æ˜ å°„å…³ç³»ã€‚
+ * ç”±äºé‡‡ç”¨äº†ä¸»é”®å…³è”æ–¹å¼ï¼Œé‚£ä¹ˆé€šè¿‡ä¸»é”®å…³è”çš„ä¸¤å¼ è¡¨ï¼Œå…¶å…³è”è®°å½•çš„ä¸»é”®å€¼é¡»ä¿æŒåŒæ­¥ã€‚
+ * è¿™å°±æ„å‘³ç€ï¼Œåªéœ€ä¸ºä¸€å¼ è¡¨è®¾å®šä¸»é”®ç”Ÿæˆå™¨ï¼Œè€Œå¦ä¸€å¼ è¡¨çš„ä¸»é”®ä¸ä¹‹å…±äº«ç›¸åŒçš„ä¸»é”®å€¼ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class PrimaryKeyAssociationTest extends AbstractHibernateTestCase {
 
@@ -28,15 +28,15 @@ public class PrimaryKeyAssociationTest extends AbstractHibernateTestCase {
 		Citizen citizen = createCitizen();
 		citizen.setPassport(createPassport());
 
-		// ±£´æUserµÄÊ±ºò»áÍ¬Ê±±£´æPassport
+		// ä¿å­˜Userçš„æ—¶å€™ä¼šåŒæ—¶ä¿å­˜Passport
 		session.beginTransaction();
 		session.save(citizen);
 		session.getTransaction().commit();
 		
-		// ¸ù¾İCitizen¶ÔÏóÒ²ÄÜ»ñµÃ¹ØÁªµÄPassport¶ÔÏóĞÅÏ¢
+		// æ ¹æ®Citizenå¯¹è±¡ä¹Ÿèƒ½è·å¾—å…³è”çš„Passportå¯¹è±¡ä¿¡æ¯
 		Citizen c2 = (Citizen) session.load(Citizen.class, 1L);
-		System.out.println("Citizen name is ¡¾" + c2.getName() + "¡¿");
-		System.out.println("The serial number of Citizen's passport is ¡¾" + c2.getPassport().getSerial() + "¡¿");
+		System.out.println("Citizen name is ã€" + c2.getName() + "ã€‘");
+		System.out.println("The serial number of Citizen's passport is ã€" + c2.getPassport().getSerial() + "ã€‘");
 	}
 
 	private static Citizen createCitizen() {

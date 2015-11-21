@@ -13,15 +13,15 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.Transformers;
 
 /**
- * ÊôĞÔµÄÑÓ³Ù¼ÓÔØÊ¾Àı
+ * å±æ€§çš„å»¶è¿ŸåŠ è½½ç¤ºä¾‹
  * <p>
- * Èç¹û¶ÔÊµÌåµÄÄ³¸öÊôĞÔ£¨±ÈÈçCLOB/BLOBÕâÀà±È½Ï´óµÄÊôĞÔ£©Ó¦ÓÃÑÓ³Ù¼ÓÔØ²ßÂÔ£¬¿ÉÒÔ²ÉÓÃÁ½ÖÖ·½·¨£º
- * <li>1£¬ÔÚhbmÎÄ¼şÖĞ£¬½«Ïà¹ØµÄpropertyµÄlazyÊôĞÔÉèÎªtrue£¬È»ºóÊ¹ÓÃ×Ö½ÚÂë¹¤³Ì½«ÊµÌåÀà½øĞĞ±àÒë£¬Ö²ÈëĞèÒªµÄ×Ö½ÚÂë£¨Ö÷ÒªÊÇ´¦ÀíÊôĞÔÑÓ³Ù¼ÓÔØµÄ£©¡£
- * <li>2£¬ÉÏÃæµÄ·½Ê½±È½Ï·Ñ¾¢£¬HibernateÍÆ¼öÊ¹ÓÃCritertiaµÄProjectionÀ´ÊµÏÖÊôĞÔµÄÑÓ³Ù¼ÓÔØ¡£
+ * å¦‚æœå¯¹å®ä½“çš„æŸä¸ªå±æ€§ï¼ˆæ¯”å¦‚CLOB/BLOBè¿™ç±»æ¯”è¾ƒå¤§çš„å±æ€§ï¼‰åº”ç”¨å»¶è¿ŸåŠ è½½ç­–ç•¥ï¼Œå¯ä»¥é‡‡ç”¨ä¸¤ç§æ–¹æ³•ï¼š
+ * <li>1ï¼Œåœ¨hbmæ–‡ä»¶ä¸­ï¼Œå°†ç›¸å…³çš„propertyçš„lazyå±æ€§è®¾ä¸ºtrueï¼Œç„¶åä½¿ç”¨å­—èŠ‚ç å·¥ç¨‹å°†å®ä½“ç±»è¿›è¡Œç¼–è¯‘ï¼Œæ¤å…¥éœ€è¦çš„å­—èŠ‚ç ï¼ˆä¸»è¦æ˜¯å¤„ç†å±æ€§å»¶è¿ŸåŠ è½½çš„ï¼‰ã€‚
+ * <li>2ï¼Œä¸Šé¢çš„æ–¹å¼æ¯”è¾ƒè´¹åŠ²ï¼ŒHibernateæ¨èä½¿ç”¨Critertiaçš„Projectionæ¥å®ç°å±æ€§çš„å»¶è¿ŸåŠ è½½ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ17ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ17æ—¥
  */
 public class PropertyLazyLoadingTest extends AbstractHibernateTestCase {
 
@@ -31,17 +31,17 @@ public class PropertyLazyLoadingTest extends AbstractHibernateTestCase {
 		try {
 			newSession = sessionFactory.openSession();
 			/*
-			 * Í¨¹ıÖ¸¶¨²éÑ¯µÄÊôĞÔ´Ó¶ø¼ä½Ó´ïµ½ÑÓ³Ù¼ÓÔØÊôĞÔµÄĞ§¹û
+			 * é€šè¿‡æŒ‡å®šæŸ¥è¯¢çš„å±æ€§ä»è€Œé—´æ¥è¾¾åˆ°å»¶è¿ŸåŠ è½½å±æ€§çš„æ•ˆæœ
 			 */
 			List<?> result = newSession
 					.createCriteria(Computer.class)
 					.setProjection(
-							// ÕâÀïÉèÖÃĞèÒªÈ¡ÄÇĞ©ÊôĞÔºÍÕâĞ©ÊôĞÔµÄ±ğÃû
+							// è¿™é‡Œè®¾ç½®éœ€è¦å–é‚£äº›å±æ€§å’Œè¿™äº›å±æ€§çš„åˆ«å
 							Projections.projectionList()
 									.add(Projections.property("id"), "id")
 									.add(Projections.property("name"), "name"))
-					.add(Restrictions.eq("id", 1L))// ÕâÀïÊÇ²éÑ¯Ìõ¼ş
-					.setResultTransformer(// ÕâÀïÉèÖÃ½«±ğÃûÁĞÖµ×ª»»³ÉBeanµÄ×ª»»Æ÷
+					.add(Restrictions.eq("id", 1L))// è¿™é‡Œæ˜¯æŸ¥è¯¢æ¡ä»¶
+					.setResultTransformer(// è¿™é‡Œè®¾ç½®å°†åˆ«ååˆ—å€¼è½¬æ¢æˆBeançš„è½¬æ¢å™¨
 							Transformers.aliasToBean(Computer.class)).list();
 			System.out.println(result.get(0));
 		} catch (Exception e) {

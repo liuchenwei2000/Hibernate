@@ -11,46 +11,46 @@ import java.util.List;
 import org.hibernate.Query;
 
 /**
- * ÊôĞÔ²éÑ¯Ê¾Àı
+ * å±æ€§æŸ¥è¯¢ç¤ºä¾‹
  * <p>
- * ÓĞÊ±ºòÖ»ĞèÒª²éÑ¯ÊµÌå¶ÔÏóµÄÄ³¸öÊôĞÔ£¨¿â±í¼ÇÂ¼ÖĞµÄÄ³¸öÁĞĞÅÏ¢£©¡£
+ * æœ‰æ—¶å€™åªéœ€è¦æŸ¥è¯¢å®ä½“å¯¹è±¡çš„æŸä¸ªå±æ€§ï¼ˆåº“è¡¨è®°å½•ä¸­çš„æŸä¸ªåˆ—ä¿¡æ¯ï¼‰ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ29ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ29æ—¥
  */
 public class PropertyQueryTest extends AbstractQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() {
-		/** Ö»²éÑ¯ name ÊôĞÔ */
+		/** åªæŸ¥è¯¢ name å±æ€§ */
 		Query query = session.createQuery("select name from Person4");
 		List<String> result = query.list();
-		for (String name : result) {// Ã¿¸öÔªËØ¶¼ÊÇStringÀàĞÍ
+		for (String name : result) {// æ¯ä¸ªå…ƒç´ éƒ½æ˜¯Stringç±»å‹
 			System.out.println(name);
 		}
 
-		/** Ö»²éÑ¯ name,age ÊôĞÔ */
+		/** åªæŸ¥è¯¢ name,age å±æ€§ */
 		query = session.createQuery("select name,age from Person4");
 		List<Object> result2 = query.list();
 		for (Object data : result2) {
-			// Ã¿¸öÔªËØ¶¼ÊÇObject[]ÀàĞÍ
+			// æ¯ä¸ªå…ƒç´ éƒ½æ˜¯Object[]ç±»å‹
 			Object[] values = (Object[]) data;
 			System.out.println(values[0] + "-" + values[1]);
 		}
 
 		/**
-		 * Ö»²éÑ¯ name,age ÊôĞÔ 
-		 * ÉÏÃæµÄ·½Ê½²»¹»·ûºÏÃæÏò¶ÔÏóµÄ·ç¸ñ£¬¿ÉÒÔÍ¨¹ıÔÚHQLÖĞ¶¯Ì¬¹¹Ôì¶ÔÏóÊµÀıµÄ·½·¨¶ÔÕâĞ©Æ½Ãæ»¯µÄÊı¾İ½øĞĞ·â×°
+		 * åªæŸ¥è¯¢ name,age å±æ€§ 
+		 * ä¸Šé¢çš„æ–¹å¼ä¸å¤Ÿç¬¦åˆé¢å‘å¯¹è±¡çš„é£æ ¼ï¼Œå¯ä»¥é€šè¿‡åœ¨HQLä¸­åŠ¨æ€æ„é€ å¯¹è±¡å®ä¾‹çš„æ–¹æ³•å¯¹è¿™äº›å¹³é¢åŒ–çš„æ•°æ®è¿›è¡Œå°è£…
 		 */
 		query = session.createQuery("select new Person4(name,age) from Person4");
 		List<Person4> result3 = query.list();
 		for (Person4 person : result3) {
-			// ÒòÎªÖ»²éÑ¯ÁË name¡¢age ÊôĞÔ£¬ËùÒÔid ÊôĞÔÊÇÃ»ÓĞÖµµÄ
+			// å› ä¸ºåªæŸ¥è¯¢äº† nameã€age å±æ€§ï¼Œæ‰€ä»¥id å±æ€§æ˜¯æ²¡æœ‰å€¼çš„
 			System.out.println(person.getName() + "-" + person.getAge() + "-" + person.getId());
 		}
 
-		/** Ò²¿ÉÒÔÊ¹ÓÃÍ³¼Æº¯ÊıºÍÆäËûsqlÌØĞÔ */
+		/** ä¹Ÿå¯ä»¥ä½¿ç”¨ç»Ÿè®¡å‡½æ•°å’Œå…¶ä»–sqlç‰¹æ€§ */
 		query = session.createQuery("select count(*) from Person4");
 		List<Integer> result4 = query.list();
 		System.out.println(result4.get(0));

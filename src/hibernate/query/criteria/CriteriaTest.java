@@ -12,13 +12,13 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
 /**
- * CriteriaÊ¾Àı
+ * Criteriaç¤ºä¾‹
  * <p>
- * Criteria²éÑ¯Í¨¹ıÃæÏò¶ÔÏóµÄÉè¼Æ£¬½«Êı¾İ²éÑ¯Ìõ¼ş·â×°ÎªÒ»¸ö¶ÔÏó£¬¿ÉÒÔ¿´×ö´«Í³SQLµÄ¶ÔÏó»¯±íÊ¾¡£
+ * CriteriaæŸ¥è¯¢é€šè¿‡é¢å‘å¯¹è±¡çš„è®¾è®¡ï¼Œå°†æ•°æ®æŸ¥è¯¢æ¡ä»¶å°è£…ä¸ºä¸€ä¸ªå¯¹è±¡ï¼Œå¯ä»¥çœ‹åšä¼ ç»ŸSQLçš„å¯¹è±¡åŒ–è¡¨ç¤ºã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ28ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ28æ—¥
  */
 public class CriteriaTest extends AbstractQueryTestCase {
 
@@ -26,16 +26,16 @@ public class CriteriaTest extends AbstractQueryTestCase {
 	protected void doTest() {
 		Criteria criteria = session.createCriteria(Person4.class);
 		/*
-		 * Criteria±¾ÉíÖ»ÊÇÒ»¸ö²éÑ¯ÈİÆ÷£¬¾ßÌåµÄ²éÑ¯Ìõ¼şÒªÍ¨¹ıcriteria.add·½·¨Ìí¼Óµ½CriteriaÊµÀıÖĞ¡£
-		 * HibernateÔÚÔËĞĞÆÚ»á¸ù¾İCriteriaÖĞÖ¸¶¨µÄ²éÑ¯Ìõ¼ş£¨¼´Í¨¹ıcriteria.add·½·¨Ìí¼ÓµÄ²éÑ¯±í´ïÊ½£©Éú³ÉÏàÓ¦µÄSQLÓï¾ä¡£
-		 * ÕâÖÖ·½Ê½±È½Ï·ûºÏJava³ÌĞòÔ±µÄ±àÂëÏ°¹ß£¬²¢ÇÒ¾ß±¸ÇåÎúµÄ¿É¶ÁĞÔ¡£
+		 * Criteriaæœ¬èº«åªæ˜¯ä¸€ä¸ªæŸ¥è¯¢å®¹å™¨ï¼Œå…·ä½“çš„æŸ¥è¯¢æ¡ä»¶è¦é€šè¿‡criteria.addæ–¹æ³•æ·»åŠ åˆ°Criteriaå®ä¾‹ä¸­ã€‚
+		 * Hibernateåœ¨è¿è¡ŒæœŸä¼šæ ¹æ®Criteriaä¸­æŒ‡å®šçš„æŸ¥è¯¢æ¡ä»¶ï¼ˆå³é€šè¿‡criteria.addæ–¹æ³•æ·»åŠ çš„æŸ¥è¯¢è¡¨è¾¾å¼ï¼‰ç”Ÿæˆç›¸åº”çš„SQLè¯­å¥ã€‚
+		 * è¿™ç§æ–¹å¼æ¯”è¾ƒç¬¦åˆJavaç¨‹åºå‘˜çš„ç¼–ç ä¹ æƒ¯ï¼Œå¹¶ä¸”å…·å¤‡æ¸…æ™°çš„å¯è¯»æ€§ã€‚
 		 * 
-		 * ¶ÔÓ¦µÄSQLÓï¾ä£º select * from tb_person4 where name='Jimmy' and age=18
+		 * å¯¹åº”çš„SQLè¯­å¥ï¼š select * from tb_person4 where name='Jimmy' and age=18
 		 */
 		criteria.add(Restrictions.eq("name", "Jimmy")).add(
 				Restrictions.eq("age", 18));
 
-		// criteria.list() ¸ù¾İÌõ¼şÖ´ĞĞ²éÑ¯
+		// criteria.list() æ ¹æ®æ¡ä»¶æ‰§è¡ŒæŸ¥è¯¢
 		List<Person4> result = criteria.list();
 		for (Person4 person : result) {
 			System.out.println(person);

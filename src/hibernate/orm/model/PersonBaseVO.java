@@ -7,17 +7,17 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Blob¡¢ClobµÈÖØÁ¿¼¶×Ö¶ÎÀàÐÍ£¬Êý¾Ý¿â¶ÁÈ¡²Ù×÷´ú¼Û½Ï¸ß¡£
- * ¶ÔÓÚÐèÒª´¦ÀíresumeµÄÓ¦ÓÃÂß¼­¶øÑÔ£¬ÕâÑùµÄ´ú¼ÛÎÞ·¨±ÜÃâ£¬
- * ¶ø¶ÔÓÚÄÇÐ©ÎÞÐèresumeÐÅÏ¢µÄ²Ù×÷¶øÑÔ£¬Èç´ËÐÔÄÜËðºÄÊµÊô²»±ØÒª¡£
+ * Blobã€Clobç­‰é‡é‡çº§å­—æ®µç±»åž‹ï¼Œæ•°æ®åº“è¯»å–æ“ä½œä»£ä»·è¾ƒé«˜ã€‚
+ * å¯¹äºŽéœ€è¦å¤„ç†resumeçš„åº”ç”¨é€»è¾‘è€Œè¨€ï¼Œè¿™æ ·çš„ä»£ä»·æ— æ³•é¿å…ï¼Œ
+ * è€Œå¯¹äºŽé‚£äº›æ— éœ€resumeä¿¡æ¯çš„æ“ä½œè€Œè¨€ï¼Œå¦‚æ­¤æ€§èƒ½æŸè€—å®žå±žä¸å¿…è¦ã€‚
  * 
- * ¶ÔÏóÔÚ¼Ì³Ð²ã´ÎÉÏµÄÁ£¶È»®·Ö¿ÉÒÔ½â¾öÕâ¸öÎÊÌâ£º
- * ½«Ô­±¾µÄPersonVO¶ÔÏó²ð·Ö³É°üº¬»ù±¾ÐÅÏ¢µÄPersonBaseVOºÍ°üº¬resumeÐÅÏ¢µÄPersonResumeVO¡£
- * ÕâÑùÒ»À´£¬ÐèÒª´¦ÀíresumeµÄÓ¦ÓÃÍ¨¹ýPersonResumeVO¼ÓÔØÊý¾Ý£¬ÆäËûÓ¦ÓÃÍ¨¹ýPersonBaseVO¼ÓÔØÊý¾Ý¡£
+ * å¯¹è±¡åœ¨ç»§æ‰¿å±‚æ¬¡ä¸Šçš„ç²’åº¦åˆ’åˆ†å¯ä»¥è§£å†³è¿™ä¸ªé—®é¢˜ï¼š
+ * å°†åŽŸæœ¬çš„PersonVOå¯¹è±¡æ‹†åˆ†æˆåŒ…å«åŸºæœ¬ä¿¡æ¯çš„PersonBaseVOå’ŒåŒ…å«resumeä¿¡æ¯çš„PersonResumeVOã€‚
+ * è¿™æ ·ä¸€æ¥ï¼Œéœ€è¦å¤„ç†resumeçš„åº”ç”¨é€šè¿‡PersonResumeVOåŠ è½½æ•°æ®ï¼Œå…¶ä»–åº”ç”¨é€šè¿‡PersonBaseVOåŠ è½½æ•°æ®ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ24ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ24æ—¥
  */
 public class PersonBaseVO implements Serializable {
 

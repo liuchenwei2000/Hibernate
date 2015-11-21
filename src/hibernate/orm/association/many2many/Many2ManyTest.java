@@ -6,11 +6,11 @@ package hibernate.orm.association.many2many;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * many-to-many ¹ØÁªÊ¾Àı
+ * many-to-many å…³è”ç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class Many2ManyTest extends AbstractHibernateTestCase {
 
@@ -34,7 +34,7 @@ public class Many2ManyTest extends AbstractHibernateTestCase {
 		role2.getGroups().add(group1);
 		role2.getGroups().add(group2);
 
-		// ÓÉÓÚ¹ØÁª¹ØÏµÊ±Á½ÕÅ±íÏà»¥×÷ÓÃ£¬Òò´ËÔÚ±£´æ¹ØÁª×´Ì¬Ê±±ØĞë¶ÔË«·½Í¬Ê±±£´æ
+		// ç”±äºå…³è”å…³ç³»æ—¶ä¸¤å¼ è¡¨ç›¸äº’ä½œç”¨ï¼Œå› æ­¤åœ¨ä¿å­˜å…³è”çŠ¶æ€æ—¶å¿…é¡»å¯¹åŒæ–¹åŒæ—¶ä¿å­˜
 		session.beginTransaction();
 		session.save(group1);
 		session.save(group2);

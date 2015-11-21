@@ -4,13 +4,13 @@
 package hibernate.orm.association.one2one.fk2;
 
 /**
- * AddressÀà
+ * Addressç±»
  * <p>
- * Ã¿¸öµØÖ·¶¼´ÓÊôÓÚÒ»¸ö¿Í»§¡£
+ * æ¯ä¸ªåœ°å€éƒ½ä»å±äºä¸€ä¸ªå®¢æˆ·ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class Address {
 
@@ -22,7 +22,7 @@ public class Address {
 	private String phone2;
 	private String phone3;
 
-	// ÕâÀï´æÓĞ¹ØÁªµÄCustomerÊôĞÔ
+	// è¿™é‡Œå­˜æœ‰å…³è”çš„Customerå±æ€§
 	private Customer customer;
 
 	public Address() {

@@ -9,14 +9,14 @@ import hibernate.dataloading.Car;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * ÊµÌå¶ÔÏóµÄÑÓ³Ù¼ÓÔØÊ¾Àı
+ * å®ä½“å¯¹è±¡çš„å»¶è¿ŸåŠ è½½ç¤ºä¾‹
  * <p>
- * ÔÚHibernate4ÖĞ£¬ÑÓ³Ù¼ÓÔØÊÇÄ¬ÈÏÆôÓÃµÄ¡£
- * ±¾ÀıÓÃµ½µÄCarÊµÌå¾ÍÊÇÄ¬ÈÏÑÓ³Ù¼ÓÔØµÄ£¬¶øComputerÊµÌå²»ÊÇÑÓ³Ù¼ÓÔØ£¬Ïê¼û¶ÔÓ¦µÄhbmÎÄ¼ş¡£
+ * åœ¨Hibernate4ä¸­ï¼Œå»¶è¿ŸåŠ è½½æ˜¯é»˜è®¤å¯ç”¨çš„ã€‚
+ * æœ¬ä¾‹ç”¨åˆ°çš„Carå®ä½“å°±æ˜¯é»˜è®¤å»¶è¿ŸåŠ è½½çš„ï¼Œè€ŒComputerå®ä½“ä¸æ˜¯å»¶è¿ŸåŠ è½½ï¼Œè¯¦è§å¯¹åº”çš„hbmæ–‡ä»¶ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ17ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ17æ—¥
  */
 public class EntityLazyLoadingTest extends AbstractHibernateTestCase {
 
@@ -26,25 +26,25 @@ public class EntityLazyLoadingTest extends AbstractHibernateTestCase {
 		try {
 			newSession = sessionFactory.openSession();
 			/*
-			 * ¼ÓÔØCar¶ÔÏóµÄÊä³öÈçÏÂ£º
+			 * åŠ è½½Carå¯¹è±¡çš„è¾“å‡ºå¦‚ä¸‹ï¼š
 			 * Car class name is : hibernate.dataloading.Car_$$_jvst494_0
 			 * Hibernate: select car0_.pk_car as pk_car1_0_0_, car0_.name as name2_0_0_ from tb_cars car0_ where car0_.pk_car=?
 			 * Car [name=BMW]
 			 * 
-			 * hibernate.dataloading.Car_$$_jvst494_0ÊÇÒ»¸ö´úÀí¶ÔÏó£¬¶¯Ì¬´úÀí»úÖÆ¡£
-			 * ËüÍ¨¹ıÒ»¸öÖĞ¼ä´úÀí£¬ÊµÏÖÁËÊı¾İÑÓ³Ù¼ÓÔØ¹¦ÄÜ£¬Ö»ÓĞµ±ÕæÕıµ÷ÓÃÊµÌåÀàµÄÈ¡Öµ·½·¨Ê±£¬Hibernate²Å»áÖ´ĞĞÊı¾İ¿â²éÑ¯²Ù×÷¡£
+			 * hibernate.dataloading.Car_$$_jvst494_0æ˜¯ä¸€ä¸ªä»£ç†å¯¹è±¡ï¼ŒåŠ¨æ€ä»£ç†æœºåˆ¶ã€‚
+			 * å®ƒé€šè¿‡ä¸€ä¸ªä¸­é—´ä»£ç†ï¼Œå®ç°äº†æ•°æ®å»¶è¿ŸåŠ è½½åŠŸèƒ½ï¼Œåªæœ‰å½“çœŸæ­£è°ƒç”¨å®ä½“ç±»çš„å–å€¼æ–¹æ³•æ—¶ï¼ŒHibernateæ‰ä¼šæ‰§è¡Œæ•°æ®åº“æŸ¥è¯¢æ“ä½œã€‚
 			 */
 			Car car = (Car) newSession.load(Car.class, 1L);
 			System.out.println("Car class name is : " + car.getClass().getName());
 			System.out.println(car);
 			
 			/*
-			 * ¼ÓÔØComputer¶ÔÏóµÄÊä³öÈçÏÂ£º
+			 * åŠ è½½Computerå¯¹è±¡çš„è¾“å‡ºå¦‚ä¸‹ï¼š
 			 * Hibernate: select computer0_.pk_computer as pk_compu1_1_0_, computer0_.name as name2_1_0_ from tb_computers computer0_ where computer0_.pk_computer=?
 			 * Computer class name is : hibernate.dataloading.lazy.Computer
 			 * Computer [name=Lenovo]
 			 * 
-			 * ¿É¼ûÊÇÏÈ·¢ÆğµÄSQL²éÑ¯£¬¶ø²»¹ÜÊµÌå¶ÔÏóÓĞÃ»ÓĞ±»Ê¹ÓÃ£¬·µ»ØµÄÊµÌå¶ÔÏóÊÇÕæÕıµÄhibernate.dataloading.lazy.Computer
+			 * å¯è§æ˜¯å…ˆå‘èµ·çš„SQLæŸ¥è¯¢ï¼Œè€Œä¸ç®¡å®ä½“å¯¹è±¡æœ‰æ²¡æœ‰è¢«ä½¿ç”¨ï¼Œè¿”å›çš„å®ä½“å¯¹è±¡æ˜¯çœŸæ­£çš„hibernate.dataloading.lazy.Computer
 			 */
 			Computer computer = (Computer) newSession.load(Computer.class, 1L);
 			System.out.println("Computer class name is : " + computer.getClass().getName());

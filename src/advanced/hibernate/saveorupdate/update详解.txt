@@ -1,9 +1,9 @@
 
-session.update·½·¨°üº¬ÁËÒÔÏÂ¼¸¸öÖ÷Òª²½Öè£º
+session.updateæ–¹æ³•åŒ…å«äº†ä»¥ä¸‹å‡ ä¸ªä¸»è¦æ­¥éª¤ï¼š
 
-1£¬¸ù¾Ý´ý¸üÐÂÊµÌåµÄid£¬ÔÚµ±Ç°sessionµÄÄÚ²¿»º´æÖÐ²éÕÒ£¬Èç¹ûÃüÖÐÔòÈÏÎªµ±Ç°ÊµÌå¶ÔÏó´¦ÓÚPersistent×´Ì¬£¬Ö±½Ó·Å»Ø¡£
-£¨Ò²¾ÍÊÇËµ£¬¶ÔÓÚÒ»¸öPersistent×´Ì¬µÄÊµÌå¶ÔÏóµ÷ÓÃupdateÓï¾ä²¢²»»á²úÉúÈÎºÎ×÷ÓÃ£©
+1ï¼Œæ ¹æ®å¾…æ›´æ–°å®žä½“çš„idï¼Œåœ¨å½“å‰sessionçš„å†…éƒ¨ç¼“å­˜ä¸­æŸ¥æ‰¾ï¼Œå¦‚æžœå‘½ä¸­åˆ™è®¤ä¸ºå½“å‰å®žä½“å¯¹è±¡å¤„äºŽPersistentçŠ¶æ€ï¼Œç›´æŽ¥æ”¾å›žã€‚
+ï¼ˆä¹Ÿå°±æ˜¯è¯´ï¼Œå¯¹äºŽä¸€ä¸ªPersistentçŠ¶æ€çš„å®žä½“å¯¹è±¡è°ƒç”¨updateè¯­å¥å¹¶ä¸ä¼šäº§ç”Ÿä»»ä½•ä½œç”¨ï¼‰
 
-2£¬³õÊ¼»¯´ý¸üÐÂÊµÌå¶ÔÏóµÄ×´Ì¬ÐÅÏ¢£¨×÷ÎªÖ®ºóÔàÊý¾Ý¼ì²éµÄÒÀ¾Ý£©£¬²¢½«ÆäÄÉÈëÄÚ²¿»º´æ¡£
-£¨×¢ÒâÕâÀïsession.update·½·¨±¾Éí²¢Ã»ÓÐ·¢ËÍupdate SQLÍê³ÉÊý¾Ý¸üÐÂ²Ù×÷£¬update SQL½«ÔÚÖ®ºóµÄsession.flush·½·¨ÖÐÖ´ÐÐ£¬
-Transaction.commitÔÚÕæÕýÌá½»Êý¾Ý¿âÊÂÎñÖ®Ç°»áµ÷ÓÃsession.flush£©¡£
+2ï¼Œåˆå§‹åŒ–å¾…æ›´æ–°å®žä½“å¯¹è±¡çš„çŠ¶æ€ä¿¡æ¯ï¼ˆä½œä¸ºä¹‹åŽè„æ•°æ®æ£€æŸ¥çš„ä¾æ®ï¼‰ï¼Œå¹¶å°†å…¶çº³å…¥å†…éƒ¨ç¼“å­˜ã€‚
+ï¼ˆæ³¨æ„è¿™é‡Œsession.updateæ–¹æ³•æœ¬èº«å¹¶æ²¡æœ‰å‘é€update SQLå®Œæˆæ•°æ®æ›´æ–°æ“ä½œï¼Œupdate SQLå°†åœ¨ä¹‹åŽçš„session.flushæ–¹æ³•ä¸­æ‰§è¡Œï¼Œ
+Transaction.commitåœ¨çœŸæ­£æäº¤æ•°æ®åº“äº‹åŠ¡ä¹‹å‰ä¼šè°ƒç”¨session.flushï¼‰ã€‚

@@ -8,11 +8,11 @@ import hibernate.util.AbstractHibernateTestCase;
 import java.util.Date;
 
 /**
- * composite-idÊ¹ÓÃÊ¾Àı
+ * composite-idä½¿ç”¨ç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ24ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ24æ—¥
  */
 public class CompositeIDTest extends AbstractHibernateTestCase {
 

@@ -8,11 +8,11 @@ import java.util.List;
 import org.hibernate.Query;
 
 /**
- * µ÷ÓÃ´æ´¢¹ı³ÌÊ¾Àı
+ * è°ƒç”¨å­˜å‚¨è¿‡ç¨‹ç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public class StoredProcedureQueryTest extends AbstractSQLQueryTestCase {
 
@@ -23,7 +23,7 @@ public class StoredProcedureQueryTest extends AbstractSQLQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	private void callByNativeSQL() {
-		System.out.println("¡¾callByNativeSQL¡¿");
+		System.out.println("ã€callByNativeSQLã€‘");
 		Query query = session.createSQLQuery("call getDogByName(:name)").addEntity(Dog.class);
 		query.setParameter("name", "Bobby");
 		
@@ -35,7 +35,7 @@ public class StoredProcedureQueryTest extends AbstractSQLQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	private void callByNamedSQL() {
-		System.out.println("¡¾callByNamedSQL¡¿");
+		System.out.println("ã€callByNamedSQLã€‘");
 		Query query = session.getNamedQuery("getDogByName");
 		query.setParameter("name", "Bobby");
 		

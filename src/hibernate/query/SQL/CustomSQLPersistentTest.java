@@ -6,14 +6,14 @@ package hibernate.query.SQL;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * ×Ô¶¨ÒåSQL³Ö¾Ã»¯Ê¾Àı
+ * è‡ªå®šä¹‰SQLæŒä¹…åŒ–ç¤ºä¾‹
  * <p>
- * ¿ÉÒÔ¶ÔÊµÌåµÄinsert¡¢update¡¢delete²Ù×÷½øĞĞ¶¨Òå£¬¶øÎŞĞèÍêÈ«ÒÀÀµHibernateÌá¹©µÄ×Ô¶¯»¯²Ù×÷½Ó¿Ú¡£
- * ÅäÖÃÎÄ¼şÀïµÄÉèÖÃÏê¼û Dog.hbm.xml¡£
+ * å¯ä»¥å¯¹å®ä½“çš„insertã€updateã€deleteæ“ä½œè¿›è¡Œå®šä¹‰ï¼Œè€Œæ— éœ€å®Œå…¨ä¾èµ–Hibernateæä¾›çš„è‡ªåŠ¨åŒ–æ“ä½œæ¥å£ã€‚
+ * é…ç½®æ–‡ä»¶é‡Œçš„è®¾ç½®è¯¦è§ Dog.hbm.xmlã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public class CustomSQLPersistentTest extends AbstractHibernateTestCase {
 
@@ -24,7 +24,7 @@ public class CustomSQLPersistentTest extends AbstractHibernateTestCase {
 	}
 	
 	private void insert() {
-		System.out.println("¡¾Custom Insert¡¿");
+		System.out.println("ã€Custom Insertã€‘");
 		session.beginTransaction();
 		session.save(new Dog("Lulu", 4));
 		session.save(new Dog("Kaf", 2, 1L));
@@ -32,7 +32,7 @@ public class CustomSQLPersistentTest extends AbstractHibernateTestCase {
 	}
 	
 	private void update() {
-		System.out.println("¡¾Custom Update¡¿");
+		System.out.println("ã€Custom Updateã€‘");
 		session.beginTransaction();
 		Dog dog = (Dog) session.load(Dog.class, 2L);
 		dog.setName("new name");
@@ -41,7 +41,7 @@ public class CustomSQLPersistentTest extends AbstractHibernateTestCase {
 	}
 	
 	private void delete() {
-		System.out.println("¡¾Custom Delete¡¿");
+		System.out.println("ã€Custom Deleteã€‘");
 		session.beginTransaction();
 		Dog dog = (Dog) session.get(Dog.class, 1L);
 		session.delete(dog);

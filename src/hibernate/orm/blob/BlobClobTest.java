@@ -15,14 +15,14 @@ import java.util.Date;
 import org.hibernate.LobHelper;
 
 /**
- * Blob¡¢Clob×Ö¶ÎÊ¹ÓÃÊ¾Àı
+ * Blobã€Clobå­—æ®µä½¿ç”¨ç¤ºä¾‹
  * <p>
- * HibernateÌá¹©ÁË¶ÔBlob(Binary Large Object)¡¢Clob(Character Large Object)ÀàĞÍµÄÄÚÖÃÖ§³Ö£¬
- * ÒÔ´¦ÀíĞèÒªÔÚ¿â±íÖĞ±£´æ´óĞÍ×Ö·û´®»òÕß¶ş½øÖÆÊı¾İ£¨Í¼Æ¬£©µÄ³¡¾°¡£
+ * Hibernateæä¾›äº†å¯¹Blob(Binary Large Object)ã€Clob(Character Large Object)ç±»å‹çš„å†…ç½®æ”¯æŒï¼Œ
+ * ä»¥å¤„ç†éœ€è¦åœ¨åº“è¡¨ä¸­ä¿å­˜å¤§å‹å­—ç¬¦ä¸²æˆ–è€…äºŒè¿›åˆ¶æ•°æ®ï¼ˆå›¾ç‰‡ï¼‰çš„åœºæ™¯ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ24ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ24æ—¥
  */
 public class BlobClobTest extends AbstractHibernateTestCase {
 
@@ -30,7 +30,7 @@ public class BlobClobTest extends AbstractHibernateTestCase {
 	protected void doTest() throws Exception {
 		PersonVO3 vo = createPersonVO4();
 
-		// Í¨¹ıLobHelper´´½¨Blob¡¢Clob¶ÔÏó
+		// é€šè¿‡LobHelperåˆ›å»ºBlobã€Clobå¯¹è±¡
 		LobHelper lobHelper = session.getLobHelper();
 
 		Blob image = lobHelper.createBlob(new FileInputStream(
@@ -40,17 +40,17 @@ public class BlobClobTest extends AbstractHibernateTestCase {
 		Clob resume = lobHelper.createClob("This is a big string.");
 		vo.setResume(resume);
 
-		/** ½«º¬ÓĞBlob¡¢Clob×Ö¶ÎµÄVOĞ´ÈëÊı¾İ¿â */
+		/** å°†å«æœ‰Blobã€Clobå­—æ®µçš„VOå†™å…¥æ•°æ®åº“ */
 		session.beginTransaction();
 		session.save(vo);
 		session.getTransaction().commit();
 		session.close();
 
-		/** ´ÓÊı¾İ¿âÖĞ¶ÁÈ¡º¬ÓĞBlob¡¢Clob×Ö¶ÎµÄVO */
-		// ĞèÒªÖØĞÂ´ò¿ªÒ»¸ösession£¬·ñÔò»ñÈ¡Blob¶ş½øÖÆÁ÷µÄÊ±ºò»á³ö´í
+		/** ä»æ•°æ®åº“ä¸­è¯»å–å«æœ‰Blobã€Clobå­—æ®µçš„VO */
+		// éœ€è¦é‡æ–°æ‰“å¼€ä¸€ä¸ªsessionï¼Œå¦åˆ™è·å–BlobäºŒè¿›åˆ¶æµçš„æ—¶å€™ä¼šå‡ºé”™
 		session = sessionFactory.openSession();
 		vo = (PersonVO3) session.load(PersonVO3.class, 1L);
-		// »ñÈ¡Blob×Ö¶Î
+		// è·å–Blobå­—æ®µ
 		Blob image2 = vo.getImage();
 		InputStream binaryStream = image2.getBinaryStream();
 		FileOutputStream fos = new FileOutputStream(
@@ -63,10 +63,10 @@ public class BlobClobTest extends AbstractHibernateTestCase {
 		fos.close();
 		binaryStream.close();
 
-		// »ñÈ¡Clob×Ö¶ÎµÄ×Ö·û´®ĞÎÊ½
+		// è·å–Clobå­—æ®µçš„å­—ç¬¦ä¸²å½¢å¼
 		Clob resume2 = vo.getResume();
 		String resumeString = resume2.getSubString(1L, (int) resume2.length());
-		System.out.println("¡¾resume¡¿" + resumeString);
+		System.out.println("ã€resumeã€‘" + resumeString);
 	}
 
 	private static PersonVO3 createPersonVO4(){

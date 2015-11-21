@@ -7,20 +7,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * ProductÀà
+ * Productç±»
  * <p>
- * Ã¿¸öProduct¶¼ÓĞÒ»¸ö»ò¶à¸öPart¡£
+ * æ¯ä¸ªProductéƒ½æœ‰ä¸€ä¸ªæˆ–å¤šä¸ªPartã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ18ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ18æ—¥
  */
 public class Product {
 
 	private Long id;
 	private String name;
 	
-	// Ê¹ÓÃÒ»¸öMapÀ´´æ·Å
+	// ä½¿ç”¨ä¸€ä¸ªMapæ¥å­˜æ”¾
 	private Map<String, Part> parts;
 	
 	public Product() {

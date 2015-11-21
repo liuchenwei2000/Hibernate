@@ -15,13 +15,13 @@ import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 
 /**
- * ProjectionsÊ¾Àı
+ * Projectionsç¤ºä¾‹
  * <p>
- * Criteria¸ß¼¶ÌØĞÔ£ºÅÅĞò¡¢·Ö×é¡¢Í³¼ÆµÈµÈ¡£
+ * Criteriaé«˜çº§ç‰¹æ€§ï¼šæ’åºã€åˆ†ç»„ã€ç»Ÿè®¡ç­‰ç­‰ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ28ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ28æ—¥
  */
 public class ProjectionsTest extends AbstractQueryTestCase {
 
@@ -32,14 +32,14 @@ public class ProjectionsTest extends AbstractQueryTestCase {
 	}
 	
 	/**
-	 * ¶Ô²éÑ¯µÄ½á¹û¼¯½øĞĞÅÅĞò
+	 * å¯¹æŸ¥è¯¢çš„ç»“æœé›†è¿›è¡Œæ’åº
 	 */
 	@SuppressWarnings("unchecked")
 	private static void testOrder(Session session) {
-		System.out.println("¡¾order¡¿");
+		System.out.println("ã€orderã€‘");
 		Criteria criteria = session.createCriteria(Person4.class);
-		criteria.addOrder(Order.desc("age"));// °´ageµ¹ĞòÅÅÁĞ
-		criteria.addOrder(Order.asc("name"));// °´nameÉıĞòÅÅÁĞ
+		criteria.addOrder(Order.desc("age"));// æŒ‰ageå€’åºæ’åˆ—
+		criteria.addOrder(Order.asc("name"));// æŒ‰nameå‡åºæ’åˆ—
 		
 		List<Person4> result = criteria.list();
 		for (Person4 person : result) {
@@ -48,15 +48,15 @@ public class ProjectionsTest extends AbstractQueryTestCase {
 	}
 	
 	/**
-	 * ¶Ô²éÑ¯µÄ½á¹û¼¯½øĞĞ·Ö×é
+	 * å¯¹æŸ¥è¯¢çš„ç»“æœé›†è¿›è¡Œåˆ†ç»„
 	 */
 	@SuppressWarnings("unchecked")
 	private static void testGroup(Session session) {
-		System.out.println("¡¾group¡¿");
+		System.out.println("ã€groupã€‘");
 		Criteria criteria = session.createCriteria(Person4.class);
-		// °´age½øĞĞ·Ö×é
+		// æŒ‰ageè¿›è¡Œåˆ†ç»„
 		criteria.setProjection(Projections.groupProperty("age"));
-		// SQL£ºselect this_.age as y0_ from tb_person4 this_ group by this_.age
+		// SQLï¼šselect this_.age as y0_ from tb_person4 this_ group by this_.age
 		List<Integer> result = criteria.list();
 		for (Integer age : result) {
 			System.out.println(age);
@@ -64,47 +64,47 @@ public class ProjectionsTest extends AbstractQueryTestCase {
 	}
 	
 	/**
-	 * ¶Ô²éÑ¯µÄ½á¹û¼¯½øĞĞÍ³¼Æ
+	 * å¯¹æŸ¥è¯¢çš„ç»“æœé›†è¿›è¡Œç»Ÿè®¡
 	 */
 	@SuppressWarnings("unchecked")
 	private static void testStatistics(Session session) {
-		System.out.println("¡¾statistics¡¿");
+		System.out.println("ã€statisticsã€‘");
 		
 		Criteria criteria = session.createCriteria(Person4.class);
-		criteria.setProjection(Projections.rowCount());// Í³¼ÆĞĞÊı
-		// SQL£ºselect count(*) as y0_ from tb_person4 this_
+		criteria.setProjection(Projections.rowCount());// ç»Ÿè®¡è¡Œæ•°
+		// SQLï¼šselect count(*) as y0_ from tb_person4 this_
 		System.out.println("row count:" + criteria.list().get(0));
 		
 		criteria = session.createCriteria(Person4.class);
-		criteria.setProjection(Projections.avg("age"));// Í³¼ÆÆ½¾ùÊı
-		// SQL£ºselect avg(this_.age) as y0_ from tb_person4 this_
+		criteria.setProjection(Projections.avg("age"));// ç»Ÿè®¡å¹³å‡æ•°
+		// SQLï¼šselect avg(this_.age) as y0_ from tb_person4 this_
 		System.out.println("avg(age):" + criteria.list().get(0));
 		
 		criteria = session.createCriteria(Person4.class);
-		criteria.setProjection(Projections.max("age"));// Í³¼Æ×î´óÖµ
-		// SQL£ºselect max(this_.age) as y0_ from tb_person4 this_
+		criteria.setProjection(Projections.max("age"));// ç»Ÿè®¡æœ€å¤§å€¼
+		// SQLï¼šselect max(this_.age) as y0_ from tb_person4 this_
 		System.out.println("max(age):" + criteria.list().get(0));
 		
 		criteria = session.createCriteria(Person4.class);
-		criteria.setProjection(Projections.min("age"));// Í³¼Æ×îĞ¡Öµ
-		// SQL£ºselect min(this_.age) as y0_ from tb_person4 this_
+		criteria.setProjection(Projections.min("age"));// ç»Ÿè®¡æœ€å°å€¼
+		// SQLï¼šselect min(this_.age) as y0_ from tb_person4 this_
 		System.out.println("min(age):" + criteria.list().get(0));
 		
 		criteria = session.createCriteria(Person4.class);
-		criteria.setProjection(Projections.countDistinct("age"));// Í³¼ÆdistinctÖµ
-		// SQL£ºselect count(distinct this_.age) as y0_ from tb_person4 this_
+		criteria.setProjection(Projections.countDistinct("age"));// ç»Ÿè®¡distinctå€¼
+		// SQLï¼šselect count(distinct this_.age) as y0_ from tb_person4 this_
 		System.out.println("countDistinct(age):" + criteria.list().get(0));
 		
-		// ¶ÔÓÚ¶àÌõ¼ş×éºÏµÄÍ³¼Æ¡¢·Ö×é¹¦ÄÜ£¬¿ÉÒÔÊ¹ÓÃProjectionListÍê³É
-		// Í³¼Æ¸÷¸öÄêÁä¶ÎµÄÈËÊı
+		// å¯¹äºå¤šæ¡ä»¶ç»„åˆçš„ç»Ÿè®¡ã€åˆ†ç»„åŠŸèƒ½ï¼Œå¯ä»¥ä½¿ç”¨ProjectionListå®Œæˆ
+		// ç»Ÿè®¡å„ä¸ªå¹´é¾„æ®µçš„äººæ•°
 		ProjectionList projectionList = Projections.projectionList();
 		projectionList.add(Projections.groupProperty("age"));
 		projectionList.add(Projections.rowCount());
 		
 		criteria = session.createCriteria(Person4.class);
 		criteria.setProjection(projectionList);
-		System.out.println("Í³¼Æ¸÷¸öÄêÁä¶ÎµÄÈËÊı:");
-		// SQL£ºselect this_.age as y0_, count(*) as y1_ from tb_person4 this_ group by this_.age
+		System.out.println("ç»Ÿè®¡å„ä¸ªå¹´é¾„æ®µçš„äººæ•°:");
+		// SQLï¼šselect this_.age as y0_, count(*) as y1_ from tb_person4 this_ group by this_.age
 		List<Object> result = criteria.list();
 		for (Object row : result) {
 			Object[] data = (Object[]) row;

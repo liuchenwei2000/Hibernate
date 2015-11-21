@@ -9,13 +9,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 /**
- * HibernateÏà¹Ø²âÊÔÓÃÀı»ùÀà
+ * Hibernateç›¸å…³æµ‹è¯•ç”¨ä¾‹åŸºç±»
  * <p>
- * Ìá¹©ÁËÔ¤ÖÃÊı¾İµÄ²åÈëºÍÆäËû»ù´¡¹¤×÷¡£
+ * æä¾›äº†é¢„ç½®æ•°æ®çš„æ’å…¥å’Œå…¶ä»–åŸºç¡€å·¥ä½œã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ29ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ29æ—¥
  */
 public abstract class AbstractHibernateTestCase extends TestCase {
 
@@ -23,7 +23,7 @@ public abstract class AbstractHibernateTestCase extends TestCase {
 	protected Session session;
 		
 	/**
-	 * ¸ºÔğ´´½¨Session£¬×¼±¸Ô¤ÖÃÊı¾İ
+	 * è´Ÿè´£åˆ›å»ºSessionï¼Œå‡†å¤‡é¢„ç½®æ•°æ®
 	 */
 	@Override
 	protected void setUp() throws Exception {
@@ -34,7 +34,7 @@ public abstract class AbstractHibernateTestCase extends TestCase {
 	}
 
 	/**
-	 * ¸ºÔğ¹Ø±ÕSession¡¢SessionFactory
+	 * è´Ÿè´£å…³é—­Sessionã€SessionFactory
 	 */
 	@Override
 	protected void tearDown() throws Exception {
@@ -48,14 +48,14 @@ public abstract class AbstractHibernateTestCase extends TestCase {
 	}
 	
 	/**
-	 * ÓÃÀı²âÊÔ·½·¨
+	 * ç”¨ä¾‹æµ‹è¯•æ–¹æ³•
 	 */
 	public final void testHibernate() {
 		try {
 			doTest();
 		} catch (Exception e) {
 			e.printStackTrace();
-			// ³ö´íÔò»Ø¹öÊÂÎñ
+			// å‡ºé”™åˆ™å›æ»šäº‹åŠ¡
 			if (session != null && session.getTransaction() != null) {
 				session.getTransaction().rollback();
 			}
@@ -70,12 +70,12 @@ public abstract class AbstractHibernateTestCase extends TestCase {
 	}
 	
 	/**
-	 * ×¼±¸Ô¤ÖÃÊı¾İ£¬±ÈÈç½«²âÊÔÓÃÀıĞèÒªµÄÊı¾İ²åÈëÊı¾İ¿âÖĞ
+	 * å‡†å¤‡é¢„ç½®æ•°æ®ï¼Œæ¯”å¦‚å°†æµ‹è¯•ç”¨ä¾‹éœ€è¦çš„æ•°æ®æ’å…¥æ•°æ®åº“ä¸­
 	 */
 	protected abstract void prepareData();
 	
 	/**
-	 * ¾ßÌå²âÊÔ·½·¨£¬¹©×ÓÀàÊµÏÖ£¬sessionÒÑ¾­ÊÇ¿ÉÓÃ×´Ì¬
+	 * å…·ä½“æµ‹è¯•æ–¹æ³•ï¼Œä¾›å­ç±»å®ç°ï¼Œsessionå·²ç»æ˜¯å¯ç”¨çŠ¶æ€
 	 */
 	protected abstract void doTest() throws Exception;
 }

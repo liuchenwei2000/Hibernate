@@ -1,10 +1,10 @@
 
-Criteria �ṩ�����������Ĳ�ѯ��װģʽ������HQL��Hibernate Query Lanluage���ṩ�˸��ӷḻ�������ԡ�
-�ں�����Criteria���ܷ�Χ��ǰ���£��ṩ�˸�Ϊǿ��Ĳ�ѯ��������ˣ���Hibernate�ٷ��ֲ��У���HQL��Ϊ�Ƽ��Ĳ�ѯģʽ��
+Criteria 提供了面向对象风格的查询封装模式，不过HQL（Hibernate Query Lanluage）提供了更加丰富灵活的特性。
+在涵盖了Criteria功能范围的前提下，提供了更为强大的查询能力，因此，在Hibernate官方手册中，将HQL作为推荐的查询模式。
 
-���Criteria��HQL�ṩ�˸��ӽ���ͳSQL���Ĳ�ѯ�﷨��Ҳ�ṩ�˸�ȫ������ԡ�
+相对Criteria，HQL提供了更接近传统SQL语句的查询语法，也提供了更全面的特性。
 
-������HQL�﷨�ṹ���£�
+完整的HQL语法结构如下：
 [select/update/delete...] [from...] [where...] [group by...] [having...] [order by...]
 
-HQL���﷨��SQL�ǳ����ƣ�HQL����SQL��ͬʱ�ṩ�˸����������ķ�װ��
+HQL的语法与SQL非常类似，HQL基于SQL，同时提供了更加面向对象的封装。

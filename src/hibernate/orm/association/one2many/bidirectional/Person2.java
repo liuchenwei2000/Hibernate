@@ -6,13 +6,13 @@ package hibernate.orm.association.one2many.bidirectional;
 import java.util.Set;
 
 /**
- * PersonÀà
+ * Personç±»
  * <p>
- * Ã¿¸öÈË¶¼ÓĞ0ÕÅ»ò¶àÕÅĞÅÓÃ¿¨¡£
+ * æ¯ä¸ªäººéƒ½æœ‰0å¼ æˆ–å¤šå¼ ä¿¡ç”¨å¡ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class Person2 {
 

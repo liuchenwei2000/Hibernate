@@ -13,28 +13,28 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 
 /**
- * DetachedCriteriaÊ¾Àı
+ * DetachedCriteriaç¤ºä¾‹
  * <p>
- * CriteriaÉúÃüÖÜÆÚÎ»ÓÚÆäËŞÖ÷SessionÉúÃüÖÜÆÚÖ®ÄÚ¡£Ò²¾ÍÊÇËµ£¬
- * ÓÉÄ³¸öSession´´½¨µÄCriteriaÊµÀı£¬Ò»µ©SessionÏú»Ù£¬´ËCriteriaÊµÀıÒ²ËæÖ®Ê§Ğ§¡£
- * ÕâºÜ´ó³Ì¶ÈÉÏÏŞÖÆÁËCriteriaµÄÖØÓÃ£¬¶ÔÓÚÏàÍ¬µÄCriteriaÌõ¼ş£¬Ã¿´Î¶¼±ØĞëÓÉµ±Ç°Session¹¹ÔìÆäÊµÀı·Ç³£·±Ëö¡£
+ * Criteriaç”Ÿå‘½å‘¨æœŸä½äºå…¶å®¿ä¸»Sessionç”Ÿå‘½å‘¨æœŸä¹‹å†…ã€‚ä¹Ÿå°±æ˜¯è¯´ï¼Œ
+ * ç”±æŸä¸ªSessionåˆ›å»ºçš„Criteriaå®ä¾‹ï¼Œä¸€æ—¦Sessioné”€æ¯ï¼Œæ­¤Criteriaå®ä¾‹ä¹Ÿéšä¹‹å¤±æ•ˆã€‚
+ * è¿™å¾ˆå¤§ç¨‹åº¦ä¸Šé™åˆ¶äº†Criteriaçš„é‡ç”¨ï¼Œå¯¹äºç›¸åŒçš„Criteriaæ¡ä»¶ï¼Œæ¯æ¬¡éƒ½å¿…é¡»ç”±å½“å‰Sessionæ„é€ å…¶å®ä¾‹éå¸¸ç¹çã€‚
  * <p>
- * DetachedCriteria¿ÉÒÔÍÑÀëSessionÊµÀı¶ÀÁ¢´æÔÚ£¬ÕâÑù¾Í¿ÉÒÔ½«Ä³Ğ©Í¨ÓÃµÄCriteria
- * ²éÑ¯Ìõ¼ş½øĞĞ³éÀë£¬Ã¿´ÎÊ¹ÓÃÊ±ÔÙÓëµ±Ç°SessionÊµÀı°ó¶¨ÒÔ»ñµÃÖØÓÃĞ§¹û¡£
+ * DetachedCriteriaå¯ä»¥è„±ç¦»Sessionå®ä¾‹ç‹¬ç«‹å­˜åœ¨ï¼Œè¿™æ ·å°±å¯ä»¥å°†æŸäº›é€šç”¨çš„Criteria
+ * æŸ¥è¯¢æ¡ä»¶è¿›è¡ŒæŠ½ç¦»ï¼Œæ¯æ¬¡ä½¿ç”¨æ—¶å†ä¸å½“å‰Sessionå®ä¾‹ç»‘å®šä»¥è·å¾—é‡ç”¨æ•ˆæœã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ29ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ29æ—¥
  */
 public class DetachedCriteriaTest extends AbstractQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() {
-		// ¶ÀÁ¢ÓÚSession´´½¨Ò»¸öDetachedCriteria£¬²¢Ìí¼Ó²éÑ¯Ìõ¼ş
+		// ç‹¬ç«‹äºSessionåˆ›å»ºä¸€ä¸ªDetachedCriteriaï¼Œå¹¶æ·»åŠ æŸ¥è¯¢æ¡ä»¶
 		DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Person4.class);
 		detachedCriteria.add(Restrictions.lt("age", 20));
 		
-		// ĞèÒªÊ¹ÓÃÊ±ÓëSessionÏà°ó¶¨£¬´Ó¶ø»ñµÃÔËĞĞÆÚCriteriaÊµÀı
+		// éœ€è¦ä½¿ç”¨æ—¶ä¸Sessionç›¸ç»‘å®šï¼Œä»è€Œè·å¾—è¿è¡ŒæœŸCriteriaå®ä¾‹
 		Criteria criteria = detachedCriteria.getExecutableCriteria(session);
 		List<Person4> result = criteria.list();
 		for (Person4 person : result) {

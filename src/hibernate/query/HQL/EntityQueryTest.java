@@ -11,33 +11,33 @@ import java.util.List;
 import org.hibernate.Query;
 
 /**
- * ÊµÌå²éÑ¯Ê¾Àı
+ * å®ä½“æŸ¥è¯¢ç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ29ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ29æ—¥
  */
 public class EntityQueryTest extends AbstractQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() {
 		/*
-		 * Ê¹ÓÃHQL´´½¨Ò»¸öQuery¶ÔÏó£¬HQL£ºfrom ÀàÃû where ÊôĞÔÃû=Öµ
+		 * ä½¿ç”¨HQLåˆ›å»ºä¸€ä¸ªQueryå¯¹è±¡ï¼ŒHQLï¼šfrom ç±»å where å±æ€§å=å€¼
 		 * 
-		 * ĞèÒª×¢ÒâµÄÊÇ£¬HibernateÖĞ²éÑ¯µÄÄ¿±êÊµÌå´æÔÚ×Å¼Ì³Ğ¹ØÏµµÄÅĞ¶¨£º 
-		 * from Person4 ½«·µ»ØËùÓĞPerson4¼°Æä×ÓÀàµÄ¼ÇÂ¼£¬¼´±ãÆä×ÓÀà»á¶ÔÓ¦²»Í¬µÄ¿â±í¡£ 
-		 * Èç from java.lang.Object ½«·µ»ØÊı¾İ¿âÖĞËùÓĞ¿â±íµÄ¼ÇÂ¼¡£
+		 * éœ€è¦æ³¨æ„çš„æ˜¯ï¼ŒHibernateä¸­æŸ¥è¯¢çš„ç›®æ ‡å®ä½“å­˜åœ¨ç€ç»§æ‰¿å…³ç³»çš„åˆ¤å®šï¼š 
+		 * from Person4 å°†è¿”å›æ‰€æœ‰Person4åŠå…¶å­ç±»çš„è®°å½•ï¼Œå³ä¾¿å…¶å­ç±»ä¼šå¯¹åº”ä¸åŒçš„åº“è¡¨ã€‚ 
+		 * å¦‚ from java.lang.Object å°†è¿”å›æ•°æ®åº“ä¸­æ‰€æœ‰åº“è¡¨çš„è®°å½•ã€‚
 		 */
 		Query query = session.createQuery(" from Person4 where age=19");
 
-		// from ÖĞ¿ÉÒÔÊ¹ÓÃ±í±ğÃû£»where ×Ó¾äÖĞ¿ÉÒÔÊ¹ÓÃ and¡¢orÕâÀàµÄÔËËã·û
+		// from ä¸­å¯ä»¥ä½¿ç”¨è¡¨åˆ«åï¼›where å­å¥ä¸­å¯ä»¥ä½¿ç”¨ andã€orè¿™ç±»çš„è¿ç®—ç¬¦
 		// Query query = session.createQuery(" from Person4 T0 where T0.age=19 and T0.name='Ann'");
 
-		// ¿ÉÒÔÔÚHQLÖĞÊ¹ÓÃÈ«Â·¾¶ÀàÃû£¬ÓÈÆäÊÇÓĞÍ¬ÃûÀàµÄÊ±ºò
-		// HQL×Ó¾ä±¾Éí¶Ô´óĞ¡Ğ´²»Ãô¸Ğ£¬µ«³öÏÖµÄÀàÃûºÍÊôĞÔÃû±ØĞë×¢ÒâÇø·Ö´óĞ¡Ğ´¡£
+		// å¯ä»¥åœ¨HQLä¸­ä½¿ç”¨å…¨è·¯å¾„ç±»åï¼Œå°¤å…¶æ˜¯æœ‰åŒåç±»çš„æ—¶å€™
+		// HQLå­å¥æœ¬èº«å¯¹å¤§å°å†™ä¸æ•æ„Ÿï¼Œä½†å‡ºç°çš„ç±»åå’Œå±æ€§åå¿…é¡»æ³¨æ„åŒºåˆ†å¤§å°å†™ã€‚
 		// Query query = session.createQuery(" from hibernate.query.Person4 where age=19");
 
-		// query.list() ¸ù¾İÌõ¼şÖ´ĞĞ²éÑ¯
+		// query.list() æ ¹æ®æ¡ä»¶æ‰§è¡ŒæŸ¥è¯¢
 		List<Person4> result = query.list();
 		for (Person4 person : result) {
 			System.out.println(person);

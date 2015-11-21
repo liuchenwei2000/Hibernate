@@ -6,26 +6,26 @@ package hibernate.orm.association.one2one.fk;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * Î¨Ò»Íâ¼ü¹ØÁªÊ¾Àı
+ * å”¯ä¸€å¤–é”®å…³è”ç¤ºä¾‹
  * <p>
- * ÓÃ»§±íÖĞ°üº¬Ò»¸öpk_group×Ö¶Î£¬´Ë×Ö¶ÎÓëtb_group±íµÄpk_group×Ö¶ÎÏà¹ØÁª¡£
- * Õâ¾ÍÊÇµäĞÍµÄÎ¨Ò»Íâ¼ü¹ØÁª£¨µ¥Ïòone-to-one£©¡£
+ * ç”¨æˆ·è¡¨ä¸­åŒ…å«ä¸€ä¸ªpk_groupå­—æ®µï¼Œæ­¤å­—æ®µä¸tb_groupè¡¨çš„pk_groupå­—æ®µç›¸å…³è”ã€‚
+ * è¿™å°±æ˜¯å…¸å‹çš„å”¯ä¸€å¤–é”®å…³è”ï¼ˆå•å‘one-to-oneï¼‰ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class ForeignKeyAssociationTest extends AbstractHibernateTestCase {
 
 	@Override
 	protected void doTest() {
-		// ±£´æÒ»¸öUserGroup
+		// ä¿å­˜ä¸€ä¸ªUserGroup
 		UserGroup group = createUserGroup();
 		session.beginTransaction();
 		Long pk_gorup = (Long) session.save(group);
 		session.getTransaction().commit();
 		
-		// ±£´æÒ»¸öUser
+		// ä¿å­˜ä¸€ä¸ªUser
 		group.setId(pk_gorup);
 		User user = createUser();
 		user.setUserGroup(group);
@@ -34,10 +34,10 @@ public class ForeignKeyAssociationTest extends AbstractHibernateTestCase {
 		session.save(user);
 		session.getTransaction().commit();
 		
-		// ¸ù¾İUser¶ÔÏóÒ²ÄÜ»ñµÃ¹ØÁªµÄUserGroup¶ÔÏóĞÅÏ¢£¨µ¥Ïòone-to-one£©
+		// æ ¹æ®Userå¯¹è±¡ä¹Ÿèƒ½è·å¾—å…³è”çš„UserGroupå¯¹è±¡ä¿¡æ¯ï¼ˆå•å‘one-to-oneï¼‰
 		User c2 = (User) session.load(User.class, 1L);
-		System.out.println("User name is ¡¾" + c2.getName() + "¡¿");
-		System.out.println("User's group is ¡¾" + c2.getUserGroup().getName() + "¡¿");
+		System.out.println("User name is ã€" + c2.getName() + "ã€‘");
+		System.out.println("User's group is ã€" + c2.getUserGroup().getName() + "ã€‘");
 	}
 
 	private static User createUser() {

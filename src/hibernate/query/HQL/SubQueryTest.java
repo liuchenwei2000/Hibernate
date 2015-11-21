@@ -11,20 +11,20 @@ import java.util.List;
 import org.hibernate.Query;
 
 /**
- * ×Ó²éÑ¯Ê¾Àı
+ * å­æŸ¥è¯¢ç¤ºä¾‹
  * <p>
- * ×Ó²éÑ¯¿ÉÒÔÔÚSQLÖĞÀûÓÃÁíÍâÒ»ÌõSQLµÄ²éÑ¯½á¹û£¬HQLÖ§³Ö´Ë»úÖÆ¡£
+ * å­æŸ¥è¯¢å¯ä»¥åœ¨SQLä¸­åˆ©ç”¨å¦å¤–ä¸€æ¡SQLçš„æŸ¥è¯¢ç»“æœï¼ŒHQLæ”¯æŒæ­¤æœºåˆ¶ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ29ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ29æ—¥
  */
 public class SubQueryTest extends AbstractJoinQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() {
-		// ²é³öÓĞ½è¼Ç¿¨µÄ¹ÍÔ±
-		// ×Ó²éÑ¯±ØĞë³öÏÖÔÚwhere×Ó¾äÖĞ£¬ÇÒ±ØĞëÒÔÒ»¶ÔÔ²À¨ºÅ°üÎ§¡£
+		// æŸ¥å‡ºæœ‰å€Ÿè®°å¡çš„é›‡å‘˜
+		// å­æŸ¥è¯¢å¿…é¡»å‡ºç°åœ¨whereå­å¥ä¸­ï¼Œä¸”å¿…é¡»ä»¥ä¸€å¯¹åœ†æ‹¬å·åŒ…å›´ã€‚
 		String hql = "from Employee employee where (select count(*) from employee.cards)>0";
 		Query query = session.createQuery(hql);
 

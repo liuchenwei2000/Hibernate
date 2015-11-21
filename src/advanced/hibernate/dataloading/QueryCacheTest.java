@@ -9,21 +9,21 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 /**
- * Query CacheÊ¾Àı
+ * Query Cacheç¤ºä¾‹
  * <p>
- * Query CacheÖĞ±£´æÁËÖ®Ç°²éÑ¯²Ù×÷Ö´ĞĞ¹ıµÄselect SQL£¬ÒÔ¼°ÓÉ´Ë²éÑ¯²úÉúµÄ²éÑ¯½á¹û¼¯£¨°üÀ¨²éÑ¯¶ÔÏóµÄÀàĞÍºÍid£©¡£
- * Ö®ºó·¢Éú²éÑ¯ÇëÇóµÄÊ±ºò£¬Hibernate»áÊ×ÏÈ¸ù¾İ²éÑ¯µÄSQL´ÓQuery CacheÖĞ¼ìË÷£¬Èç¹û´ËSQLÔø¾­Ö´ĞĞ¹ı£¬
- * ÔòÈ¡³ö¶ÔÓ¦Õâ¸öSQLµÄ½á¹û¼¯£¬ÔÙ¸ù¾İÕâ¸ö½á¹û¼¯ÖĞµÄ¶ÔÏóÀàĞÍ¼°Æäid£¬´Ó»º´æÖĞÈ¡³ö¶ÔÓ¦µÄÊµÌå¶ÔÏó¡£
+ * Query Cacheä¸­ä¿å­˜äº†ä¹‹å‰æŸ¥è¯¢æ“ä½œæ‰§è¡Œè¿‡çš„select SQLï¼Œä»¥åŠç”±æ­¤æŸ¥è¯¢äº§ç”Ÿçš„æŸ¥è¯¢ç»“æœé›†ï¼ˆåŒ…æ‹¬æŸ¥è¯¢å¯¹è±¡çš„ç±»å‹å’Œidï¼‰ã€‚
+ * ä¹‹åå‘ç”ŸæŸ¥è¯¢è¯·æ±‚çš„æ—¶å€™ï¼ŒHibernateä¼šé¦–å…ˆæ ¹æ®æŸ¥è¯¢çš„SQLä»Query Cacheä¸­æ£€ç´¢ï¼Œå¦‚æœæ­¤SQLæ›¾ç»æ‰§è¡Œè¿‡ï¼Œ
+ * åˆ™å–å‡ºå¯¹åº”è¿™ä¸ªSQLçš„ç»“æœé›†ï¼Œå†æ ¹æ®è¿™ä¸ªç»“æœé›†ä¸­çš„å¯¹è±¡ç±»å‹åŠå…¶idï¼Œä»ç¼“å­˜ä¸­å–å‡ºå¯¹åº”çš„å®ä½“å¯¹è±¡ã€‚
  * <p>
- * ĞèÒªÔÚ hibernate.cfg.xml ÎÄ¼şÖĞÅäÖÃ <property name="hibernate.cache.use_query_cache">true</property>
+ * éœ€è¦åœ¨ hibernate.cfg.xml æ–‡ä»¶ä¸­é…ç½® <property name="hibernate.cache.use_query_cache">true</property>
  * <p>
- * Query Cache Ö»ÔÚÌØ¶¨µÄÇé¿öÏÂ²úÉú×÷ÓÃ£º
- * 1£¬ÍêÈ«ÏàÍ¬µÄselect SQLÖØ¸´Ö´ĞĞ¡£
- * 2£¬ÔÚÁ½´Î²éÑ¯Ö®¼ä£¬´Ëselect SQL¶ÔÓ¦µÄ¿â±íÃ»ÓĞ·¢Éú¹ı¸Ä±ä¡£
+ * Query Cache åªåœ¨ç‰¹å®šçš„æƒ…å†µä¸‹äº§ç”Ÿä½œç”¨ï¼š
+ * 1ï¼Œå®Œå…¨ç›¸åŒçš„select SQLé‡å¤æ‰§è¡Œã€‚
+ * 2ï¼Œåœ¨ä¸¤æ¬¡æŸ¥è¯¢ä¹‹é—´ï¼Œæ­¤select SQLå¯¹åº”çš„åº“è¡¨æ²¡æœ‰å‘ç”Ÿè¿‡æ”¹å˜ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public class QueryCacheTest extends AbstractDataLoadingTestCase {
 
@@ -35,9 +35,9 @@ public class QueryCacheTest extends AbstractDataLoadingTestCase {
 			newSession = sessionFactory.openSession();
 			
 			/*
-			 * ÒÔÏÂÊÇ list ·½·¨µÄÊä³ö£º
+			 * ä»¥ä¸‹æ˜¯ list æ–¹æ³•çš„è¾“å‡ºï¼š
 			 * Hibernate: select car0_.pk_car as pk_car1_0_, car0_.name as name2_0_ from tb_cars car0_ where car0_.pk_car<4
-			 * ¡¾newSession.createQuery(hql).list()¡¿
+			 * ã€newSession.createQuery(hql).list()ã€‘
 			 * Car [name=BMW]
 			 * Car [name=Benz]
 			 * Car [name=Porsche]
@@ -45,32 +45,32 @@ public class QueryCacheTest extends AbstractDataLoadingTestCase {
 			queryAsList(hql, newSession);
 			
 			/*
-			 * ÒÔÏÂÊÇ list ·½·¨µÄÊä³ö£º
-			 * ¡¾newSession.createQuery(hql).list()¡¿
+			 * ä»¥ä¸‹æ˜¯ list æ–¹æ³•çš„è¾“å‡ºï¼š
+			 * ã€newSession.createQuery(hql).list()ã€‘
 			 * Car [name=BMW]
 			 * Car [name=Benz]
 			 * Car [name=Porsche]
 			 */
-			// Õâ´Î²éÑ¯ÒÑ¾­Ã»ÓĞSQLÊä³ö£¬ËµÃ÷½á¹û¼¯ÊÇÍêÈ«´Ó»º´æÈ¡»ØÀ´µÄ
+			// è¿™æ¬¡æŸ¥è¯¢å·²ç»æ²¡æœ‰SQLè¾“å‡ºï¼Œè¯´æ˜ç»“æœé›†æ˜¯å®Œå…¨ä»ç¼“å­˜å–å›æ¥çš„
 			queryAsList(hql, newSession);
 			
 			/*
-			 * Query CacheÖĞ»º´æµÄSQL¼°Æä½á¹û¼¯²¢·ÇÓÀÔ¶´æÔÚ¡£
-			 * µ±Hibernate·¢ÏÖ´ËSQL¶ÔÓ¦µÄ¿â±í·¢ÉúÁË±ä¶¯£¨CUD²Ù×÷£©£¬»á×Ô¶¯½«Query CacheÖĞ¶ÔÓ¦±íµÄSQL»º´æ·Ï³ı¡£
+			 * Query Cacheä¸­ç¼“å­˜çš„SQLåŠå…¶ç»“æœé›†å¹¶éæ°¸è¿œå­˜åœ¨ã€‚
+			 * å½“Hibernateå‘ç°æ­¤SQLå¯¹åº”çš„åº“è¡¨å‘ç”Ÿäº†å˜åŠ¨ï¼ˆCUDæ“ä½œï¼‰ï¼Œä¼šè‡ªåŠ¨å°†Query Cacheä¸­å¯¹åº”è¡¨çš„SQLç¼“å­˜åºŸé™¤ã€‚
 			 */
-			/* É¾³ıÒ»Ìõ¼ÇÂ¼ */
+			/* åˆ é™¤ä¸€æ¡è®°å½• */
 			newSession.beginTransaction();
 			newSession.createSQLQuery("delete from tb_cars where pk_car=1").executeUpdate();
 			newSession.getTransaction().commit();
 			
 			/*
-			 * ÒÔÏÂÊÇ list ·½·¨µÄÊä³ö£º
+			 * ä»¥ä¸‹æ˜¯ list æ–¹æ³•çš„è¾“å‡ºï¼š
 			 * Hibernate: select car0_.pk_car as pk_car1_0_, car0_.name as name2_0_ from tb_cars car0_ where car0_.pk_car<4
-			 * ¡¾newSession.createQuery(hql).list()¡¿
+			 * ã€newSession.createQuery(hql).list()ã€‘
 			 * Car [name=Benz]
 			 * Car [name=Porsche]
 			 */
-			// Õâ´Î²éÑ¯ÓÖÓĞSQLÊä³ö£¬ËµÃ÷Query CacheÒÑ¾­°ÑÖ®Ç°µÄ½á¹û¼¯·Ï³ı£¬ÖØĞÂÖ´ĞĞÁËSQL²éÑ¯¡£
+			// è¿™æ¬¡æŸ¥è¯¢åˆæœ‰SQLè¾“å‡ºï¼Œè¯´æ˜Query Cacheå·²ç»æŠŠä¹‹å‰çš„ç»“æœé›†åºŸé™¤ï¼Œé‡æ–°æ‰§è¡Œäº†SQLæŸ¥è¯¢ã€‚
 			queryAsList(hql, newSession);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -84,9 +84,9 @@ public class QueryCacheTest extends AbstractDataLoadingTestCase {
 	@SuppressWarnings("unchecked")
 	private void queryAsList(String hql, Session newSession) {
 		Query query = newSession.createQuery(hql);
-		query.setCacheable(true);// ĞèÒª½« queryµÄcacheableÉèÎªtrue
+		query.setCacheable(true);// éœ€è¦å°† queryçš„cacheableè®¾ä¸ºtrue
 		List<Car> cars = query.list();
-		System.out.println("¡¾newSession.createQuery(hql).list()¡¿");
+		System.out.println("ã€newSession.createQuery(hql).list()ã€‘");
 		for (Car car : cars) {
 			System.out.println(car);
 		}

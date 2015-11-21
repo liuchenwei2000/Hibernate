@@ -6,13 +6,13 @@ package hibernate.orm.id;
 import java.io.Serializable;
 
 /**
- * ¸´ºÏÖ÷¼üÀà
+ * å¤åˆä¸»é”®ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ24ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ24æ—¥
  */
-//¸´ºÏÖ÷¼üÀà±ØĞëÊµÏÖSerializable½Ó¿Ú
+//å¤åˆä¸»é”®ç±»å¿…é¡»å®ç°Serializableæ¥å£
 public class PersonPK implements Serializable {
 
 	/**
@@ -20,7 +20,7 @@ public class PersonPK implements Serializable {
 	 */
 	private static final long serialVersionUID = -1485212179150385034L;
 	
-	// firstName + lastName ¹¹³ÉÁË¸´ºÏÖ÷¼ü
+	// firstName + lastName æ„æˆäº†å¤åˆä¸»é”®
 	private String firstName;
 	private String lastName;
 
@@ -41,7 +41,7 @@ public class PersonPK implements Serializable {
 	}
 
 	/**
-	 * ĞèÒªÊµÏÖhashcodeºÍequals·½·¨
+	 * éœ€è¦å®ç°hashcodeå’Œequalsæ–¹æ³•
 	 * 
 	 * @see java.lang.Object#hashCode()
 	 */

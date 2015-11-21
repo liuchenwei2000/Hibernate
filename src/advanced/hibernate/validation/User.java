@@ -19,13 +19,13 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
 /**
- * ÊµÌå¶ÔÏó
+ * å®ä½“å¯¹è±¡
  * <p>
- * ÑéÖ¤Âß¼­ºÍÊµÌå¶ÔÏóÍ¨¹ı annotations ½øĞĞ°ó¶¨£¬ÕâÀï±êÃ÷ÁËĞèÒªÑéÖ¤ÄÄĞ©Âß¼­ÒÔ¼°ÔõÑùÑéÖ¤¡£
+ * éªŒè¯é€»è¾‘å’Œå®ä½“å¯¹è±¡é€šè¿‡ annotations è¿›è¡Œç»‘å®šï¼Œè¿™é‡Œæ ‡æ˜äº†éœ€è¦éªŒè¯å“ªäº›é€»è¾‘ä»¥åŠæ€æ ·éªŒè¯ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public class User implements Serializable {
 
@@ -34,42 +34,42 @@ public class User implements Serializable {
 	 */
 	private static final long serialVersionUID = -3091666633466547089L;
 	
-	// ±ØĞëÎª null
+	// å¿…é¡»ä¸º null
 	@Null
 	private Long id;
 	
-	// ±ØĞëÎª ·Çnull£¬ºóÃæµÄ message ÊôĞÔÊÇBeanÎ¥·´´ËÔ¼ÊøÊ±µÄ·µ»ØĞÅÏ¢
+	// å¿…é¡»ä¸º énullï¼Œåé¢çš„ message å±æ€§æ˜¯Beanè¿åæ­¤çº¦æŸæ—¶çš„è¿”å›ä¿¡æ¯
 	@NotNull(message = "first name cannot be null.")
 	private String firstName;
 	
 	@NotNull(message = "last name cannot be null.")
 	private String lastName;
 	
-	// ±ØĞëÎª true
+	// å¿…é¡»ä¸º true
 	@AssertTrue(message = "user is illegal.")
 	private boolean isLegal;
 	
-	// ±ØĞëÎª false
+	// å¿…é¡»ä¸º false
 	@AssertFalse(message = "user is deleted.")
 	private boolean isDeleted;
 	
-	// ±ØĞëÊÇÒ»¸öÊı×Ö£¬ÆäÖµ±ØĞë´óÓÚµÈÓÚÖ¸¶¨µÄ×îĞ¡Öµ
+	// å¿…é¡»æ˜¯ä¸€ä¸ªæ•°å­—ï¼Œå…¶å€¼å¿…é¡»å¤§äºç­‰äºæŒ‡å®šçš„æœ€å°å€¼
 	@Min(value = 0, message = "age must be great than 0.")
-	// ±ØĞëÊÇÒ»¸öÊı×Ö£¬ÆäÖµ±ØĞëĞ¡ÓÚµÈÓÚÖ¸¶¨µÄ×î´óÖµ
+	// å¿…é¡»æ˜¯ä¸€ä¸ªæ•°å­—ï¼Œå…¶å€¼å¿…é¡»å°äºç­‰äºæŒ‡å®šçš„æœ€å¤§å€¼
 	@Max(value = 150, message = "age must be less than 150.")
 	private int age;
 	
-	// ±ØĞëÊÇÒ»¸öÊı×Ö£¬ÆäÖµ±ØĞë´óÓÚµÈÓÚÖ¸¶¨µÄ×îĞ¡Öµ
+	// å¿…é¡»æ˜¯ä¸€ä¸ªæ•°å­—ï¼Œå…¶å€¼å¿…é¡»å¤§äºç­‰äºæŒ‡å®šçš„æœ€å°å€¼
 	@DecimalMin(value = "0", message = "account must be great than 0.")
-	// ±ØĞëÊÇÒ»¸öÊı×Ö£¬ÆäÖµ±ØĞëĞ¡ÓÚµÈÓÚÖ¸¶¨µÄ×î´óÖµ
+	// å¿…é¡»æ˜¯ä¸€ä¸ªæ•°å­—ï¼Œå…¶å€¼å¿…é¡»å°äºç­‰äºæŒ‡å®šçš„æœ€å¤§å€¼
 	@DecimalMax(value = "10000000", message = "account must be less than 10000000.")
 	private double account;
 	
-	// ¼¯ºÏ¡¢Êı×é¡¢×Ö·û´®µÄ´óĞ¡±ØĞëÔÚÖ¸¶¨µÄ·¶Î§ÄÚ
+	// é›†åˆã€æ•°ç»„ã€å­—ç¬¦ä¸²çš„å¤§å°å¿…é¡»åœ¨æŒ‡å®šçš„èŒƒå›´å†…
 	@Size(min = 5, max = 100, message = "description must be between 5 and 100")
 	private String description;
 	
-	/** ÏÂÃæµÄ annotation ÊÇ hibernate-validator ÌØÓĞµÄ */
+	/** ä¸‹é¢çš„ annotation æ˜¯ hibernate-validator ç‰¹æœ‰çš„ */
 	
 	@Email(message = "email is illegal.")
 	private String email;

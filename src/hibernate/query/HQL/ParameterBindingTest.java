@@ -13,50 +13,50 @@ import java.util.Map;
 import org.hibernate.Query;
 
 /**
- * ²ÎÊı°ó¶¨Ê¾Àı
+ * å‚æ•°ç»‘å®šç¤ºä¾‹
  * <p>
- * ²ÎÊı°ó¶¨»úÖÆ¿ÉÒÔÊ¹µÃ²éÑ¯Óï·¨Óë¾ßÌå²ÎÊıÊıÖµÏà»¥¶ÀÁ¢¡£
- * ÕâÑù¶ÔÓÚ²ÎÊı²»Í¬£¬²éÑ¯Óï·¨ÏàÍ¬µÄ²éÑ¯²Ù×÷£¬Êı¾İ¿â¼´¿ÉÊµÊ±ĞÔÄÜÓÅ»¯²ßÂÔ£»
- * Í¬Ê±Ò²¶Å¾øÁË²ÎÊıÖµ¶Ô²éÑ¯Óï·¨±¾ÉíµÄÓ°Ïì£¬±ÜÃâÁËSQL×¢ÈëµÄ¿ÉÄÜ¡£
+ * å‚æ•°ç»‘å®šæœºåˆ¶å¯ä»¥ä½¿å¾—æŸ¥è¯¢è¯­æ³•ä¸å…·ä½“å‚æ•°æ•°å€¼ç›¸äº’ç‹¬ç«‹ã€‚
+ * è¿™æ ·å¯¹äºå‚æ•°ä¸åŒï¼ŒæŸ¥è¯¢è¯­æ³•ç›¸åŒçš„æŸ¥è¯¢æ“ä½œï¼Œæ•°æ®åº“å³å¯å®æ—¶æ€§èƒ½ä¼˜åŒ–ç­–ç•¥ï¼›
+ * åŒæ—¶ä¹Ÿæœç»äº†å‚æ•°å€¼å¯¹æŸ¥è¯¢è¯­æ³•æœ¬èº«çš„å½±å“ï¼Œé¿å…äº†SQLæ³¨å…¥çš„å¯èƒ½ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ29ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ29æ—¥
  */
 public class ParameterBindingTest extends AbstractQueryTestCase {
 
 	protected void doTest() {
 		int age = 18;
 		
-		System.out.println("¡¾Query by hard code¡¿");
+		System.out.println("ã€Query by hard codeã€‘");
 		queryUseHardCode(age);
 		
-		System.out.println("¡¾Query by Positional Parameters¡¿");
+		System.out.println("ã€Query by Positional Parametersã€‘");
 		queryUsePositionalParametersBinding(age);
 		
-		System.out.println("¡¾Query by Named Parameters¡¿");
+		System.out.println("ã€Query by Named Parametersã€‘");
 		queryUseNamedParametersBinding(age);
 		
-		System.out.println("¡¾Query by Named Parameters with JavaBean¡¿");
+		System.out.println("ã€Query by Named Parameters with JavaBeanã€‘");
 		queryUseNamedParametersBindingWithJavaBean(age);
 		
-		System.out.println("¡¾Query by Named Parameters with Map¡¿");
+		System.out.println("ã€Query by Named Parameters with Mapã€‘");
 		queryUseNamedParametersBindingWithMap(age);
 	}
 
 	/**
-	 * Ó²±àÂë·½Ê½µÄ HQL ²éÑ¯ 
+	 * ç¡¬ç¼–ç æ–¹å¼çš„ HQL æŸ¥è¯¢ 
 	 * <p>
-	 * Ó²±àÂëHQLµÄÈ±Ïİ£º
+	 * ç¡¬ç¼–ç HQLçš„ç¼ºé™·ï¼š
 	 * <p>
-	 * 1£¬±àÂë¸ü¼ÓÁèÂÒ£¬¿É¶ÁĞÔ²î
+	 * 1ï¼Œç¼–ç æ›´åŠ å‡Œä¹±ï¼Œå¯è¯»æ€§å·®
 	 * <p>
-	 * 2£¬ÄÑÒÔ½øĞĞĞÔÄÜÓÅ»¯
-	 * JDBCÔÚÖ´ĞĞSQLÊ±£¬Êı¾İ¿â½«¶ÔSQLÓï·¨½øĞĞ½âÎöºÍÓÅ»¯£¬²¢½«Æä´¦Àí½á¹û±£´æÔÚ»º´æÖĞ¡£
-	 * Èç¹ûÖ®ºóÓĞ²ÎÊı²»Í¬Óï·¨ÏàÍ¬µÄSQLÃüÁî£¬ÔòÖ±½ÓÒÔ´Ë»º´æ½á¹û¼ÓÒÔÖ´ĞĞ£¬´Ó¶ø±ÜÃâÁËSQL½âÎöºÍÓÅ»¯µÄ¿ªÏú¡£
-	 * ÁíÍâ£¬HibernateÊ¹ÓÃÁËPreparedStatement×÷Îªµ×²ãÊı¾İ¿â·ÃÎÊÊÖ¶Î£¬¶ÔÓÚÏàÍ¬µÄSQLÒ²¿ÉÒÔÖØÓÃÒÑ¾­´´½¨µÄPreparedStatement¶ÔÏó¡£
+	 * 2ï¼Œéš¾ä»¥è¿›è¡Œæ€§èƒ½ä¼˜åŒ–
+	 * JDBCåœ¨æ‰§è¡ŒSQLæ—¶ï¼Œæ•°æ®åº“å°†å¯¹SQLè¯­æ³•è¿›è¡Œè§£æå’Œä¼˜åŒ–ï¼Œå¹¶å°†å…¶å¤„ç†ç»“æœä¿å­˜åœ¨ç¼“å­˜ä¸­ã€‚
+	 * å¦‚æœä¹‹åæœ‰å‚æ•°ä¸åŒè¯­æ³•ç›¸åŒçš„SQLå‘½ä»¤ï¼Œåˆ™ç›´æ¥ä»¥æ­¤ç¼“å­˜ç»“æœåŠ ä»¥æ‰§è¡Œï¼Œä»è€Œé¿å…äº†SQLè§£æå’Œä¼˜åŒ–çš„å¼€é”€ã€‚
+	 * å¦å¤–ï¼ŒHibernateä½¿ç”¨äº†PreparedStatementä½œä¸ºåº•å±‚æ•°æ®åº“è®¿é—®æ‰‹æ®µï¼Œå¯¹äºç›¸åŒçš„SQLä¹Ÿå¯ä»¥é‡ç”¨å·²ç»åˆ›å»ºçš„PreparedStatementå¯¹è±¡ã€‚
 	 * <p>
-	 * 3£¬ÄÑÒÔÔ¤·ÀSQL Injection£¨SQL×¢Èë£©
+	 * 3ï¼Œéš¾ä»¥é¢„é˜²SQL Injectionï¼ˆSQLæ³¨å…¥ï¼‰
 	 */
 	@SuppressWarnings("unchecked")
 	private void queryUseHardCode(int age) {
@@ -69,15 +69,15 @@ public class ParameterBindingTest extends AbstractQueryTestCase {
 	}
 	
 	/**
-	 * Ë³ĞòÕ¼Î»·ûĞÎÊ½µÄ²ÎÊı°ó¶¨
+	 * é¡ºåºå ä½ç¬¦å½¢å¼çš„å‚æ•°ç»‘å®š
 	 * <p>
-	 * ²ÎÊıµÄ¶¯Ì¬°ó¶¨»úÖÆÔò¿ÉÒÔÍ×ÉÆ´¦ÀíºÃÒÔÉÏÎÊÌâ£¬ÀàËÆJDBCÖĞµÄSQL²Ù×÷£¬
-	 * ¿ÉÒÔÍ¨¹ıË³ĞòÕ¼Î»·û"?"¶Ô²ÎÊı½øĞĞ±êÊ¶£¬²¢ÔÚÖ®ºó¶Ô²ÎÊıÄÚÈİ½øĞĞÌî³ä¡£
+	 * å‚æ•°çš„åŠ¨æ€ç»‘å®šæœºåˆ¶åˆ™å¯ä»¥å¦¥å–„å¤„ç†å¥½ä»¥ä¸Šé—®é¢˜ï¼Œç±»ä¼¼JDBCä¸­çš„SQLæ“ä½œï¼Œ
+	 * å¯ä»¥é€šè¿‡é¡ºåºå ä½ç¬¦"?"å¯¹å‚æ•°è¿›è¡Œæ ‡è¯†ï¼Œå¹¶åœ¨ä¹‹åå¯¹å‚æ•°å†…å®¹è¿›è¡Œå¡«å……ã€‚
 	 */
 	@SuppressWarnings("unchecked")
 	private void queryUsePositionalParametersBinding(int age) {
 		Query query = session.createQuery(" from Person4 where age=?");
-		query.setInteger(0, age);// ½øĞĞ²ÎÊı°ó¶¨
+		query.setInteger(0, age);// è¿›è¡Œå‚æ•°ç»‘å®š
 		
 		List<Person4> result = query.list();
 		for (Person4 person : result) {
@@ -86,15 +86,15 @@ public class ParameterBindingTest extends AbstractQueryTestCase {
 	}
 	
 	/**
-	 * Ãû³ÆÕ¼Î»·ûĞÎÊ½µÄ²ÎÊı°ó¶¨
+	 * åç§°å ä½ç¬¦å½¢å¼çš„å‚æ•°ç»‘å®š
 	 * <p>
-	 * Ïà¶ÔÓÚË³ĞòÕ¼Î»·û£¬JPA¸üÍÆ¼öÊ¹ÓÃÃû³ÆÕ¼Î»·ûµÄĞÎÊ½½øĞĞ²éÑ¯¡£
+	 * ç›¸å¯¹äºé¡ºåºå ä½ç¬¦ï¼ŒJPAæ›´æ¨èä½¿ç”¨åç§°å ä½ç¬¦çš„å½¢å¼è¿›è¡ŒæŸ¥è¯¢ã€‚
 	 */
 	@SuppressWarnings("unchecked")
 	private void queryUseNamedParametersBinding(int age) {
-		// :age ¼´ÊÇÃû³ÆÕ¼Î»·û£¬Ëü±êÊ¶ÁËÒ»¸öÃûÎª"age"µÄ²éÑ¯²ÎÊı
+		// :age å³æ˜¯åç§°å ä½ç¬¦ï¼Œå®ƒæ ‡è¯†äº†ä¸€ä¸ªåä¸º"age"çš„æŸ¥è¯¢å‚æ•°
 		Query query = session.createQuery(" from Person4 where age=:age");
-		query.setParameter("age", age);// ½øĞĞ²ÎÊı°ó¶¨
+		query.setParameter("age", age);// è¿›è¡Œå‚æ•°ç»‘å®š
 		
 		List<Person4> result = query.list();
 		for (Person4 person : result) {
@@ -103,17 +103,17 @@ public class ParameterBindingTest extends AbstractQueryTestCase {
 	}
 	
 	/**
-	 * Ãû³ÆÕ¼Î»·ûĞÎÊ½µÄ²ÎÊı°ó¶¨£¬Í¬Ê±Ê¹ÓÃ JavaBean ·â×°²ÎÊı
+	 * åç§°å ä½ç¬¦å½¢å¼çš„å‚æ•°ç»‘å®šï¼ŒåŒæ—¶ä½¿ç”¨ JavaBean å°è£…å‚æ•°
 	 */
 	@SuppressWarnings("unchecked")
 	private void queryUseNamedParametersBindingWithJavaBean(int age) {
 		Query query = session.createQuery(" from Person4 where age=:age and name=:name");
-		// ²éÑ¯Ê¹ÓÃµÄJavaBean£¬Ö»Òª¾ßÓĞ HQL ÓÃµ½µÄ²ÎÊıÊôĞÔ¼´¿É£¬²»Ò»¶¨·ÇÒªÊÇPerson4
+		// æŸ¥è¯¢ä½¿ç”¨çš„JavaBeanï¼Œåªè¦å…·æœ‰ HQL ç”¨åˆ°çš„å‚æ•°å±æ€§å³å¯ï¼Œä¸ä¸€å®šéè¦æ˜¯Person4
 		Person4 queryBean = new Person4();
 		queryBean.setAge(age);
 		queryBean.setName("Tom");
 		
-		query.setProperties(queryBean);// ½øĞĞ²ÎÊı°ó¶¨
+		query.setProperties(queryBean);// è¿›è¡Œå‚æ•°ç»‘å®š
 		
 		List<Person4> result = query.list();
 		for (Person4 person : result) {
@@ -122,7 +122,7 @@ public class ParameterBindingTest extends AbstractQueryTestCase {
 	}
 	
 	/**
-	 * Ãû³ÆÕ¼Î»·ûĞÎÊ½µÄ²ÎÊı°ó¶¨£¬Í¬Ê±Ê¹ÓÃ Map ·â×°²ÎÊı
+	 * åç§°å ä½ç¬¦å½¢å¼çš„å‚æ•°ç»‘å®šï¼ŒåŒæ—¶ä½¿ç”¨ Map å°è£…å‚æ•°
 	 */
 	@SuppressWarnings("unchecked")
 	private void queryUseNamedParametersBindingWithMap(int age) {
@@ -132,7 +132,7 @@ public class ParameterBindingTest extends AbstractQueryTestCase {
 		queryMap.put("age", age);
 		queryMap.put("name", "Tom");
 		
-		query.setProperties(queryMap);// ½øĞĞ²ÎÊı°ó¶¨
+		query.setProperties(queryMap);// è¿›è¡Œå‚æ•°ç»‘å®š
 		
 		List<Person4> result = query.list();
 		for (Person4 person : result) {

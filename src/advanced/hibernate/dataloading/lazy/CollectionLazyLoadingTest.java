@@ -9,13 +9,13 @@ import org.hibernate.Hibernate;
 import org.hibernate.Session;
 
 /**
- * ¼¯ºÏµÄÑÓ³Ù¼ÓÔØÊ¾Àı
+ * é›†åˆçš„å»¶è¿ŸåŠ è½½ç¤ºä¾‹
  * <p>
- * HibernateÑÓ³Ù¼ÓÔØ»úÖÆÖĞ£¬¹ØÓÚ¼¯ºÏµÄÑÓ³Ù¼ÓÔØÌØĞÔÒâÒå×îÎªÖØ´ó¡£
+ * Hibernateå»¶è¿ŸåŠ è½½æœºåˆ¶ä¸­ï¼Œå…³äºé›†åˆçš„å»¶è¿ŸåŠ è½½ç‰¹æ€§æ„ä¹‰æœ€ä¸ºé‡å¤§ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ17ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ17æ—¥
  */
 public class CollectionLazyLoadingTest extends AbstractHibernateTestCase {
 
@@ -25,25 +25,25 @@ public class CollectionLazyLoadingTest extends AbstractHibernateTestCase {
 		try {
 			newSession = sessionFactory.openSession();
 			/*
-			 * Èç¹ûÒª×öµ½¼¯ºÏµÄÑÓ³Ù¼ÓÔØ£¬¾ÍĞèÒªÔÚ¼ÓÔØStudent¶ÔÏóÊ±Ö»Õë¶ÔÆä±¾ÉíµÄÊôĞÔ£¬¶øµ±ĞèÒª»ñÈ¡Student¶ÔÏó
-			 * Ëù¹ØÁªµÄContactĞÅÏ¢Ê±£¨ÈçÖ´ĞĞstudent.getContacts£©£¬²ÅÕæÕı´ÓÊı¾İ¿âÖĞ¼ÓÔØContactÊı¾İ²¢·µ»Ø¡£
+			 * å¦‚æœè¦åšåˆ°é›†åˆçš„å»¶è¿ŸåŠ è½½ï¼Œå°±éœ€è¦åœ¨åŠ è½½Studentå¯¹è±¡æ—¶åªé’ˆå¯¹å…¶æœ¬èº«çš„å±æ€§ï¼Œè€Œå½“éœ€è¦è·å–Studentå¯¹è±¡
+			 * æ‰€å…³è”çš„Contactä¿¡æ¯æ—¶ï¼ˆå¦‚æ‰§è¡Œstudent.getContactsï¼‰ï¼Œæ‰çœŸæ­£ä»æ•°æ®åº“ä¸­åŠ è½½Contactæ•°æ®å¹¶è¿”å›ã€‚
 			 * 
-			 * Êä³öÈçÏÂ£º
+			 * è¾“å‡ºå¦‚ä¸‹ï¼š
 			 * Hibernate: select student0_.pk_student as pk_stude1_1_0_, student0_.name as name2_1_0_ from tb_students student0_ where student0_.pk_student=?
-			 * ¡¾after loading Student,but before student.getContacts()¡¿
+			 * ã€after loading Student,but before student.getContacts()ã€‘
 			 * Hibernate: select contacts0_.pk_student as pk_stude4_1_0_, contacts0_.pk_contact as pk_conta1_0_0_, contacts0_.pk_contact as pk_conta1_0_1_, contacts0_.address as address2_0_1_, contacts0_.phone as phone3_0_1_, contacts0_.pk_student as pk_stude4_0_1_ from tb_contacts contacts0_ where contacts0_.pk_student=? order by contacts0_.address asc
 			 * Student [name=Tom Green, contacts=[Contact [address=Beijing China, phone=010-287356772], Contact [address=Washington D.C USA, phone=123-456-789]]]
 			 * 
-			 * ¿É¼ûµÚÒ»´Î²éÑ¯Ö»ÊÇ°ÑStudent×ÔÉíµÄĞÅÏ¢²éÁË»ØÀ´£¬¶ø¹ØÁªµÄContactĞÅÏ¢µÈµ½µ÷ÓÃstudent.getContactsÊ±²Å·¢ÆğÕæÕıµÄ²éÑ¯¡£
+			 * å¯è§ç¬¬ä¸€æ¬¡æŸ¥è¯¢åªæ˜¯æŠŠStudentè‡ªèº«çš„ä¿¡æ¯æŸ¥äº†å›æ¥ï¼Œè€Œå…³è”çš„Contactä¿¡æ¯ç­‰åˆ°è°ƒç”¨student.getContactsæ—¶æ‰å‘èµ·çœŸæ­£çš„æŸ¥è¯¢ã€‚
 			 */
 			Student student = (Student) newSession.load(Student.class, 1L);
-			System.out.println("¡¾after loading Student,but before student.getContacts()¡¿");
+			System.out.println("ã€after loading Student,but before student.getContacts()ã€‘");
 			System.out.println(student);
 			
 			Session newSession2 = sessionFactory.openSession();
 			student = (Student) newSession2.load(Student.class, 1L);
-			System.out.println("¡¾after loading Student,but before Hibernate.initialize(student.getContacts())¡¿");
-			// Èç¹ûÊ¹ÓÃÑÓ³Ù¼ÓÔØ£¬ÓÖÏëÔÚsession¹Ø±ÕÖ®ºó¼ÌĞøÊ¹ÓÃ±»ÑÓ³Ù¼ÓÔØµÄÊı¾İ£¬¿ÉÒÔÊ¹ÓÃÏÂÃæµÄ·½Ê½ÊÖ¹¤Ç¿ÖÆ¶ÁÈ¡Êı¾İ
+			System.out.println("ã€after loading Student,but before Hibernate.initialize(student.getContacts())ã€‘");
+			// å¦‚æœä½¿ç”¨å»¶è¿ŸåŠ è½½ï¼Œåˆæƒ³åœ¨sessionå…³é—­ä¹‹åç»§ç»­ä½¿ç”¨è¢«å»¶è¿ŸåŠ è½½çš„æ•°æ®ï¼Œå¯ä»¥ä½¿ç”¨ä¸‹é¢çš„æ–¹å¼æ‰‹å·¥å¼ºåˆ¶è¯»å–æ•°æ®
 			Hibernate.initialize(student.getContacts());
 			newSession2.close();
 			System.out.println(student);

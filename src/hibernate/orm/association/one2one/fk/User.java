@@ -4,13 +4,13 @@
 package hibernate.orm.association.one2one.fk;
 
 /**
- * UserÀà
+ * Userç±»
  * <p>
- * Ã¿Ò»¸öÓÃ»§¶¼ÊôÓÚÎ¨Ò»µÄÓÃ»§×é¡£
+ * æ¯ä¸€ä¸ªç”¨æˆ·éƒ½å±äºå”¯ä¸€çš„ç”¨æˆ·ç»„ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class User {
 
@@ -18,7 +18,7 @@ public class User {
 	private String name;
 	private int age;
 	
-	// ÕâÀï´æÓĞ¹ØÁªµÄUserGroupÊôĞÔ
+	// è¿™é‡Œå­˜æœ‰å…³è”çš„UserGroupå±æ€§
 	private UserGroup userGroup;
 
 	public User() {

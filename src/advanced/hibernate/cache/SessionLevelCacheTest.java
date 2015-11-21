@@ -11,19 +11,19 @@ import org.hibernate.Session;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * Session Level CacheÊ¾Àı
+ * Session Level Cacheç¤ºä¾‹
  * <p>
- * HibernateÊı¾İ»º´æ·ÖÎªÁ½¸ö²ã´Î£º
- * 1£¬ÄÚ²¿»º´æ£¬Ò²½ĞÒ»¼¶»º´æ£ºSession Level Cache£¬ÊôÓÚÊÂÎñ¼¶»º´æ¡£
- * SessionÔÚÄÚ²¿Î¬»¤ÁËÒ»¸öMapÊı¾İÀàĞÍ£¬´ËÊı¾İÀàĞÍÖĞ±£³ÖÁËËùÓĞµÄÓëµ±Ç°SessionÏà¹ØÁªµÄÊı¾İ¶ÔÏó¡£
- * Èç¹ûĞèÒªÍ¨¹ıSession¼ÓÔØÄ³¸öÊı¾İ¶ÔÏó£¬SessionÊ×ÏÈ»á¸ù¾İÒª¼ÓÔØµÄÀàºÍid£¬ÔÚMapÖĞ²éÕÒÊÇ·ñÒÑ»º´æ´ËÊı¾İµÄÊµÀı£¬
- * Èç¹û´æÔÚÇÒÆä×´Ì¬ÎªÓĞĞ§£¬Ôò·µ»Ø´ËÊµÀı¡£Í¬ÑùµÄ£¬Èç¹ûSession´ÓÊı¾İ¿âÖĞ¼ÓÔØÁËÊı¾İ£¬Ò²»á½«ÆäÄÉÈëMapÖĞ»º´æÆğÀ´¡£
+ * Hibernateæ•°æ®ç¼“å­˜åˆ†ä¸ºä¸¤ä¸ªå±‚æ¬¡ï¼š
+ * 1ï¼Œå†…éƒ¨ç¼“å­˜ï¼Œä¹Ÿå«ä¸€çº§ç¼“å­˜ï¼šSession Level Cacheï¼Œå±äºäº‹åŠ¡çº§ç¼“å­˜ã€‚
+ * Sessionåœ¨å†…éƒ¨ç»´æŠ¤äº†ä¸€ä¸ªMapæ•°æ®ç±»å‹ï¼Œæ­¤æ•°æ®ç±»å‹ä¸­ä¿æŒäº†æ‰€æœ‰çš„ä¸å½“å‰Sessionç›¸å…³è”çš„æ•°æ®å¯¹è±¡ã€‚
+ * å¦‚æœéœ€è¦é€šè¿‡SessionåŠ è½½æŸä¸ªæ•°æ®å¯¹è±¡ï¼ŒSessioné¦–å…ˆä¼šæ ¹æ®è¦åŠ è½½çš„ç±»å’Œidï¼Œåœ¨Mapä¸­æŸ¥æ‰¾æ˜¯å¦å·²ç¼“å­˜æ­¤æ•°æ®çš„å®ä¾‹ï¼Œ
+ * å¦‚æœå­˜åœ¨ä¸”å…¶çŠ¶æ€ä¸ºæœ‰æ•ˆï¼Œåˆ™è¿”å›æ­¤å®ä¾‹ã€‚åŒæ ·çš„ï¼Œå¦‚æœSessionä»æ•°æ®åº“ä¸­åŠ è½½äº†æ•°æ®ï¼Œä¹Ÿä¼šå°†å…¶çº³å…¥Mapä¸­ç¼“å­˜èµ·æ¥ã€‚
  * <p>
- * ÄÚ²¿»º´æÕı³£Çé¿öÏÂÓÉHibernate×Ô¶¯Î¬»¤¡£
+ * å†…éƒ¨ç¼“å­˜æ­£å¸¸æƒ…å†µä¸‹ç”±Hibernateè‡ªåŠ¨ç»´æŠ¤ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ6ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ6æ—¥
  */
 public class SessionLevelCacheTest extends AbstractHibernateTestCase  {
 
@@ -31,22 +31,22 @@ public class SessionLevelCacheTest extends AbstractHibernateTestCase  {
 	protected void doTest() throws Exception {
 		Session newSession = null;
 		try {
-			// ÎªÁË±ÜÃâ¸ÉÈÅ£¬ÕâÀïÊ¹ÓÃÒ»¸öĞÂµÄsessionÊµÀı
+			// ä¸ºäº†é¿å…å¹²æ‰°ï¼Œè¿™é‡Œä½¿ç”¨ä¸€ä¸ªæ–°çš„sessionå®ä¾‹
 			newSession = sessionFactory.openSession();
-			System.out.println("¡¾session.load(book) 1st time.¡¿");
+			System.out.println("ã€session.load(book) 1st time.ã€‘");
 			/*
-			 * µÚÒ»´Î²éÑ¯µÄÊ±ºò£¬»áÓĞSQLÓï¾äÊä³ö£¬»áµ÷ÓÃÊı¾İ¿â²éÑ¯
+			 * ç¬¬ä¸€æ¬¡æŸ¥è¯¢çš„æ—¶å€™ï¼Œä¼šæœ‰SQLè¯­å¥è¾“å‡ºï¼Œä¼šè°ƒç”¨æ•°æ®åº“æŸ¥è¯¢
 			 * 
-			 * »º´æ½«ÔÚÒÔÏÂÇé¿öÖĞ·¢»Ó×÷ÓÃ£º
-			 * 1£¬Í¨¹ıÖ÷¼ü¼ÓÔØÊı¾İÊ±
-			 * °üÀ¨¸ù¾İid²éÑ¯Êı¾İµÄsession.load·½·¨£¬ÒÔ¼°session.iterateµÈÅúÁ¿²éÑ¯·½·¨¡£
-			 * 2£¬ÑÓ³Ù¼ÓÔØ
+			 * ç¼“å­˜å°†åœ¨ä»¥ä¸‹æƒ…å†µä¸­å‘æŒ¥ä½œç”¨ï¼š
+			 * 1ï¼Œé€šè¿‡ä¸»é”®åŠ è½½æ•°æ®æ—¶
+			 * åŒ…æ‹¬æ ¹æ®idæŸ¥è¯¢æ•°æ®çš„session.loadæ–¹æ³•ï¼Œä»¥åŠsession.iterateç­‰æ‰¹é‡æŸ¥è¯¢æ–¹æ³•ã€‚
+			 * 2ï¼Œå»¶è¿ŸåŠ è½½
 			 */
 			Book book1 = (Book) newSession.load(Book.class, 1L);
 			System.out.println("book1 " + book1);
 
-			System.out.println("¡¾session.load(book) 2nd time.¡¿");
-			// µÚ¶ş´Î²éÑ¯µÄÊ±ºò£¬¾Í²»»áÓĞSQLÓï¾äÊä³ö£¬ÒòÎªÖ±½Ó´Ó»º´æÖĞ»ñÈ¡ÁËÊı¾İ£¬²¢Ã»ÓĞµ÷ÓÃÊı¾İ¿â²éÑ¯
+			System.out.println("ã€session.load(book) 2nd time.ã€‘");
+			// ç¬¬äºŒæ¬¡æŸ¥è¯¢çš„æ—¶å€™ï¼Œå°±ä¸ä¼šæœ‰SQLè¯­å¥è¾“å‡ºï¼Œå› ä¸ºç›´æ¥ä»ç¼“å­˜ä¸­è·å–äº†æ•°æ®ï¼Œå¹¶æ²¡æœ‰è°ƒç”¨æ•°æ®åº“æŸ¥è¯¢
 			Book book2 = (Book) newSession.load(Book.class, 1L);
 			System.out.println("book2 " + book1);
 

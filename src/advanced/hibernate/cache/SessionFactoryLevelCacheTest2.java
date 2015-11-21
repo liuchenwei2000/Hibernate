@@ -6,13 +6,13 @@ package hibernate.cache;
 import org.hibernate.Session;
 
 /**
- * SessionFactory Level CacheÊ¾Àı2
+ * SessionFactory Level Cacheç¤ºä¾‹2
  * <p>
- * ÊÂÊµÖ¤Ã÷£¬¶ş¼¶»º´æÄÜ×Ô¶¯¸üĞÂ»º´æÊı¾İ¡£
+ * äº‹å®è¯æ˜ï¼ŒäºŒçº§ç¼“å­˜èƒ½è‡ªåŠ¨æ›´æ–°ç¼“å­˜æ•°æ®ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ6ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ6æ—¥
  */
 public class SessionFactoryLevelCacheTest2 extends SessionFactoryLevelCacheTest  {
 
@@ -22,19 +22,19 @@ public class SessionFactoryLevelCacheTest2 extends SessionFactoryLevelCacheTest 
 		Session session2 = null;
 		try {
 			session1 = sessionFactory.openSession();
-			System.out.println("¡¾QueryTask¡¿session1.load(worker) 1st time");
+			System.out.println("ã€QueryTaskã€‘session1.load(worker) 1st time");
 			Worker worker = (Worker) session1.load(Worker.class, 1L);
 			System.out.println("worker " + worker);
 			
-			// ÁíÆğÒ»¸öÏß³ÌÈ¥×ö¶Ô worker ¶ÔÓ¦¼ÇÂ¼µÄ¸üĞÂ²Ù×÷
+			// å¦èµ·ä¸€ä¸ªçº¿ç¨‹å»åšå¯¹ worker å¯¹åº”è®°å½•çš„æ›´æ–°æ“ä½œ
 			new Thread(new UpdateTask()).start();
 			
 			Thread.sleep(1000);
-			// ÕâÊ±ºò worker µÄ¸üĞÂ²Ù×÷ÒÑ¾­Íê³ÉÁË
+			// è¿™æ—¶å€™ worker çš„æ›´æ–°æ“ä½œå·²ç»å®Œæˆäº†
 			
 			session2 = sessionFactory.openSession();
-			System.out.println("¡¾QueryTask¡¿session2.load(worker) 2nd time");
-			// µÚ¶ş´Î²éÑ¯µÄÊ±ºò£¬Ã»ÓĞSQLÓï¾äÊä³ö£¬Ö±½Ó´Ó»º´æÖĞ»ñÈ¡ÁËÊı¾İ£¬Õâ¸öÊı¾İÈÔÈ»ÊÇ×îĞÂ°æ±¾µÄ¡£
+			System.out.println("ã€QueryTaskã€‘session2.load(worker) 2nd time");
+			// ç¬¬äºŒæ¬¡æŸ¥è¯¢çš„æ—¶å€™ï¼Œæ²¡æœ‰SQLè¯­å¥è¾“å‡ºï¼Œç›´æ¥ä»ç¼“å­˜ä¸­è·å–äº†æ•°æ®ï¼Œè¿™ä¸ªæ•°æ®ä»ç„¶æ˜¯æœ€æ–°ç‰ˆæœ¬çš„ã€‚
 			worker = (Worker) session2.load(Worker.class, 1L);
 			System.out.println("worker " + worker);
 		} catch (Exception e) {
@@ -56,13 +56,13 @@ public class SessionFactoryLevelCacheTest2 extends SessionFactoryLevelCacheTest 
 			Session mySession = null;
 			try {
 				mySession = sessionFactory.openSession();
-				System.out.println("¡¾UpdateTask¡¿session.load(worker) 1st time");
-				// ĞŞ¸ÄÁËÖ÷¼üÎª1LµÄWorker¶ÔÏóname
+				System.out.println("ã€UpdateTaskã€‘session.load(worker) 1st time");
+				// ä¿®æ”¹äº†ä¸»é”®ä¸º1Lçš„Workerå¯¹è±¡name
 				Worker worker = (Worker) mySession.load(Worker.class, 1L);
-				System.out.println("¡¾UpdateTask¡¿worker " + worker);
+				System.out.println("ã€UpdateTaskã€‘worker " + worker);
 				mySession.beginTransaction();
 				worker.setName("Hello World");
-				// Ìá½»³É¹¦ºó£¬¶ş¼¶»º´æÆäÊµÄÜ¹»µÃµ½Êı¾İ¸üĞÂÍ¨Öª£¬´Ó¶ø¸üĞÂÏàÓ¦µÄÊı¾İ
+				// æäº¤æˆåŠŸåï¼ŒäºŒçº§ç¼“å­˜å…¶å®èƒ½å¤Ÿå¾—åˆ°æ•°æ®æ›´æ–°é€šçŸ¥ï¼Œä»è€Œæ›´æ–°ç›¸åº”çš„æ•°æ®
 				mySession.getTransaction().commit();
 			} catch (Exception e) {
 				e.printStackTrace();

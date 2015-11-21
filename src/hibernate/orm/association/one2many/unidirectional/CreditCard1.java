@@ -6,13 +6,13 @@ package hibernate.orm.association.one2many.unidirectional;
 import java.util.Date;
 
 /**
- * CreditCardÀà
+ * CreditCardç±»
  * <p>
- * Ã¿Ò»ÕÅĞÅÓÃ¿¨¶¼ÊôÓÚÄ³Ò»¸öÈË¡£
+ * æ¯ä¸€å¼ ä¿¡ç”¨å¡éƒ½å±äºæŸä¸€ä¸ªäººã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class CreditCard1 {
 
@@ -20,7 +20,7 @@ public class CreditCard1 {
 	private String no;
 	private Date expiry;
 	
-	// ÕâÀï´æÓĞ³Ö¿¨ÈËµÄÖ÷¼ü
+	// è¿™é‡Œå­˜æœ‰æŒå¡äººçš„ä¸»é”®
 	private String pk_person;
 
 	public CreditCard1() {

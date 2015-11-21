@@ -4,11 +4,11 @@
 package hibernate.query.SQL;
 
 /**
- * JavaBeanÊ¾Àı
+ * JavaBeanç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public class Dog {
 

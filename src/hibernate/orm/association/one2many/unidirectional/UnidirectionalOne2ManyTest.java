@@ -10,53 +10,53 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * µ¥Ïò one-to-many ¹ØÁªÊ¾Àı
+ * å•å‘ one-to-many å…³è”ç¤ºä¾‹
  * <p>
- * ĞÅÓÃ¿¨±íÖĞ°üº¬Ò»¸ö pk_person ×Ö¶Î£¬´Ë×Ö¶ÎÓë tb_persons ±íµÄ  pk_person ×Ö¶ÎÏà¹ØÁª¡£
+ * ä¿¡ç”¨å¡è¡¨ä¸­åŒ…å«ä¸€ä¸ª pk_person å­—æ®µï¼Œæ­¤å­—æ®µä¸ tb_persons è¡¨çš„  pk_person å­—æ®µç›¸å…³è”ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class UnidirectionalOne2ManyTest extends AbstractHibernateTestCase {
 
 	@Override
 	protected void doTest() {
-		// ±£´æÒ»¸öPerson¼°ÆäĞÅÓÃ¿¨ĞÅÏ¢
+		// ä¿å­˜ä¸€ä¸ªPersonåŠå…¶ä¿¡ç”¨å¡ä¿¡æ¯
 		Person1 person = createPerson();
 		person.setCreditCard(createCreditCards());
 
 	   /*
-		* ÓÉÓÚÊÇµ¥Ïò¹ØÁª£¬ÎªÁË±£³Ö¹ØÁª¹ØÏµ£¬Ö»ÄÜÍ¨¹ıÖ÷¿Ø·½¶Ô±»¶¯·½½øĞĞ¼¶Áª¸üĞÂ¡£
-		* Èç¹û±»¶¯·½µÄ¹ØÁª×Ö¶ÎÎª NOT NULL£¬µ±Hibernate´´½¨»òÕß¸üĞÂ¹ØÁª¹ØÏµÊ±£¬¾Í»á³öÏÖÔ¼ÊøÎ¥Àı¡£
+		* ç”±äºæ˜¯å•å‘å…³è”ï¼Œä¸ºäº†ä¿æŒå…³è”å…³ç³»ï¼Œåªèƒ½é€šè¿‡ä¸»æ§æ–¹å¯¹è¢«åŠ¨æ–¹è¿›è¡Œçº§è”æ›´æ–°ã€‚
+		* å¦‚æœè¢«åŠ¨æ–¹çš„å…³è”å­—æ®µä¸º NOT NULLï¼Œå½“Hibernateåˆ›å»ºæˆ–è€…æ›´æ–°å…³è”å…³ç³»æ—¶ï¼Œå°±ä¼šå‡ºç°çº¦æŸè¿ä¾‹ã€‚
 		* <p>
-		* ±¾ÀıÈç¹û°Ñ CreditCard1.hbm.xml ÎÄ¼şÖĞµÄ <property name="pk_person" />Ìæ»»Îª
-		* <property name="pk_person" not-null="true" />£¬Ôò±£´æ²Ù×÷»áÊ§°Ü¡£
+		* æœ¬ä¾‹å¦‚æœæŠŠ CreditCard1.hbm.xml æ–‡ä»¶ä¸­çš„ <property name="pk_person" />æ›¿æ¢ä¸º
+		* <property name="pk_person" not-null="true" />ï¼Œåˆ™ä¿å­˜æ“ä½œä¼šå¤±è´¥ã€‚
 		* 
-		* ¾ßÌåÔ­ÒòÊÇÒòÎªsave¶¯×÷¶ÔÓ¦µÄsqlÓï¾ä¼°Ö´ĞĞË³ĞòÈçÏÂ£º
-		* 1£¬ÏÈ²åÈëÖ÷¿Ø·½±í
+		* å…·ä½“åŸå› æ˜¯å› ä¸ºsaveåŠ¨ä½œå¯¹åº”çš„sqlè¯­å¥åŠæ‰§è¡Œé¡ºåºå¦‚ä¸‹ï¼š
+		* 1ï¼Œå…ˆæ’å…¥ä¸»æ§æ–¹è¡¨
 		* insert into tb_person_1 (name, pk_person) values (?, ?);
-		* 2£¬ÔÙ²åÈë±»¶¯·½±í(´ËÊ±Íâ¼ü pk_person µÄÖµÎªnull)£º
+		* 2ï¼Œå†æ’å…¥è¢«åŠ¨æ–¹è¡¨(æ­¤æ—¶å¤–é”® pk_person çš„å€¼ä¸ºnull)ï¼š
 		* insert into tb_creditcard_1 (no, expiry, pk_person, pk_card) values (?, ?, ?, ?);
-		* 3£¬¸üĞÂ±»¶¯·½±íµÄÍâ¼üÖµ
+		* 3ï¼Œæ›´æ–°è¢«åŠ¨æ–¹è¡¨çš„å¤–é”®å€¼
 		* update tb_creditcard_1 set pk_person=? where pk_card=?;
 		* 
-		* ÒòÎª¹ØÁª·½ÏòÊÇµ¥Ïò£¬¹ØÁª¹ØÏµÓÉÖ÷¿Ø·½(Person1)¶ÔÏóÎ¬³Ö£¬¶ø±»¶¯·½(CreditCard1)¶ÔÏó±¾Éí
-		* ²¢²»ÖªµÀ×Ô¼ºÓëÄÄ¸öPerson1¶ÔÏóÏà¹ØÁª£¬¼´²»ÖªµÀ×Ô¼ºµÄpk_personÓ¦¸ÃÉèÎªÊ²Ã´Öµ¡£
-		* ËùÒÔ£¬ÔÚ±£´æCreditCard1¶ÔÏóÊ±£¬Ö»ÄÜÏÈÔÚ¹ØÁª×Ö¶Î(Íâ¼ü)²åÈëÒ»¸ö¿ÕÖµ£¬Ö®ºó£¬ÔÙÓÉPerson1¶ÔÏó½«×ÔÉíµÄÖ÷¼ü
-		* ¸³¸ø¹ØÁª×Ö¶ÎcreditcCard.pk_person£¬Õâ¸ö¸³Öµ²Ù×÷µ¼ÖÂCreditcCard1¶ÔÏóÊôĞÔ·¢Éú±ä¶¯£¬
-		* ÔÚÊÂÎñÌá½»Ê±£¬Hibernate»á·¢ÏÖÕâÒ»¸Ä±ä£¬²¢Í¨¹ıUpdateÓï¾ä½«±ä¶¯ºóµÄÊı¾İ±£´æµ½Êı¾İ¿â¡£
+		* å› ä¸ºå…³è”æ–¹å‘æ˜¯å•å‘ï¼Œå…³è”å…³ç³»ç”±ä¸»æ§æ–¹(Person1)å¯¹è±¡ç»´æŒï¼Œè€Œè¢«åŠ¨æ–¹(CreditCard1)å¯¹è±¡æœ¬èº«
+		* å¹¶ä¸çŸ¥é“è‡ªå·±ä¸å“ªä¸ªPerson1å¯¹è±¡ç›¸å…³è”ï¼Œå³ä¸çŸ¥é“è‡ªå·±çš„pk_personåº”è¯¥è®¾ä¸ºä»€ä¹ˆå€¼ã€‚
+		* æ‰€ä»¥ï¼Œåœ¨ä¿å­˜CreditCard1å¯¹è±¡æ—¶ï¼Œåªèƒ½å…ˆåœ¨å…³è”å­—æ®µ(å¤–é”®)æ’å…¥ä¸€ä¸ªç©ºå€¼ï¼Œä¹‹åï¼Œå†ç”±Person1å¯¹è±¡å°†è‡ªèº«çš„ä¸»é”®
+		* èµ‹ç»™å…³è”å­—æ®µcreditcCard.pk_personï¼Œè¿™ä¸ªèµ‹å€¼æ“ä½œå¯¼è‡´CreditcCard1å¯¹è±¡å±æ€§å‘ç”Ÿå˜åŠ¨ï¼Œ
+		* åœ¨äº‹åŠ¡æäº¤æ—¶ï¼ŒHibernateä¼šå‘ç°è¿™ä¸€æ”¹å˜ï¼Œå¹¶é€šè¿‡Updateè¯­å¥å°†å˜åŠ¨åçš„æ•°æ®ä¿å­˜åˆ°æ•°æ®åº“ã€‚
 		* 
-		* ¡¾Ë«ÏòÒ»¶Ô¶à¹ØÏµ¿ÉÒÔ½â¾öÕâ¸öÎÊÌâ¡¿
+		* ã€åŒå‘ä¸€å¯¹å¤šå…³ç³»å¯ä»¥è§£å†³è¿™ä¸ªé—®é¢˜ã€‘
 		*/
 		session.beginTransaction();
 		session.save(person);
 		session.getTransaction().commit();
 
-		// ¸ù¾İPerson¶ÔÏóÄÜ»ñµÃ¹ØÁªµÄCreditCard¶ÔÏóĞÅÏ¢£¨µ¥Ïòone-to-many£©
+		// æ ¹æ®Personå¯¹è±¡èƒ½è·å¾—å…³è”çš„CreditCardå¯¹è±¡ä¿¡æ¯ï¼ˆå•å‘one-to-manyï¼‰
 		Person1 p1 = (Person1) session.load(Person1.class, 1L);
-		System.out.println("Person's name is ¡¾" + p1.getName() + "¡¿");
-		System.out.println("Credit crads are ¡¾" + p1.getCreditCard() + "¡¿");
+		System.out.println("Person's name is ã€" + p1.getName() + "ã€‘");
+		System.out.println("Credit crads are ã€" + p1.getCreditCard() + "ã€‘");
 	}
 
 	private static Set<CreditCard1> createCreditCards() {

@@ -4,15 +4,15 @@
 package hibernate.orm.discriminator;
 
 /**
- * DVDÀà
+ * DVDç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class DVD extends Item {
 
-	private String regionCode;// ÌØÓĞÊôĞÔ
+	private String regionCode;// ç‰¹æœ‰å±æ€§
 
 	public DVD() {
 		super();

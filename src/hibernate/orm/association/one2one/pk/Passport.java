@@ -6,13 +6,13 @@ package hibernate.orm.association.one2one.pk;
 import java.util.Date;
 
 /**
- * PassportÀà
+ * Passportç±»
  * <p>
- * Ã¿Ò»¸ö»¤ÕÕ¶¼ÓĞÎ¨Ò»µÄ¹«ÃñÓëÖ®¶ÔÓ¦¡£
+ * æ¯ä¸€ä¸ªæŠ¤ç…§éƒ½æœ‰å”¯ä¸€çš„å…¬æ°‘ä¸ä¹‹å¯¹åº”ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class Passport {
 
@@ -20,7 +20,7 @@ public class Passport {
 	private String serial;
 	private Date expiry;
 	
-	// ÕâÀï´æÓĞ¹ØÁªµÄCitizenÊôĞÔ
+	// è¿™é‡Œå­˜æœ‰å…³è”çš„Citizenå±æ€§
 	private Citizen citizen;
 	
 	public Passport() {

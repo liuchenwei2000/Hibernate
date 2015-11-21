@@ -8,17 +8,17 @@ import java.util.List;
 import org.hibernate.Query;
 
 /**
- * ÓÒÍâÁ¬½Ó(right outer join)²éÑ¯Ê¾Àı
+ * å³å¤–è¿æ¥(right outer join)æŸ¥è¯¢ç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ30ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ30æ—¥
  */
 public class RightOuterJoinQueryTest extends AbstractJoinQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() throws Exception {
-		System.out.println("¡¾right outer join¡¿");
+		System.out.println("ã€right outer joinã€‘");
 		String hql = "from Employee employee right outer join employee.cards";
 
 		Query query = session.createQuery(hql);
@@ -30,9 +30,9 @@ public class RightOuterJoinQueryTest extends AbstractJoinQueryTestCase {
 			System.out.println();
 		}
 		/*
-		 * fetch ¹Ø¼üÖ»¶Ô inner join ºÍ left outer join ÓĞĞ§¡£
-		 * ¶ÔÓÚ right outer join ¶øÑÔ£¬ÓÉÓÚ×÷Îª¹ØÁª¶ÔÏóÈİÆ÷µÄEmployee¶ÔÏó¿ÉÄÜÎªnull£¬
-		 * ËùÒÔÒ²¾ÍÎŞ·¨Í¨¹ıfetch¹Ø¼ü×ÖÇ¿ÖÆHibernate½øĞĞ¼¯ºÏÌî³ä²Ù×÷ÁË¡£
+		 * fetch å…³é”®åªå¯¹ inner join å’Œ left outer join æœ‰æ•ˆã€‚
+		 * å¯¹äº right outer join è€Œè¨€ï¼Œç”±äºä½œä¸ºå…³è”å¯¹è±¡å®¹å™¨çš„Employeeå¯¹è±¡å¯èƒ½ä¸ºnullï¼Œ
+		 * æ‰€ä»¥ä¹Ÿå°±æ— æ³•é€šè¿‡fetchå…³é”®å­—å¼ºåˆ¶Hibernateè¿›è¡Œé›†åˆå¡«å……æ“ä½œäº†ã€‚
 		 */
 	}
 }

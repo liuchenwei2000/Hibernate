@@ -8,31 +8,31 @@ import hibernate.query.AbstractQueryTestCase;
 import org.hibernate.Query;
 
 /**
- * update¡¢delete²Ù×÷Ê¾Àı
+ * updateã€deleteæ“ä½œç¤ºä¾‹
  * <p>
- * HQLÍ¨¹ıupdate¡¢delete×Ó¾ä£¬¸üÁé»îµÄÊµÏÖÁËÊı¾İµÄÉ¾³ıºÍ¸üĞÂ²Ù×÷¡£
+ * HQLé€šè¿‡updateã€deleteå­å¥ï¼Œæ›´çµæ´»çš„å®ç°äº†æ•°æ®çš„åˆ é™¤å’Œæ›´æ–°æ“ä½œã€‚
  * <p>
- * HQL¹¦ÄÜÈÕÒæÍêÉÆ£¬Í¬Ê±Ô½À´Ô½½Ó½ü´«Í³µÄSQLÓïÑÔ¡£
- * ÓëSQL²»Í¬µÄÊÇ£¬SQLÃæÏòµÄÊÇ¶şÎ¬µÄ½á¹¹»¯Êı¾İ£¬¶øHQLÔòÃæÏòÊı¾İ¶ÔÏó¡£
+ * HQLåŠŸèƒ½æ—¥ç›Šå®Œå–„ï¼ŒåŒæ—¶è¶Šæ¥è¶Šæ¥è¿‘ä¼ ç»Ÿçš„SQLè¯­è¨€ã€‚
+ * ä¸SQLä¸åŒçš„æ˜¯ï¼ŒSQLé¢å‘çš„æ˜¯äºŒç»´çš„ç»“æ„åŒ–æ•°æ®ï¼Œè€ŒHQLåˆ™é¢å‘æ•°æ®å¯¹è±¡ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ29ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ29æ—¥
  */
 public class UpdateDeleteTest extends AbstractQueryTestCase {
 
 	protected void doTest() {
 		session.beginTransaction();
-		// update×Ó¾ä£º¶ÔÓÚÅúÁ¿¸üĞÂ²Ù×÷£¬Æä±ã½İĞÔ¼°ĞÔÄÜµÄÌá¸ßÏàµ±¿É¹Û¡£
-		// SQL£ºupdate tb_person4 set age=22
+		// updateå­å¥ï¼šå¯¹äºæ‰¹é‡æ›´æ–°æ“ä½œï¼Œå…¶ä¾¿æ·æ€§åŠæ€§èƒ½çš„æé«˜ç›¸å½“å¯è§‚ã€‚
+		// SQLï¼šupdate tb_person4 set age=22
 		Query query = session.createQuery("update Person4 set age=22");
 		int result = query.executeUpdate();
 		session.getTransaction().commit();
 		System.out.println("update " + result + " rows.");
 
 		session.beginTransaction();
-		// delete×Ó¾ä£º¶ÔÓÚÅúÁ¿¸üĞÂ²Ù×÷£¬Æä±ã½İĞÔ¼°ĞÔÄÜµÄÌá¸ßÏàµ±¿É¹Û¡£
-		// SQL£ºdelete from tb_person4 where name='Tom'
+		// deleteå­å¥ï¼šå¯¹äºæ‰¹é‡æ›´æ–°æ“ä½œï¼Œå…¶ä¾¿æ·æ€§åŠæ€§èƒ½çš„æé«˜ç›¸å½“å¯è§‚ã€‚
+		// SQLï¼šdelete from tb_person4 where name='Tom'
 		query = session.createQuery("delete Person4 where name='Tom'");
 		result = query.executeUpdate();
 		session.getTransaction().commit();

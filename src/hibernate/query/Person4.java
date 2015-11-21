@@ -4,11 +4,11 @@
 package hibernate.query;
 
 /**
- * JavaBeanÊ¾Àı
+ * JavaBeanç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ28ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ28æ—¥
  */
 public class Person4 {
 

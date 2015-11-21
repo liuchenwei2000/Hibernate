@@ -11,28 +11,28 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 /**
- * JDBC TransactionÊ¾Àı
+ * JDBC Transactionç¤ºä¾‹
  * <p>
- * HibernateÊÇJDBCµÄÇáÁ¿¼¶·â×°£¬±¾Éí²¢²»¾ß±¸ÊÂÎñ¹ÜÀíÄÜÁ¦£¬Ëü½«ÊÂÎñÎ¯ÍĞ¸øµ×²ãµÄJDBC»òJTAÒÔÊµÏÖÊÂÎñµÄ¹ÜÀíºÍµ÷¶È¡£
- * HibernateµÄÄ¬ÈÏÊÂÎñ´¦Àí»úÖÆ»ùÓÚ JDBC Transaction¡£
+ * Hibernateæ˜¯JDBCçš„è½»é‡çº§å°è£…ï¼Œæœ¬èº«å¹¶ä¸å…·å¤‡äº‹åŠ¡ç®¡ç†èƒ½åŠ›ï¼Œå®ƒå°†äº‹åŠ¡å§”æ‰˜ç»™åº•å±‚çš„JDBCæˆ–JTAä»¥å®ç°äº‹åŠ¡çš„ç®¡ç†å’Œè°ƒåº¦ã€‚
+ * Hibernateçš„é»˜è®¤äº‹åŠ¡å¤„ç†æœºåˆ¶åŸºäº JDBC Transactionã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ7ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ7æ—¥
  */
 public class JDBCTransactionTest extends AbstractHibernateTestCase  {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() throws Exception {
 		Session newSession = sessionFactory.openSession();
-		Transaction tx = newSession.beginTransaction();// Ïàµ±ÓÚ connection.setAutoCommit(fasle)
+		Transaction tx = newSession.beginTransaction();// ç›¸å½“äº connection.setAutoCommit(fasle)
 		// ...
-		tx.commit();// Ïàµ±ÓÚ connection.commit
+		tx.commit();// ç›¸å½“äº connection.commit
 		
-		// ´ÓSessionFactory»ñµÃSession¿ªÊ¼£¬Æä×Ô¶¯Ìá½»ÊôĞÔ¾ÍÒÑ¾­±»¹Ø±Õ£¨autoCommit=false£©
+		// ä»SessionFactoryè·å¾—Sessionå¼€å§‹ï¼Œå…¶è‡ªåŠ¨æäº¤å±æ€§å°±å·²ç»è¢«å…³é—­ï¼ˆautoCommit=falseï¼‰
 		newSession.beginTransaction();
 		newSession.save(new DVD("JDBCTransactionTest"));
-		newSession.close();// ÕâÀïÃ»ÓĞcommit¼´¹Ø±Õ session»áµ¼ÖÂ±£´æ²Ù×÷ÎŞ·¨×÷ÓÃµ½Êı¾İ¿â
+		newSession.close();// è¿™é‡Œæ²¡æœ‰commitå³å…³é—­ sessionä¼šå¯¼è‡´ä¿å­˜æ“ä½œæ— æ³•ä½œç”¨åˆ°æ•°æ®åº“
 		
 		newSession = sessionFactory.openSession();
 		List<DVD> result = session.createQuery(" from DVD where name='JDBCTransactionTest' ").list();
@@ -41,7 +41,7 @@ public class JDBCTransactionTest extends AbstractHibernateTestCase  {
 		newSession = sessionFactory.openSession();
 		newSession.beginTransaction();
 		newSession.save(new DVD("JDBCTransactionTest"));
-		// ÒªÊ¹´úÂëÕæÕı×÷ÓÃµ½Êı¾İ¿â£¬ĞèÒªÏÔÊ½µØµ÷ÓÃTransactionÖ¸Áî£º
+		// è¦ä½¿ä»£ç çœŸæ­£ä½œç”¨åˆ°æ•°æ®åº“ï¼Œéœ€è¦æ˜¾å¼åœ°è°ƒç”¨TransactionæŒ‡ä»¤ï¼š
 		newSession.getTransaction().commit();
 		newSession.close();
 		

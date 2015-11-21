@@ -12,21 +12,21 @@ import org.hibernate.EmptyInterceptor;
 import org.hibernate.type.Type;
 
 /**
- * ÈÕÖ¾À¹½ØÆ÷
+ * æ—¥å¿—æ‹¦æˆªå™¨
  * <p>
- * InterceptorÊµ¼ÊÉÏ¸²¸ÇÁËLifecycle½Ó¿ÚµÄ¹¦ÄÜ£¬ÇÒ¾ß±¸¸üÉÙµÄ´úÂëÈëÇÖĞÔ¡£
- * ÓëLifecycleÏàÍ¬£¬InterceptorµÄ·½·¨ÖĞ²»¿ÉÍ¨¹ısessionÊµÀı½øĞĞ³Ö¾Ã»¯²Ù×÷¡£
+ * Interceptorå®é™…ä¸Šè¦†ç›–äº†Lifecycleæ¥å£çš„åŠŸèƒ½ï¼Œä¸”å…·å¤‡æ›´å°‘çš„ä»£ç å…¥ä¾µæ€§ã€‚
+ * ä¸Lifecycleç›¸åŒï¼ŒInterceptorçš„æ–¹æ³•ä¸­ä¸å¯é€šè¿‡sessionå®ä¾‹è¿›è¡ŒæŒä¹…åŒ–æ“ä½œã€‚
  * <p>
- * ËäÈ»¿ÉÒÔÔÚ¸÷¸öÒµÎñÂß¼­µ¥ÔªÖĞ±àÂëÊµÏÖ£¬µ«Í¨¹ıInterceptorµÄ·½Ê½¸üÄÜÌåÏÖ¼¯ÖĞ¹ÜÀí£¬
- * ±ÜÃâÁËÒµÎñÂß¼­µ¥Ôª¸÷×Ô±àÂëµÄÈ±Â©£¬Ìá¸ßÁË¹¦ÄÜ¸´ÓÃĞÔ¡£
+ * è™½ç„¶å¯ä»¥åœ¨å„ä¸ªä¸šåŠ¡é€»è¾‘å•å…ƒä¸­ç¼–ç å®ç°ï¼Œä½†é€šè¿‡Interceptorçš„æ–¹å¼æ›´èƒ½ä½“ç°é›†ä¸­ç®¡ç†ï¼Œ
+ * é¿å…äº†ä¸šåŠ¡é€»è¾‘å•å…ƒå„è‡ªç¼–ç çš„ç¼ºæ¼ï¼Œæé«˜äº†åŠŸèƒ½å¤ç”¨æ€§ã€‚
  * <p>
- * ±¾Àı½«»á°Ñ¶ÔÕË»§µÄ¸üĞÂ²Ù×÷È«²¿¼ÇÂ¼ÔÚ°¸¡£
+ * æœ¬ä¾‹å°†ä¼šæŠŠå¯¹è´¦æˆ·çš„æ›´æ–°æ“ä½œå…¨éƒ¨è®°å½•åœ¨æ¡ˆã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ18ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ18æ—¥
  */
-// ¿ÉÒÔÖ±½ÓÊµÏÖInterceptor½Ó¿Ú£¬Ò²¿ÉÒÔ¼Ì³Ğ¿ÕÊµÏÖÀàEmptyInterceptor
+// å¯ä»¥ç›´æ¥å®ç°Interceptoræ¥å£ï¼Œä¹Ÿå¯ä»¥ç»§æ‰¿ç©ºå®ç°ç±»EmptyInterceptor
 public class LogInterceptor extends EmptyInterceptor {
 
 	private static final long serialVersionUID = 2905579262842200063L;
@@ -34,7 +34,7 @@ public class LogInterceptor extends EmptyInterceptor {
 	private List<Account> accountUpdated = new LinkedList<Account>();
 
 	/**
-	 * session.flush·½·¨½øĞĞÔàÊı¾İ¼ì²éÊ±µ÷ÓÃ
+	 * session.flushæ–¹æ³•è¿›è¡Œè„æ•°æ®æ£€æŸ¥æ—¶è°ƒç”¨
 	 * 
 	 * @see org.hibernate.EmptyInterceptor#onFlushDirty(java.lang.Object, java.io.Serializable, java.lang.Object[], java.lang.Object[], java.lang.String[], org.hibernate.type.Type[])
 	 */
@@ -49,7 +49,7 @@ public class LogInterceptor extends EmptyInterceptor {
 	}
 
 	/**
-	 * session.flush·½·¨Ö´ĞĞÖ®ºóµ÷ÓÃ
+	 * session.flushæ–¹æ³•æ‰§è¡Œä¹‹åè°ƒç”¨
 	 * 
 	 * @see org.hibernate.EmptyInterceptor#postFlush(java.util.Iterator)
 	 */
@@ -60,7 +60,7 @@ public class LogInterceptor extends EmptyInterceptor {
 			Iterator<Account> iterator = accountUpdated.listIterator();
 			while (iterator.hasNext()) {
 				Account account = (Account) iterator.next();
-				System.out.println("¡¾AUDIT LOG¡¿account " + account.getNo()
+				System.out.println("ã€AUDIT LOGã€‘account " + account.getNo()
 						+ " is updated, amount=" + account.getAmount());
 			}
 			accountUpdated.clear();

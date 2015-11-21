@@ -9,14 +9,14 @@ import java.util.List;
 import org.hibernate.Session;
 
 /**
- * ²éÑ¯Ê±Query.list/iterate·½·¨¼ÓÔØÊı¾İÇø±ğ£¨CriteriaÒ²Ò»Ñù£©
+ * æŸ¥è¯¢æ—¶Query.list/iterateæ–¹æ³•åŠ è½½æ•°æ®åŒºåˆ«ï¼ˆCriteriaä¹Ÿä¸€æ ·ï¼‰
  * <p>
- * list/iterate·½·¨ÊµÏÖÁËÏàÍ¬µÄ¹¦ÄÜ¡ª¡ª¡ª¡ª¸ù¾İ²éÑ¯Ìõ¼ş´ÓÊı¾İ¿â»ñÈ¡·ûºÏÌõ¼şµÄ¼ÇÂ¼£¬²¢·µ»Ø¶ÔÓ¦µÄÊµÌå¼¯¡£
- * ³ıÁË·µ»ØµÄ¼¯ºÏÀàĞÍ²»Í¬£¬ËüÃÇ»¹ÓĞÆäËûµÄÇø±ğ¡£
+ * list/iterateæ–¹æ³•å®ç°äº†ç›¸åŒçš„åŠŸèƒ½â€”â€”â€”â€”æ ¹æ®æŸ¥è¯¢æ¡ä»¶ä»æ•°æ®åº“è·å–ç¬¦åˆæ¡ä»¶çš„è®°å½•ï¼Œå¹¶è¿”å›å¯¹åº”çš„å®ä½“é›†ã€‚
+ * é™¤äº†è¿”å›çš„é›†åˆç±»å‹ä¸åŒï¼Œå®ƒä»¬è¿˜æœ‰å…¶ä»–çš„åŒºåˆ«ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public class QueryListIterateTest extends AbstractDataLoadingTestCase {
 
@@ -30,11 +30,11 @@ public class QueryListIterateTest extends AbstractDataLoadingTestCase {
 	}
 
 	/**
-	 * list/iterate·½·¨¸÷×ÔÊ¹ÓÃ¶ÀÁ¢µÄsession½øĞĞÍ¬ÑùµÄ²éÑ¯
+	 * list/iterateæ–¹æ³•å„è‡ªä½¿ç”¨ç‹¬ç«‹çš„sessionè¿›è¡ŒåŒæ ·çš„æŸ¥è¯¢
 	 */
 	@SuppressWarnings("unchecked")
 	private void doTest1(String hql) {
-		System.out.println("¡¾¡¾¡¾¡¾¡¾list/iterate·½·¨¸÷×ÔÊ¹ÓÃ¶ÀÁ¢µÄsession½øĞĞÍ¬ÑùµÄ²éÑ¯¡¿¡¿¡¿¡¿¡¿");
+		System.out.println("ã€ã€ã€ã€ã€list/iterateæ–¹æ³•å„è‡ªä½¿ç”¨ç‹¬ç«‹çš„sessionè¿›è¡ŒåŒæ ·çš„æŸ¥è¯¢ã€‘ã€‘ã€‘ã€‘ã€‘");
 		Session session1 = null;
 		Session session2 = null;
 		try {
@@ -42,24 +42,24 @@ public class QueryListIterateTest extends AbstractDataLoadingTestCase {
 			session2 = sessionFactory.openSession();
 			
 			/*
-			 * ÒÔÏÂÊÇ list ·½·¨µÄÊä³ö£º
+			 * ä»¥ä¸‹æ˜¯ list æ–¹æ³•çš„è¾“å‡ºï¼š
 			 * Hibernate: select car0_.pk_car as pk_car1_0_, car0_.name as name2_0_ from tb_cars car0_ where car0_.pk_car<4
-			 * ¡¾session1.createQuery(hql).list()¡¿
+			 * ã€session1.createQuery(hql).list()ã€‘
 			 * Car [name=BMW]
 			 * Car [name=Benz]
 			 * Car [name=Porsche]
 			 */
-			// list ·½·¨Í¨¹ıÒ»Ìõselect SQLÊµÏÖÁË²éÑ¯²Ù×÷
+			// list æ–¹æ³•é€šè¿‡ä¸€æ¡select SQLå®ç°äº†æŸ¥è¯¢æ“ä½œ
 			List<Car> cars = session1.createQuery(hql).list();
-			System.out.println("¡¾session1.createQuery(hql).list()¡¿");
+			System.out.println("ã€session1.createQuery(hql).list()ã€‘");
 			for (Car car : cars) {
 				System.out.println(car);
 			}
 			
 			/*
-			 * ÒÔÏÂÊÇ iterate ·½·¨µÄÊä³ö£º
+			 * ä»¥ä¸‹æ˜¯ iterate æ–¹æ³•çš„è¾“å‡ºï¼š
 			 * Hibernate: select car0_.pk_car as col_0_0_ from tb_cars car0_ where car0_.pk_car<4
-			 * ¡¾session2.createQuery(hql).iterate()¡¿
+			 * ã€session2.createQuery(hql).iterate()ã€‘
 			 * Hibernate: select car0_.pk_car as pk_car1_0_0_, car0_.name as name2_0_0_ from tb_cars car0_ where car0_.pk_car=?
 			 * Car [name=BMW]
 			 * Hibernate: select car0_.pk_car as pk_car1_0_0_, car0_.name as name2_0_0_ from tb_cars car0_ where car0_.pk_car=?
@@ -67,9 +67,9 @@ public class QueryListIterateTest extends AbstractDataLoadingTestCase {
 			 * Hibernate: select car0_.pk_car as pk_car1_0_0_, car0_.name as name2_0_0_ from tb_cars car0_ where car0_.pk_car=?
 			 * Car [name=Porsche]
 			 */
-			// iterate ·½·¨Ö´ĞĞÁË4´Îselect SQL£¬µÚÒ»´Î»ñÈ¡ËùÓĞ·ûºÏÌõ¼ş¼ÇÂ¼µÄid£¬Ö®ºóÔÙ¸ù¾İ¸÷¸öid´ÓÊı¾İ¿âÖĞ¶ÁÈ¡ÏàÓ¦µÄ¼ÇÂ¼
+			// iterate æ–¹æ³•æ‰§è¡Œäº†4æ¬¡select SQLï¼Œç¬¬ä¸€æ¬¡è·å–æ‰€æœ‰ç¬¦åˆæ¡ä»¶è®°å½•çš„idï¼Œä¹‹åå†æ ¹æ®å„ä¸ªidä»æ•°æ®åº“ä¸­è¯»å–ç›¸åº”çš„è®°å½•
 			Iterator<Car> iterator = session2.createQuery(hql).iterate();
-			System.out.println("¡¾session2.createQuery(hql).iterate()¡¿");
+			System.out.println("ã€session2.createQuery(hql).iterate()ã€‘");
 			while (iterator.hasNext()) {
 				System.out.println(iterator.next());
 			}
@@ -86,49 +86,49 @@ public class QueryListIterateTest extends AbstractDataLoadingTestCase {
 	}
 
 	/**
-	 * list/iterate·½·¨Ê¹ÓÃÍ¬Ò»¸ösession½øĞĞÍ¬ÑùµÄ²éÑ¯
+	 * list/iterateæ–¹æ³•ä½¿ç”¨åŒä¸€ä¸ªsessionè¿›è¡ŒåŒæ ·çš„æŸ¥è¯¢
 	 */
 	@SuppressWarnings("unchecked")
 	private void doTest2(String hql) {
-		System.out.println("¡¾¡¾¡¾¡¾¡¾list/iterate·½·¨Ê¹ÓÃÍ¬Ò»¸ösession½øĞĞÍ¬ÑùµÄ²éÑ¯¡¿¡¿¡¿¡¿¡¿");
+		System.out.println("ã€ã€ã€ã€ã€list/iterateæ–¹æ³•ä½¿ç”¨åŒä¸€ä¸ªsessionè¿›è¡ŒåŒæ ·çš„æŸ¥è¯¢ã€‘ã€‘ã€‘ã€‘ã€‘");
 		Session newSession = null;
 		try {
 			newSession = sessionFactory.openSession();
 			
 			/*
-			 * ÒÔÏÂÊÇ list ·½·¨µÄÊä³ö£º
+			 * ä»¥ä¸‹æ˜¯ list æ–¹æ³•çš„è¾“å‡ºï¼š
 			 * Hibernate: select car0_.pk_car as pk_car1_0_, car0_.name as name2_0_ from tb_cars car0_ where car0_.pk_car<4
-			 * ¡¾newSession.createQuery(hql).list()¡¿
+			 * ã€newSession.createQuery(hql).list()ã€‘
 			 * Car [name=BMW]
 			 * Car [name=Benz]
 			 * Car [name=Porsche]
 			 */
-			// list·½·¨½«¶ÁÈ¡µÄÊı¾İÄÉÈëÒ»¼¶»º´æ£¬ÎªÖ®ºóµÄiterate·½·¨Ìá¹©ÁËÏÖ³ÉµÄ¿ÉÓÃÊı¾İ¡£
+			// listæ–¹æ³•å°†è¯»å–çš„æ•°æ®çº³å…¥ä¸€çº§ç¼“å­˜ï¼Œä¸ºä¹‹åçš„iterateæ–¹æ³•æä¾›äº†ç°æˆçš„å¯ç”¨æ•°æ®ã€‚
 			List<Car> cars = newSession.createQuery(hql).list();
-			System.out.println("¡¾newSession.createQuery(hql).list()¡¿");
+			System.out.println("ã€newSession.createQuery(hql).list()ã€‘");
 			for (Car car : cars) {
 				System.out.println(car);
 			}
 			
 			/*
-			 * ÒÔÏÂÊÇ iterate ·½·¨µÄÊä³ö£º
+			 * ä»¥ä¸‹æ˜¯ iterate æ–¹æ³•çš„è¾“å‡ºï¼š
 			 * Hibernate: select car0_.pk_car as col_0_0_ from tb_cars car0_ where car0_.pk_car<4
-			 * ¡¾newSession.createQuery(hql).iterate()¡¿
+			 * ã€newSession.createQuery(hql).iterate()ã€‘
 			 * Car [name=BMW]
 			 * Car [name=Benz]
 			 * Car [name=Porsche]
 			/*
-			 * iterate ·½·¨Ö»Ö´ĞĞÁË1´Îselect SQL£¬È»ºó´ÓÒ»¼¶»º´æÖĞ»ñÈ¡ÏàÓ¦Êı¾İ¡£
+			 * iterate æ–¹æ³•åªæ‰§è¡Œäº†1æ¬¡select SQLï¼Œç„¶åä»ä¸€çº§ç¼“å­˜ä¸­è·å–ç›¸åº”æ•°æ®ã€‚
 			 * 
-			 * ÕâÓëdoTest1()µÄ²îÒì¾ÍÔÚÓÚHibernate»º´æ»úÖÆ£º
-			 * list·½·¨½«Ö´ĞĞselect SQL´ÓÊı¾İ¿âÖĞ»ñµÃËùÓĞ·ûºÏÌõ¼şµÄ¼ÇÂ¼²¢¹¹ÔìÏàÓ¦µÄÊµÌå¶ÔÏó£¬¶ÔÏó¹¹½¨Íê±ÏÖ®ºó£¬¾Í½«ÆäÄÉÈë»º´æ¡£
-			 * Ö®ºóiterate·½·¨Ö´ĞĞÊ±£¬ËüÊ×ÏÈ»áÖ´ĞĞÒ»Ìõselect SQLÒÔ»ñµÃËùÓĞ·ûºÏ²éÑ¯Ìõ¼şµÄÊı¾İid£¬
-			 * Ëæ¼´iterate·½·¨»áÏÈÔÚ»º´æÖĞ¸ù¾İid²éÕÒ¶ÔÓ¦µÄÊµÌå¶ÔÏóÊÇ·ñ´æÔÚ£¨ÀàËÆsession.load·½·¨£©£¬
-			 * Èç¹û»º´æÖĞÒÑ¾­´æÔÚ¶ÔÓ¦µÄÊı¾İ£¬ÔòÖ±½ÓÒÔ´ËÊı¾İ¶ÔÏó×÷Îª²éÑ¯½á¹û¡£
-			 * Èç¹ûÃ»ÕÒµ½£¬ÔÙÖ´ĞĞÏàÓ¦µÄselect Óï¾äÒÔ»ñµÃ¶ÔÓ¦µÄ¿â±í¼ÇÂ¼£¨iterate·½·¨Èç¹ûÖ´ĞĞÁËÊı¾İ¿â¶ÁÈ¡²Ù×÷²¢¹¹½¨ÁËÊı¾İ¶ÔÏó£¬Ò²»á½«ÆäÄÉÈë»º´æ£©¡£
+			 * è¿™ä¸doTest1()çš„å·®å¼‚å°±åœ¨äºHibernateç¼“å­˜æœºåˆ¶ï¼š
+			 * listæ–¹æ³•å°†æ‰§è¡Œselect SQLä»æ•°æ®åº“ä¸­è·å¾—æ‰€æœ‰ç¬¦åˆæ¡ä»¶çš„è®°å½•å¹¶æ„é€ ç›¸åº”çš„å®ä½“å¯¹è±¡ï¼Œå¯¹è±¡æ„å»ºå®Œæ¯•ä¹‹åï¼Œå°±å°†å…¶çº³å…¥ç¼“å­˜ã€‚
+			 * ä¹‹åiterateæ–¹æ³•æ‰§è¡Œæ—¶ï¼Œå®ƒé¦–å…ˆä¼šæ‰§è¡Œä¸€æ¡select SQLä»¥è·å¾—æ‰€æœ‰ç¬¦åˆæŸ¥è¯¢æ¡ä»¶çš„æ•°æ®idï¼Œ
+			 * éšå³iterateæ–¹æ³•ä¼šå…ˆåœ¨ç¼“å­˜ä¸­æ ¹æ®idæŸ¥æ‰¾å¯¹åº”çš„å®ä½“å¯¹è±¡æ˜¯å¦å­˜åœ¨ï¼ˆç±»ä¼¼session.loadæ–¹æ³•ï¼‰ï¼Œ
+			 * å¦‚æœç¼“å­˜ä¸­å·²ç»å­˜åœ¨å¯¹åº”çš„æ•°æ®ï¼Œåˆ™ç›´æ¥ä»¥æ­¤æ•°æ®å¯¹è±¡ä½œä¸ºæŸ¥è¯¢ç»“æœã€‚
+			 * å¦‚æœæ²¡æ‰¾åˆ°ï¼Œå†æ‰§è¡Œç›¸åº”çš„select è¯­å¥ä»¥è·å¾—å¯¹åº”çš„åº“è¡¨è®°å½•ï¼ˆiterateæ–¹æ³•å¦‚æœæ‰§è¡Œäº†æ•°æ®åº“è¯»å–æ“ä½œå¹¶æ„å»ºäº†æ•°æ®å¯¹è±¡ï¼Œä¹Ÿä¼šå°†å…¶çº³å…¥ç¼“å­˜ï¼‰ã€‚
 			 */
 			Iterator<Car> iterator = newSession.createQuery(hql).iterate();
-			System.out.println("¡¾newSession.createQuery(hql).iterate()¡¿");
+			System.out.println("ã€newSession.createQuery(hql).iterate()ã€‘");
 			while (iterator.hasNext()) {
 				System.out.println(iterator.next());
 			}
@@ -142,47 +142,47 @@ public class QueryListIterateTest extends AbstractDataLoadingTestCase {
 	}
 
 	/**
-	 * list·½·¨Ê¹ÓÃÍ¬Ò»¸ösessionÖ´ĞĞÁ½´ÎÍ¬ÑùµÄ²éÑ¯
+	 * listæ–¹æ³•ä½¿ç”¨åŒä¸€ä¸ªsessionæ‰§è¡Œä¸¤æ¬¡åŒæ ·çš„æŸ¥è¯¢
 	 */
 	@SuppressWarnings("unchecked")
 	private void doTest3(String hql) {
-		System.out.println("¡¾¡¾¡¾¡¾¡¾list·½·¨Ê¹ÓÃÍ¬Ò»¸ösessionÖ´ĞĞÁ½´ÎÍ¬ÑùµÄ²éÑ¯¡¿¡¿¡¿¡¿¡¿");
+		System.out.println("ã€ã€ã€ã€ã€listæ–¹æ³•ä½¿ç”¨åŒä¸€ä¸ªsessionæ‰§è¡Œä¸¤æ¬¡åŒæ ·çš„æŸ¥è¯¢ã€‘ã€‘ã€‘ã€‘ã€‘");
 		Session newSession = null;
 		try {
 			newSession = sessionFactory.openSession();
 			
 			/*
-			 * ÒÔÏÂÊÇ list ·½·¨µÄÊä³ö£º
+			 * ä»¥ä¸‹æ˜¯ list æ–¹æ³•çš„è¾“å‡ºï¼š
 			 * Hibernate: select car0_.pk_car as pk_car1_0_, car0_.name as name2_0_ from tb_cars car0_ where car0_.pk_car<4
-			 * ¡¾newSession.createQuery(hql).list()¡¿
+			 * ã€newSession.createQuery(hql).list()ã€‘
 			 * Car [name=BMW]
 			 * Car [name=Benz]
 			 * Car [name=Porsche]
 			 */
 			List<Car> cars = newSession.createQuery(hql).list();
-			System.out.println("¡¾newSession.createQuery(hql).list()¡¿");
+			System.out.println("ã€newSession.createQuery(hql).list()ã€‘");
 			for (Car car : cars) {
 				System.out.println(car);
 			}
 			
 			/*
-			 * ÒÔÏÂÊÇ list ·½·¨µÄÊä³ö£º
+			 * ä»¥ä¸‹æ˜¯ list æ–¹æ³•çš„è¾“å‡ºï¼š
 			 * Hibernate: select car0_.pk_car as pk_car1_0_, car0_.name as name2_0_ from tb_cars car0_ where car0_.pk_car<4
-			 * ¡¾newSession.createQuery(hql).list()¡¿
+			 * ã€newSession.createQuery(hql).list()ã€‘
 			 * Car [name=BMW]
 			 * Car [name=Benz]
 			 * Car [name=Porsche]
 			 * 
-			 * Á½´Îlist·½·¨µÄÖØ¸´Ö´ĞĞ²¢Ã»ÓĞ¼õÉÙSQLµÄÖ´ĞĞÊıÁ¿£¬»º´æ»úÖÆËÆºõÃ»ÓĞÉúĞ§¡£
+			 * ä¸¤æ¬¡listæ–¹æ³•çš„é‡å¤æ‰§è¡Œå¹¶æ²¡æœ‰å‡å°‘SQLçš„æ‰§è¡Œæ•°é‡ï¼Œç¼“å­˜æœºåˆ¶ä¼¼ä¹æ²¡æœ‰ç”Ÿæ•ˆã€‚
 			 * 
-			 * Ê¹ÓÃlist½øĞĞ²éÑ¯Ê±£¬¼´Ê¹»º´æÖĞÒÑ¾­ÓĞÁËÒ»Ğ©·ûºÏÌõ¼şµÄÊµÌå¶ÔÏó´æÔÚ£¬Ò²ÎŞ·¨±£Ö¤ÕâĞ©Êı¾İ¾ÍÊÇ¿â±íÖĞËùÓĞ·ûºÏÌõ¼şµÄÊı¾İ£¬
-			 * Ëü»¹ÊÇĞèÒªÖ´ĞĞÒ»´Îselect SQLÒÔ±£Ö¤²éÑ¯½á¹ûµÄÍêÕûĞÔ£¨iterate·½·¨Í¨¹ıÊ×ÏÈ²éÑ¯ËùÓĞ·ûºÏÌõ¼ş¼ÇÂ¼µÄidÀ´±£Ö¤²éÑ¯½á¹ûµÄÍêÕûĞÔ£©¡£
+			 * ä½¿ç”¨listè¿›è¡ŒæŸ¥è¯¢æ—¶ï¼Œå³ä½¿ç¼“å­˜ä¸­å·²ç»æœ‰äº†ä¸€äº›ç¬¦åˆæ¡ä»¶çš„å®ä½“å¯¹è±¡å­˜åœ¨ï¼Œä¹Ÿæ— æ³•ä¿è¯è¿™äº›æ•°æ®å°±æ˜¯åº“è¡¨ä¸­æ‰€æœ‰ç¬¦åˆæ¡ä»¶çš„æ•°æ®ï¼Œ
+			 * å®ƒè¿˜æ˜¯éœ€è¦æ‰§è¡Œä¸€æ¬¡select SQLä»¥ä¿è¯æŸ¥è¯¢ç»“æœçš„å®Œæ•´æ€§ï¼ˆiterateæ–¹æ³•é€šè¿‡é¦–å…ˆæŸ¥è¯¢æ‰€æœ‰ç¬¦åˆæ¡ä»¶è®°å½•çš„idæ¥ä¿è¯æŸ¥è¯¢ç»“æœçš„å®Œæ•´æ€§ï¼‰ã€‚
 			 * 
-			 * list·½·¨Êµ¼ÊÉÏÎŞ·¨ÀûÓÃ»º´æ£¬Ëü¶Ô»º´æÖ»Ğ´²»¶Á£»¶øiterate·½·¨Ôò¿ÉÒÔ³ä·Ö·¢»Ó»º´æ´øÀ´µÄÓÅÊÆ¡£
-			 * Èç¹ûÄ¿±êÊı¾İÖ»¶Á»òÕß¶ÁÈ¡Ïà¶Ô½ÏÎªÆµ·±£¬Í¨¹ıÕâÖÖ»úÖÆ¿ÉÒÔ´ó´ó¼õÉÙĞÔÄÜÉÏµÄËğºÄ¡£
+			 * listæ–¹æ³•å®é™…ä¸Šæ— æ³•åˆ©ç”¨ç¼“å­˜ï¼Œå®ƒå¯¹ç¼“å­˜åªå†™ä¸è¯»ï¼›è€Œiterateæ–¹æ³•åˆ™å¯ä»¥å……åˆ†å‘æŒ¥ç¼“å­˜å¸¦æ¥çš„ä¼˜åŠ¿ã€‚
+			 * å¦‚æœç›®æ ‡æ•°æ®åªè¯»æˆ–è€…è¯»å–ç›¸å¯¹è¾ƒä¸ºé¢‘ç¹ï¼Œé€šè¿‡è¿™ç§æœºåˆ¶å¯ä»¥å¤§å¤§å‡å°‘æ€§èƒ½ä¸Šçš„æŸè€—ã€‚
 			 */
 			cars = newSession.createQuery(hql).list();
-			System.out.println("¡¾newSession.createQuery(hql).list()¡¿");
+			System.out.println("ã€newSession.createQuery(hql).list()ã€‘");
 			for (Car car : cars) {
 				System.out.println(car);
 			}
@@ -196,10 +196,10 @@ public class QueryListIterateTest extends AbstractDataLoadingTestCase {
 	}
 	
 	/**
-	 * ÔÚÄÚ´æÊ¹ÓÃ²ãÃæ±È½ÏlistºÍiterate·½·¨
+	 * åœ¨å†…å­˜ä½¿ç”¨å±‚é¢æ¯”è¾ƒlistå’Œiterateæ–¹æ³•
 	 * <p>
-	 * ¼ÙÉèĞèÒª¶Ôº£Á¿Êı¾İ½øĞĞ²Ù×÷£¬list·½·¨½«Ò»´Î»ñµÃËùÓĞµÄ¼ÇÂ¼²¢½«Æä¶ÁÈëÄÚ´æ£¬Õâ½«´øÀ´¼«´óµÄÄÚ´æÏûºÄ£¬ºÜ¿ÉÄÜ´¥·¢OutOfMemoryError¡£
-	 * ´ËÊ±µÄ½â¾ö·½°¸Ö®Ò»ÊÇ½áºÏiterate·½·¨ºÍevict·½·¨ÖğÌõ¶Ô¼ÇÂ¼½øĞĞ´¦Àí£¬½«ÄÚ´æÏûºÄ±£³ÖÔÚ¿ÉÒÔ½ÓÊÜµÄ·¶Î§ÄÚ¡£
+	 * å‡è®¾éœ€è¦å¯¹æµ·é‡æ•°æ®è¿›è¡Œæ“ä½œï¼Œlistæ–¹æ³•å°†ä¸€æ¬¡è·å¾—æ‰€æœ‰çš„è®°å½•å¹¶å°†å…¶è¯»å…¥å†…å­˜ï¼Œè¿™å°†å¸¦æ¥æå¤§çš„å†…å­˜æ¶ˆè€—ï¼Œå¾ˆå¯èƒ½è§¦å‘OutOfMemoryErrorã€‚
+	 * æ­¤æ—¶çš„è§£å†³æ–¹æ¡ˆä¹‹ä¸€æ˜¯ç»“åˆiterateæ–¹æ³•å’Œevictæ–¹æ³•é€æ¡å¯¹è®°å½•è¿›è¡Œå¤„ç†ï¼Œå°†å†…å­˜æ¶ˆè€—ä¿æŒåœ¨å¯ä»¥æ¥å—çš„èŒƒå›´å†…ã€‚
 	 */
 	@SuppressWarnings("unchecked")
 	private void doTest4(String hql) {
@@ -209,9 +209,9 @@ public class QueryListIterateTest extends AbstractDataLoadingTestCase {
 			Iterator<Car> iterator = newSession.createQuery(hql).iterate();
 			while (iterator.hasNext()) {
 				Car car = iterator.next();
-				// ½«¶ÔÏó´ÓÒ»¼¶»º´æÒÆ³ı
+				// å°†å¯¹è±¡ä»ä¸€çº§ç¼“å­˜ç§»é™¤
 				newSession.evict(car);
-				// ½«¶ÔÏó´Ó¶ş¼¶»º´æÒÆ³ı
+				// å°†å¯¹è±¡ä»äºŒçº§ç¼“å­˜ç§»é™¤
 				sessionFactory.getCache().evictEntity(Car.class, car.getId());
 			}
 		} catch (Exception e) {

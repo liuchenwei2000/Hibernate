@@ -8,11 +8,11 @@ import java.util.Date;
 /**
  * JavaBean
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ24ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ24æ—¥
  */
-// ¾¡Á¿²»ÒªÓÃfinalĞŞÊÎÀà»òÕßaccessor/mutator£¬ÕâÑù»áµ¼ÖÂHibernateµÄ¶¯Ì¬´úÀí»úÖÆÊ§Ğ§£¬´Ó¶øÓ°ÏìĞÔÄÜ¡£
+// å°½é‡ä¸è¦ç”¨finalä¿®é¥°ç±»æˆ–è€…accessor/mutatorï¼Œè¿™æ ·ä¼šå¯¼è‡´Hibernateçš„åŠ¨æ€ä»£ç†æœºåˆ¶å¤±æ•ˆï¼Œä»è€Œå½±å“æ€§èƒ½ã€‚
 public class PersonVO {
 
 	private Long id;
@@ -22,7 +22,7 @@ public class PersonVO {
 	private int sex;
 	
 	/**
-	 * ĞèÒªÌá¹©Ä¬ÈÏ¹¹ÔìÆ÷
+	 * éœ€è¦æä¾›é»˜è®¤æ„é€ å™¨
 	 */
 	public PersonVO() {
 		super();
@@ -39,8 +39,8 @@ public class PersonVO {
 	}
 	
 	/**
-	 * Êı¾İ¿â×Ô¶¯Éú³Éid£¬ËùÒÔsetter·½·¨¿ÉÒÔÉùÃ÷Îªprivate¡£
-	 * µ«ÊÇ²»ÄÜÈ¥µô£¬JavaBeanĞèÒªÌá¹©setter/getter·½·¨¹©HibernateÊ¹ÓÃ¡£
+	 * æ•°æ®åº“è‡ªåŠ¨ç”Ÿæˆidï¼Œæ‰€ä»¥setteræ–¹æ³•å¯ä»¥å£°æ˜ä¸ºprivateã€‚
+	 * ä½†æ˜¯ä¸èƒ½å»æ‰ï¼ŒJavaBeanéœ€è¦æä¾›setter/getteræ–¹æ³•ä¾›Hibernateä½¿ç”¨ã€‚
 	 */
 	@SuppressWarnings("unused")
 	private void setId(Long id) {

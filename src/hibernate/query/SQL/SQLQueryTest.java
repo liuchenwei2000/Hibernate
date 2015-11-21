@@ -8,25 +8,25 @@ import java.util.List;
 import org.hibernate.Query;
 
 /**
- * SQL²éÑ¯Ê¾Àı
+ * SQLæŸ¥è¯¢ç¤ºä¾‹
  * <p>
- * ÓÉÓÚSQLÓï·¨±¾ÉíµÄÅÓÔÓ£¬ÒÔ¼°¸÷ÖÖÊı¾İ¿âÔ­Éú¹¦ÄÜµÄ¶àÑùĞÔ£¬HQL²¢²»ÄÜº­¸ÇËùÓĞ²éÑ¯ÌØĞÔ£¬ÓĞÊ±²»µÃ²»½èÖúÔ­ÉúSQL»ò´æ´¢¹ı³ÌÒÔ´ïµ½ÆÚÍûµÄÄ¿±ê¡£
+ * ç”±äºSQLè¯­æ³•æœ¬èº«çš„åºæ‚ï¼Œä»¥åŠå„ç§æ•°æ®åº“åŸç”ŸåŠŸèƒ½çš„å¤šæ ·æ€§ï¼ŒHQLå¹¶ä¸èƒ½æ¶µç›–æ‰€æœ‰æŸ¥è¯¢ç‰¹æ€§ï¼Œæœ‰æ—¶ä¸å¾—ä¸å€ŸåŠ©åŸç”ŸSQLæˆ–å­˜å‚¨è¿‡ç¨‹ä»¥è¾¾åˆ°æœŸæœ›çš„ç›®æ ‡ã€‚
  * <p>
- * HibernateÌá¹©ÁË¶ÔÔ­ÉúSQLÒÔ¼°´æ´¢¹ı³ÌµÄÖ§³Ö£¬×÷Îª¶ÔHQLºÍCriteriaµÄ²¹³ä¡£
- * Ïà¶ÔÓÚ»ùÓÚJDBCµÄSQL²Ù×÷£¬HibernateÌá¹©ÁË¸üÎªÍ×ÉÆµÄ·â×°£º
- * ¼´²»ĞèÒª×Ô¼º´¦ÀíResultSet£¬ResultSetÓëÊµÌåµÄÓ³Éä½«ÓÉHibernate×Ô¶¯Íê³É¡£
+ * Hibernateæä¾›äº†å¯¹åŸç”ŸSQLä»¥åŠå­˜å‚¨è¿‡ç¨‹çš„æ”¯æŒï¼Œä½œä¸ºå¯¹HQLå’ŒCriteriaçš„è¡¥å……ã€‚
+ * ç›¸å¯¹äºåŸºäºJDBCçš„SQLæ“ä½œï¼ŒHibernateæä¾›äº†æ›´ä¸ºå¦¥å–„çš„å°è£…ï¼š
+ * å³ä¸éœ€è¦è‡ªå·±å¤„ç†ResultSetï¼ŒResultSetä¸å®ä½“çš„æ˜ å°„å°†ç”±Hibernateè‡ªåŠ¨å®Œæˆã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public class SQLQueryTest extends AbstractSQLQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() {
-		// ´¿SQL
+		// çº¯SQL
 		String sql = "select * from tb_dog where pk_dog=1";
-		// ´´½¨SQL²éÑ¯£¬²¢Ö¸¶¨¶ÔÓ¦µÄÊµÌåÀà
+		// åˆ›å»ºSQLæŸ¥è¯¢ï¼Œå¹¶æŒ‡å®šå¯¹åº”çš„å®ä½“ç±»
 		Query query = session.createSQLQuery(sql).addEntity(Dog.class);
 
 		List<Dog> result = query.list();
@@ -34,9 +34,9 @@ public class SQLQueryTest extends AbstractSQLQueryTestCase {
 			System.out.println(dog);
 		}
 		
-		// ¶à±íÁª²éµÄSQl
+		// å¤šè¡¨è”æŸ¥çš„SQl
 		sql = "select child.*, parent.* from tb_dog child , tb_dog parent where child.pk_parent=parent.pk_dog";
-		// ´´½¨SQL²éÑ¯£¬²¢Ö¸¶¨¶ÔÓ¦µÄÊµÌåÀà£¬Ã¿¸öÊµÌåÀà¶¼¶ÔÓ¦½á¹û¼¯ÖĞµÄÒ»²¿·ÖÊı¾İ
+		// åˆ›å»ºSQLæŸ¥è¯¢ï¼Œå¹¶æŒ‡å®šå¯¹åº”çš„å®ä½“ç±»ï¼Œæ¯ä¸ªå®ä½“ç±»éƒ½å¯¹åº”ç»“æœé›†ä¸­çš„ä¸€éƒ¨åˆ†æ•°æ®
 		query = session.createSQLQuery(sql).addEntity("child", Dog.class).addEntity("parent", Dog.class);
 
 		List<Object[]> result2 = query.list();

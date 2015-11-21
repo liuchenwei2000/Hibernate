@@ -16,19 +16,19 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.service.ServiceRegistry;
 
 /**
- * Hibernate¿ìËÙÈëÃÅÊ¾Àı
+ * Hibernateå¿«é€Ÿå…¥é—¨ç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ17ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ17æ—¥
  */
 public class QuickStart {
 	
 	private static SessionFactory createSessionFactory() {
 		/*
-		 * Configuration ¸ºÔğ¹ÜÀíHibernateµÄÅäÖÃĞÅÏ¢£¬¹Ø¼üÊôĞÔ°üÀ¨Êı¾İ¿âURL¡¢ÓÃ»§Ãû¡¢ÃÜÂë¡¢JDBCÇı¶¯ÀàµÈµÈ¡£
-		 * ÕâĞ©ÊôĞÔ¿ÉÒÔÔÚHibernateÅäÖÃÎÄ¼ş£¨hibernate.cfg.xml»òhibernate.properties£©ÖĞ¼ÓÒÔÉè¶¨¡£
-		 * Hibernate»á×Ô¶¯ÔÚµ±Ç°µÄclasspathÖĞËÑÑ°hibernate.cfg.xmlÎÄ¼ş²¢½«Æä¼ÓÔØµ½ÄÚ´æÖĞ£¬×÷ÎªºóĞø²Ù×÷µÄ»ù´¡ÅäÖÃ¡£
+		 * Configuration è´Ÿè´£ç®¡ç†Hibernateçš„é…ç½®ä¿¡æ¯ï¼Œå…³é”®å±æ€§åŒ…æ‹¬æ•°æ®åº“URLã€ç”¨æˆ·åã€å¯†ç ã€JDBCé©±åŠ¨ç±»ç­‰ç­‰ã€‚
+		 * è¿™äº›å±æ€§å¯ä»¥åœ¨Hibernateé…ç½®æ–‡ä»¶ï¼ˆhibernate.cfg.xmlæˆ–hibernate.propertiesï¼‰ä¸­åŠ ä»¥è®¾å®šã€‚
+		 * Hibernateä¼šè‡ªåŠ¨åœ¨å½“å‰çš„classpathä¸­æœå¯»hibernate.cfg.xmlæ–‡ä»¶å¹¶å°†å…¶åŠ è½½åˆ°å†…å­˜ä¸­ï¼Œä½œä¸ºåç»­æ“ä½œçš„åŸºç¡€é…ç½®ã€‚
 		 */
 		Configuration configuration = new Configuration().configure();
 		
@@ -49,37 +49,37 @@ public class QuickStart {
 		SessionFactory sessionFactory = createSessionFactory();
 		
 		/*
-		 * ÔÚHibernateÖĞ£¬Session¸ºÔğÍê³É¶ÔÏóµÄ³Ö¾Ã»¯²Ù×÷£¬Hibernate SessionÖ®ÓÚHibernate£¬Ïàµ±ÓÚJDBC Connection Ö®ÓÚ JDBC¡£
-		 * Session ¶ÔÏóÌá¹©ÁËÖÚ¶à³Ö¾Ã»¯·½·¨£¬¿ÉÒÔÍ¸Ã÷µÄÍê³É¶ÔÏóµÄCRUD²Ù×÷¡£
-		 * Session ÊÇ·ÇÏß³Ì°²È«µÄ£¬Ò²¾ÍÊÇËµÒ»¸öSessionÊµÀıÍ¬Ê±Ö»¿ÉÓÉÒ»¸öÏß³ÌÊ¹ÓÃ¡£
+		 * åœ¨Hibernateä¸­ï¼ŒSessionè´Ÿè´£å®Œæˆå¯¹è±¡çš„æŒä¹…åŒ–æ“ä½œï¼ŒHibernate Sessionä¹‹äºHibernateï¼Œç›¸å½“äºJDBC Connection ä¹‹äº JDBCã€‚
+		 * Session å¯¹è±¡æä¾›äº†ä¼—å¤šæŒä¹…åŒ–æ–¹æ³•ï¼Œå¯ä»¥é€æ˜çš„å®Œæˆå¯¹è±¡çš„CRUDæ“ä½œã€‚
+		 * Session æ˜¯éçº¿ç¨‹å®‰å…¨çš„ï¼Œä¹Ÿå°±æ˜¯è¯´ä¸€ä¸ªSessionå®ä¾‹åŒæ—¶åªå¯ç”±ä¸€ä¸ªçº¿ç¨‹ä½¿ç”¨ã€‚
 		 */
-		/** ±£´æ²Ù×÷ */
+		/** ä¿å­˜æ“ä½œ */
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		session.save(createPerson());// insertÓï¾ä
+		session.save(createPerson());// insertè¯­å¥
 		session.getTransaction().commit();
 		session.close();
 		
 		/**
-		 * QueryºÍCriteria×÷ÎªHibernateÊı¾İ²éÑ¯½Ó¿Ú£¬Ìá¹©ÁË¶Ô²éÑ¯Ìõ¼şµÄ·â×°»úÖÆ¡£
-		 * Á½Õß²»Í¬Ö®´¦ÔÚÓÚ£¬QueryÃæÏòHQLºÍNative SQL£¬¶øCriteriaÔòÌá¹©ÁËÃæÏò¶ÔÏóµÄ²éÑ¯Ä£Ê½¡£ 
+		 * Queryå’ŒCriteriaä½œä¸ºHibernateæ•°æ®æŸ¥è¯¢æ¥å£ï¼Œæä¾›äº†å¯¹æŸ¥è¯¢æ¡ä»¶çš„å°è£…æœºåˆ¶ã€‚
+		 * ä¸¤è€…ä¸åŒä¹‹å¤„åœ¨äºï¼ŒQueryé¢å‘HQLå’ŒNative SQLï¼Œè€ŒCriteriaåˆ™æä¾›äº†é¢å‘å¯¹è±¡çš„æŸ¥è¯¢æ¨¡å¼ã€‚ 
 		 */
-		/** Ê¹ÓÃQuery¶ÔÏóµÄ²éÑ¯²Ù×÷ */
+		/** ä½¿ç”¨Queryå¯¹è±¡çš„æŸ¥è¯¢æ“ä½œ */
 		session = sessionFactory.openSession();
 		//  using a Hibernate Query Language (HQL) query to load all existing Person objects from the database. 
 		Query query = session.createQuery( "from PersonVO where sex=?");
 		query.setParameter(0, 1);
-		List<PersonVO> result = query.list();// select from Óï¾ä
+		List<PersonVO> result = query.list();// select from è¯­å¥
 		for (PersonVO person : result) {
 			System.out.println("Person : " + person.getFirstName() + " " + person.getLastName());
 		}
 		session.close();
 		
-		/** Ê¹ÓÃCriteria¶ÔÏóµÄ²éÑ¯²Ù×÷ */
+		/** ä½¿ç”¨Criteriaå¯¹è±¡çš„æŸ¥è¯¢æ“ä½œ */
 		session = sessionFactory.openSession();
 		Criteria criteria = session.createCriteria(PersonVO.class);
 		criteria.add(Restrictions.eq("sex", 1));
-		result = criteria.list();// select from Óï¾ä
+		result = criteria.list();// select from è¯­å¥
 		for (PersonVO person : result) {
 			System.out.println("Person : " + person.getFirstName() + " " + person.getLastName());
 		}

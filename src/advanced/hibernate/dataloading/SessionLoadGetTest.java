@@ -6,14 +6,14 @@ package hibernate.dataloading;
 import org.hibernate.Session;
 
 /**
- * Session.get/load·½·¨¼ÓÔØÊı¾İÇø±ğ
+ * Session.get/loadæ–¹æ³•åŠ è½½æ•°æ®åŒºåˆ«
  * <p>
- * get/load·½·¨¾ù¿ÉÒÔ¸ù¾İÖ¸¶¨µÄÊµÌåÀàºÍID´ÓÊı¾İ¿â¶ÁÈ¡Êı¾İ£¬²¢·µ»ØÓëÖ®¶ÔÓ¦µÄÊµÌå¶ÔÏó¡£
- * µ«ËüÃÇÊÇÓĞÇø±ğµÄ¡£
+ * get/loadæ–¹æ³•å‡å¯ä»¥æ ¹æ®æŒ‡å®šçš„å®ä½“ç±»å’ŒIDä»æ•°æ®åº“è¯»å–æ•°æ®ï¼Œå¹¶è¿”å›ä¸ä¹‹å¯¹åº”çš„å®ä½“å¯¹è±¡ã€‚
+ * ä½†å®ƒä»¬æ˜¯æœ‰åŒºåˆ«çš„ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public class SessionLoadGetTest extends AbstractDataLoadingTestCase {
 
@@ -25,28 +25,28 @@ public class SessionLoadGetTest extends AbstractDataLoadingTestCase {
 			session1 = sessionFactory.openSession();
 			session2 = sessionFactory.openSession();
 			
-			// Èç¹ûÎ´ÄÜ·¢ÏÖ·ûºÏÌõ¼şµÄ¼ÇÂ¼£¬get·½·¨·µ»Ønull
+			// å¦‚æœæœªèƒ½å‘ç°ç¬¦åˆæ¡ä»¶çš„è®°å½•ï¼Œgetæ–¹æ³•è¿”å›null
 			Car car = (Car) session1.get(Car.class, 100L);
-			System.out.println("¡¾session1.get(Car.class, 100L)¡¿ = " + car);
+			System.out.println("ã€session1.get(Car.class, 100L)ã€‘ = " + car);
 			
 			try {
-				// Èç¹ûÎ´ÄÜ·¢ÏÖ·ûºÏÌõ¼şµÄ¼ÇÂ¼£¬load·½·¨Å×³öÒ»¸öObjectNotFoundException
+				// å¦‚æœæœªèƒ½å‘ç°ç¬¦åˆæ¡ä»¶çš„è®°å½•ï¼Œloadæ–¹æ³•æŠ›å‡ºä¸€ä¸ªObjectNotFoundException
 				car = (Car) session2.load(Car.class, 100L);
-				System.out.println("¡¾session2.load(Car.class, 100L)¡¿ = " + car);
+				System.out.println("ã€session2.load(Car.class, 100L)ã€‘ = " + car);
 			} catch (Exception e) {
-				System.out.println("¡¾session2.load(Car.class, 100L)¡¿ = " + e.getMessage());
+				System.out.println("ã€session2.load(Car.class, 100L)ã€‘ = " + e.getMessage());
 				e.printStackTrace();
 			}
 			
-			// load·½·¨¿É·µ»ØÊµÌåµÄ´úÀíÀàÊµÀı£¬¶øget·½·¨ÓÀÔ¶Ö±½Ó·µ»ØÊµÌåÀà¡£
+			// loadæ–¹æ³•å¯è¿”å›å®ä½“çš„ä»£ç†ç±»å®ä¾‹ï¼Œè€Œgetæ–¹æ³•æ°¸è¿œç›´æ¥è¿”å›å®ä½“ç±»ã€‚
 			car = (Car) session1.get(Car.class, 1L);
-			System.out.println("¡¾session1.get(Car.class, 1L)¡¿ = " + car.getClass().getName());
+			System.out.println("ã€session1.get(Car.class, 1L)ã€‘ = " + car.getClass().getName());
 			
 			car = (Car) session2.load(Car.class, 1L);
-			System.out.println("¡¾session2.load(Car.class, 1L)¡¿ = " + car.getClass().getName());
+			System.out.println("ã€session2.load(Car.class, 1L)ã€‘ = " + car.getClass().getName());
 			
-			// load·½·¨¿ÉÒÔ³ä·ÖÀûÓÃÄÚ²¿»º´æºÍ¶ş¼¶»º´æÖĞµÄÏÖÓĞÊı¾İ£»
-			// ¶øget·½·¨Ôò½ö½öÔÚÄÚ²¿»º´æÖĞ½øĞĞ²éÕÒ£¬Èç¹ûÃ»ÕÒµ½Ôò½«Ô½¹ı¶ş¼¶»º´æ£¬Ö±½Óµ÷ÓÃSQLÍê³ÉÊı¾İ¶ÁÈ¡¡£
+			// loadæ–¹æ³•å¯ä»¥å……åˆ†åˆ©ç”¨å†…éƒ¨ç¼“å­˜å’ŒäºŒçº§ç¼“å­˜ä¸­çš„ç°æœ‰æ•°æ®ï¼›
+			// è€Œgetæ–¹æ³•åˆ™ä»…ä»…åœ¨å†…éƒ¨ç¼“å­˜ä¸­è¿›è¡ŒæŸ¥æ‰¾ï¼Œå¦‚æœæ²¡æ‰¾åˆ°åˆ™å°†è¶Šè¿‡äºŒçº§ç¼“å­˜ï¼Œç›´æ¥è°ƒç”¨SQLå®Œæˆæ•°æ®è¯»å–ã€‚
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

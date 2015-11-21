@@ -8,15 +8,15 @@ import org.hibernate.Session;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * ListÊ¾Àı
+ * Listç¤ºä¾‹
  * <p>
- * ËùÎ½µÄÓĞĞòºÍÎŞĞò£¬ÊÇÕë¶ÔHibernateÊı¾İ³Ö¾Ã¹ı³ÌÖĞ£¬ÊÇ·ñ±£³ÖÊı¾İ¼¯ºÏÖĞµÄ¼ÇÂ¼ÅÅÁĞË³Ğò¼ÓÒÔÇø·ÖµÄ¡£
- * ¶ÔÓÚ±»¶¨ÒåÎªÓĞĞò¼¯ºÏµÄÊı¾İ£¬HibernateÔÚ³Ö¾Ã»¯¹ı³ÌÖĞ£¬»á½«¼¯ºÏÖĞÔªËØÅÅÁĞµÄÏÈºóË³ĞòÍ¬Ê±¹Ì»¯µ½Êı¾İ¿âÖĞ
- * £¨ÒÔÄ³¸öÌØ¶¨µÄ×Ö¶Î´æ´¢Ë³ĞòºÅ£©£¬ÏÂ´Î¶ÁÈ¡µÄÊ±ºò£¬Ò²»á·µ»ØÒ»¸ö¾ß±¸Í¬ÑùÅÅÁĞË³ĞòµÄÊı¾İ¼¯ºÏ¡£
+ * æ‰€è°“çš„æœ‰åºå’Œæ— åºï¼Œæ˜¯é’ˆå¯¹Hibernateæ•°æ®æŒä¹…è¿‡ç¨‹ä¸­ï¼Œæ˜¯å¦ä¿æŒæ•°æ®é›†åˆä¸­çš„è®°å½•æ’åˆ—é¡ºåºåŠ ä»¥åŒºåˆ†çš„ã€‚
+ * å¯¹äºè¢«å®šä¹‰ä¸ºæœ‰åºé›†åˆçš„æ•°æ®ï¼ŒHibernateåœ¨æŒä¹…åŒ–è¿‡ç¨‹ä¸­ï¼Œä¼šå°†é›†åˆä¸­å…ƒç´ æ’åˆ—çš„å…ˆåé¡ºåºåŒæ—¶å›ºåŒ–åˆ°æ•°æ®åº“ä¸­
+ * ï¼ˆä»¥æŸä¸ªç‰¹å®šçš„å­—æ®µå­˜å‚¨é¡ºåºå·ï¼‰ï¼Œä¸‹æ¬¡è¯»å–çš„æ—¶å€™ï¼Œä¹Ÿä¼šè¿”å›ä¸€ä¸ªå…·å¤‡åŒæ ·æ’åˆ—é¡ºåºçš„æ•°æ®é›†åˆã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ18ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ18æ—¥
  */
 public class ListTest extends AbstractHibernateTestCase {
 
@@ -28,14 +28,14 @@ public class ListTest extends AbstractHibernateTestCase {
 		product.getParts().add(new Part("tire2"));
 		product.getParts().add(new Part("tire3"));
 		product.getParts().add(new Part("tire4"));
-		// ±£´æµÄÊ±ºò£¬Hibernate»á¸ù¾İListÄÚÔªËØµÄË³Ğò×Ô¶¯Î¬»¤Ö¸¶¨µÄĞòºÅÁĞ
+		// ä¿å­˜çš„æ—¶å€™ï¼ŒHibernateä¼šæ ¹æ®Listå†…å…ƒç´ çš„é¡ºåºè‡ªåŠ¨ç»´æŠ¤æŒ‡å®šçš„åºå·åˆ—
 		session.save(product);
-		// ×¢ÒâÕâÀïµÄListÊµÀıÒÑ¾­±»HibernateÌæ»»ÎªÆä×ÔÉíÊµÏÖ£¬¶ø²»ÔÙÊÇ ArrayList
-		System.out.println("¡¾List class is¡¿" + product.getParts().getClass());
+		// æ³¨æ„è¿™é‡Œçš„Listå®ä¾‹å·²ç»è¢«Hibernateæ›¿æ¢ä¸ºå…¶è‡ªèº«å®ç°ï¼Œè€Œä¸å†æ˜¯ ArrayList
+		System.out.println("ã€List class isã€‘" + product.getParts().getClass());
 		session.getTransaction().commit();
 		
 		Session newSession = sessionFactory.openSession();
-		// ²éÑ¯»ØÀ´ÒÀÈ»ÊÇÓĞĞò¼¯
+		// æŸ¥è¯¢å›æ¥ä¾ç„¶æ˜¯æœ‰åºé›†
 		Product p = (Product) newSession.load(Product.class, 1L);
 		System.out.println(p);
 		newSession.close();

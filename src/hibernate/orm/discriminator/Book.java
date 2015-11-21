@@ -4,15 +4,15 @@
 package hibernate.orm.discriminator;
 
 /**
- * Êé¼®Àà
+ * ä¹¦ç±ç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class Book extends Item {
 
-	private int pageCount;// ÌØÓĞÊôĞÔ
+	private int pageCount;// ç‰¹æœ‰å±æ€§
 
 	public Book() {
 		super();

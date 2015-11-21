@@ -8,14 +8,14 @@ import org.hibernate.Session;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * BagÊ¾Àı
+ * Bagç¤ºä¾‹
  * <p>
- * BagÀàĞÍÊÇHibernate×Ô¶¨ÒåµÄ¼¯ºÏÀàĞÍ£¬ÊµÏÖÁËÒ»¸öÔÊĞí°üº¬ÖØ¸´ÔªËØµÄSet¡£
- * ËüµÄµ×²ãÊÇ½èÖúÒ»¸öListÊµÏÖ£¬µ«ÆÁ±ÎÁËListµÄÓĞĞòÌØĞÔ£¬Ò²¾ÍÊÇËµ£¬BagÖĞÔªËØµÄÅÅÁĞË³Ğò½«²»»á±»³Ö¾Ã»¯¡£
+ * Bagç±»å‹æ˜¯Hibernateè‡ªå®šä¹‰çš„é›†åˆç±»å‹ï¼Œå®ç°äº†ä¸€ä¸ªå…è®¸åŒ…å«é‡å¤å…ƒç´ çš„Setã€‚
+ * å®ƒçš„åº•å±‚æ˜¯å€ŸåŠ©ä¸€ä¸ªListå®ç°ï¼Œä½†å±è”½äº†Listçš„æœ‰åºç‰¹æ€§ï¼Œä¹Ÿå°±æ˜¯è¯´ï¼ŒBagä¸­å…ƒç´ çš„æ’åˆ—é¡ºåºå°†ä¸ä¼šè¢«æŒä¹…åŒ–ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ18ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ18æ—¥
  */
 public class BagTest extends AbstractHibernateTestCase {
 
@@ -31,7 +31,7 @@ public class BagTest extends AbstractHibernateTestCase {
 		session.getTransaction().commit();
 		
 		Session newSession = sessionFactory.openSession();
-		// ²éÑ¯»ØÀ´ÒÀÈ»ÊÇÓĞĞò¼¯
+		// æŸ¥è¯¢å›æ¥ä¾ç„¶æ˜¯æœ‰åºé›†
 		Product p = (Product) newSession.load(Product.class, 1L);
 		System.out.println(p);
 		newSession.close();

@@ -7,14 +7,14 @@ import hibernate.lifecycle.Entity;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * ÅúÁ¿²åÈëÊ¾Àı
+ * æ‰¹é‡æ’å…¥ç¤ºä¾‹
  * <p>
- * ÔÚhibernate.cfg.xmlÖĞÌí¼Ó¶ÔÅú´¦ÀíµÄÖ§³Ö£¬Ö¸¶¨HibernateÃ¿´ÎÌá½»SQLµÄÊıÁ¿
+ * åœ¨hibernate.cfg.xmlä¸­æ·»åŠ å¯¹æ‰¹å¤„ç†çš„æ”¯æŒï¼ŒæŒ‡å®šHibernateæ¯æ¬¡æäº¤SQLçš„æ•°é‡
  * <property name="hibernate.jdbc.batch_size">20</property>
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ17ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ17æ—¥
  */
 public class BatchInsertTest extends AbstractHibernateTestCase {
 
@@ -24,7 +24,7 @@ public class BatchInsertTest extends AbstractHibernateTestCase {
 		session.beginTransaction();
 		for (int i = 0; i < 10000; i++) {
 			session.save(new Entity("Entity" + i));
-			// Ã¿20ÌõÊı¾İ×÷ÎªÒ»¸öµ¥Ôª£¬Ë¢ĞÂsession²¢Çå¿ÕÄÚ²¿»º´æ£¬·ÀÖ¹ÄÚ´æÒç³ö
+			// æ¯20æ¡æ•°æ®ä½œä¸ºä¸€ä¸ªå•å…ƒï¼Œåˆ·æ–°sessionå¹¶æ¸…ç©ºå†…éƒ¨ç¼“å­˜ï¼Œé˜²æ­¢å†…å­˜æº¢å‡º
 			if (i % 20 == 0) {
 				session.flush();
 				session.clear();
@@ -32,7 +32,7 @@ public class BatchInsertTest extends AbstractHibernateTestCase {
 		}
 		session.getTransaction().commit();
 		long end = System.currentTimeMillis();
-		System.out.println("¡¾Total time¡¿: " + (end - begin)/1000.0 + "s");
+		System.out.println("ã€Total timeã€‘: " + (end - begin)/1000.0 + "s");
 	}
 	
 	@Override

@@ -13,26 +13,26 @@ import java.util.List;
 import org.hibernate.Query;
 
 /**
- * ÃæÏòĞÔÄÜµÄÁ£¶ÈÏ¸·Ö½¨Ä£
+ * é¢å‘æ€§èƒ½çš„ç²’åº¦ç»†åˆ†å»ºæ¨¡
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ24ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ24æ—¥
  */
 public class PerformanceOrientedModelTest extends AbstractHibernateTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() throws SQLException {
-		/** ±£´æÒ»¸öPersonResumeVO */
+		/** ä¿å­˜ä¸€ä¸ªPersonResumeVO */
 		session.beginTransaction();
 		PersonResumeVO resumeVO = createPersonResumeVO();
 		resumeVO.setResume(session.getLobHelper().createClob("This is a resume."));
 		session.save(resumeVO);
 		session.getTransaction().commit();
 
-		/** ²»ĞèÒªresumeĞÅÏ¢µÄ²éÑ¯·½Ê½£¬Ê¹ÓÃPersonBaseVO */
-		// Èç¹ûPersonResumeVO.hbm.xmlÎÄ¼şÖĞ polymorphism ÊôĞÔÃ»ÓĞÉèÖÃ»òÕßÉèÖÃ³É implicit
-		// ÏÂÃæÕâÖÖÊ¹ÓÃPersonBaseVOµÄ²éÑ¯·½Ê½»á½«×ÔÉí¼°ËùÓĞ×ÓÀàµÄÊı¾İÈ«²¿²é³öÀ´
+		/** ä¸éœ€è¦resumeä¿¡æ¯çš„æŸ¥è¯¢æ–¹å¼ï¼Œä½¿ç”¨PersonBaseVO */
+		// å¦‚æœPersonResumeVO.hbm.xmlæ–‡ä»¶ä¸­ polymorphism å±æ€§æ²¡æœ‰è®¾ç½®æˆ–è€…è®¾ç½®æˆ implicit
+		// ä¸‹é¢è¿™ç§ä½¿ç”¨PersonBaseVOçš„æŸ¥è¯¢æ–¹å¼ä¼šå°†è‡ªèº«åŠæ‰€æœ‰å­ç±»çš„æ•°æ®å…¨éƒ¨æŸ¥å‡ºæ¥
 		PersonBaseVO avo = (PersonBaseVO) session.load(PersonBaseVO.class, 1L);
 		System.out.println(avo.getFirstName() + " " + avo.getLastName());
 
@@ -42,7 +42,7 @@ public class PerformanceOrientedModelTest extends AbstractHibernateTestCase {
 			System.out.println(baseVO.getFirstName() + " " + baseVO.getLastName());
 		}
 
-		/** ĞèÒªresumeĞÅÏ¢µÄ²éÑ¯·½Ê½£¬Ê¹ÓÃPersonResumeVO */
+		/** éœ€è¦resumeä¿¡æ¯çš„æŸ¥è¯¢æ–¹å¼ï¼Œä½¿ç”¨PersonResumeVO */
 		PersonResumeVO rvo = (PersonResumeVO) session.load(PersonResumeVO.class, 1L);
 		Clob resume = rvo.getResume();
 		System.out.println(rvo.getFirstName() + " " + rvo.getLastName()

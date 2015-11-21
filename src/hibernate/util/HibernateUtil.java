@@ -11,15 +11,15 @@ import org.hibernate.service.ServiceRegistry;
 /**
  * HibernateUtil
  * <p>
- * Í³Ò»¹ÜÀíÕû¸öÓ¦ÓÃÏµÍ³µÄSessionFactory¡£
+ * ç»Ÿä¸€ç®¡ç†æ•´ä¸ªåº”ç”¨ç³»ç»Ÿçš„SessionFactoryã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ24ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ24æ—¥
  */
 public final class HibernateUtil {
 	
-	// È«¾ÖÖ»ÓĞÒ»¸ö SessionFactory ÊµÀı
+	// å…¨å±€åªæœ‰ä¸€ä¸ª SessionFactory å®ä¾‹
 	private static final SessionFactory instance;
 	
 	static {
@@ -36,7 +36,7 @@ public final class HibernateUtil {
 	}
 
 	/**
-	 * »ñÈ¡SessionFactory
+	 * è·å–SessionFactory
 	 */
 	public static SessionFactory getSessionFactory() {
 		return instance;

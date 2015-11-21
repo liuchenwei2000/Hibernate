@@ -13,25 +13,25 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 /**
- * ¸´ºÏ²éÑ¯Ê¾Àı
+ * å¤åˆæŸ¥è¯¢ç¤ºä¾‹
  * <p>
- * ½ö½öÊÇ´úÂëÊ¾Àı£¬²»¿ÉÔËĞĞ¡£
+ * ä»…ä»…æ˜¯ä»£ç ç¤ºä¾‹ï¼Œä¸å¯è¿è¡Œã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ29ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ29æ—¥
  */
 public class CompoundQueryTest extends AbstractQueryTestCase {
 
 	@SuppressWarnings({ "unchecked", "null", "unused" })
 	protected void doTest() {
 		Session session = null;
-		// ±ÈÈç²éÑ¯ËùÓĞĞÅÓÃ¿¨ºÅÒÔ ICBC ¿ªÍ·µÄÈË
+		// æ¯”å¦‚æŸ¥è¯¢æ‰€æœ‰ä¿¡ç”¨å¡å·ä»¥ ICBC å¼€å¤´çš„äºº
 		Criteria criteria = session.createCriteria(Person2.class);
-		// ÕâÀï¸ù¾İ ¸´ºÏÊôĞÔ(creditCardÊÇPerson2µÄ·ûºÏÊôĞÔ) ´´½¨Ò»¸ö¸´ºÏ²éÑ¯Ìõ¼ş
+		// è¿™é‡Œæ ¹æ® å¤åˆå±æ€§(creditCardæ˜¯Person2çš„ç¬¦åˆå±æ€§) åˆ›å»ºä¸€ä¸ªå¤åˆæŸ¥è¯¢æ¡ä»¶
 		Criteria addCriteria = criteria.createCriteria("creditCard");
 		addCriteria.add(Restrictions.like("no", "ICBC%"));
-		// Ö´ĞĞ²éÑ¯£¬SQLÈç£º
+		// æ‰§è¡ŒæŸ¥è¯¢ï¼ŒSQLå¦‚ï¼š
 		// select * from tb_person2 person 
 		// inner join tb_creditcard2 creditcard on person.pk_person = creditcard.pk_person
 		// where creditcard.no like 'ICBC%'

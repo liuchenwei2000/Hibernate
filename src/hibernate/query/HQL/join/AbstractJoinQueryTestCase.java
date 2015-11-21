@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Á¬½Ó²éÑ¯»ùÀà
+ * è¿æ¥æŸ¥è¯¢åŸºç±»
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ30ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ30æ—¥
  */
 public abstract class AbstractJoinQueryTestCase extends AbstractHibernateTestCase {
 

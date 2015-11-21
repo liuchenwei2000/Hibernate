@@ -4,15 +4,15 @@
 package hibernate.orm.model;
 
 /**
- * nameÏà¹ØĞÅÏ¢µÄ³éÏó
+ * nameç›¸å…³ä¿¡æ¯çš„æŠ½è±¡
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ24ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ24æ—¥
  */
 public class NameVO {
 
-	// Ã»ÓĞidÊôĞÔ£¬ÍêÈ«´ÓÊôÓÚÊµÌå¶ÔÏóPersonVO4
+	// æ²¡æœ‰idå±æ€§ï¼Œå®Œå…¨ä»å±äºå®ä½“å¯¹è±¡PersonVO4
 	private String firstName;
 	private String lastName;
 

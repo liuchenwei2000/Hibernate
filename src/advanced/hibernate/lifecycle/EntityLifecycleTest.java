@@ -8,68 +8,68 @@ import org.hibernate.Session;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * ÊµÌå¶ÔÏóÉúÃüÖÜÆÚ Ê¾Àı
+ * å®ä½“å¯¹è±¡ç”Ÿå‘½å‘¨æœŸ ç¤ºä¾‹
  * <p>
- * ÊµÌå¶ÔÏóÌØÖ¸O/R MappingÖĞµÄ"O"¡ª¡ª¡ª¡ªÓò¶ÔÏó¡£
+ * å®ä½“å¯¹è±¡ç‰¹æŒ‡O/R Mappingä¸­çš„"O"â€”â€”â€”â€”åŸŸå¯¹è±¡ã€‚
  * <p>
- * ÊµÌå¶ÔÏóÉúÃüÖÜÆÚÖĞÓĞÈıÖÖ×´Ì¬£ºTransient£¨×ÔÓÉÌ¬£©¡¢Persistent£¨³Ö¾ÃÌ¬£©¡¢Detached£¨ÓÎÀëÌ¬£©¡£
- * <li>Transient£¨×ÔÓÉÌ¬£©£º
- * ¼´ÊµÌå¶ÔÏóÔÚÄÚ´æÖĞµÄ×ÔÓÉ´æÔÚ£¬ËüÓëÊı¾İ¿âÖĞµÄ¼ÇÂ¼ÎŞ¹Ø¡£
- * <li>Persistent£¨³Ö¾ÃÌ¬£©£º
- * ¼´ÊµÌå¶ÔÏó´¦ÓÚÓÉHibernate¿ò¼ÜËù¹ÜÀíµÄ×´Ì¬£¬ÕâÖÖ×´Ì¬ÏÂ£¬ÊµÌå¶ÔÏó±»ÄÉÈëHibernateÊµÌåÈİÆ÷ÖĞ¼ÓÒÔ¹ÜÀí¡£
- * ´¦ÓÚPersistent×´Ì¬µÄ¶ÔÏó£¬Æä±ä¸ü½«ÓÉHibernate³Ö¾Ã»¯µ½Êı¾İ¿âÖĞ¡£
- * <li>Detached£¨ÓÎÀëÌ¬£©£º
- * ´¦ÓÚPersistentÌ¬µÄ¶ÔÏó£¬Æä¶ÔÓ¦µÄsessionÊµÀı¹Ø±ÕÖ®ºó£¬´Ë¶ÔÏó¾Í´¦ÓÚDetached×´Ì¬¡£
- * SessionÊµÀı¿ÉÒÔ¿´×÷ÊÇPersistent¶ÔÏóµÄËŞÖ÷£¬Ò»µ©´ËËŞÖ÷Ê§Ğ§£¬ÄÇÃ´Æä´ÓÊôµÄPersistent¶ÔÏó¼´½øÈëDetached×´Ì¬¡£
+ * å®ä½“å¯¹è±¡ç”Ÿå‘½å‘¨æœŸä¸­æœ‰ä¸‰ç§çŠ¶æ€ï¼šTransientï¼ˆè‡ªç”±æ€ï¼‰ã€Persistentï¼ˆæŒä¹…æ€ï¼‰ã€Detachedï¼ˆæ¸¸ç¦»æ€ï¼‰ã€‚
+ * <li>Transientï¼ˆè‡ªç”±æ€ï¼‰ï¼š
+ * å³å®ä½“å¯¹è±¡åœ¨å†…å­˜ä¸­çš„è‡ªç”±å­˜åœ¨ï¼Œå®ƒä¸æ•°æ®åº“ä¸­çš„è®°å½•æ— å…³ã€‚
+ * <li>Persistentï¼ˆæŒä¹…æ€ï¼‰ï¼š
+ * å³å®ä½“å¯¹è±¡å¤„äºç”±Hibernateæ¡†æ¶æ‰€ç®¡ç†çš„çŠ¶æ€ï¼Œè¿™ç§çŠ¶æ€ä¸‹ï¼Œå®ä½“å¯¹è±¡è¢«çº³å…¥Hibernateå®ä½“å®¹å™¨ä¸­åŠ ä»¥ç®¡ç†ã€‚
+ * å¤„äºPersistentçŠ¶æ€çš„å¯¹è±¡ï¼Œå…¶å˜æ›´å°†ç”±HibernateæŒä¹…åŒ–åˆ°æ•°æ®åº“ä¸­ã€‚
+ * <li>Detachedï¼ˆæ¸¸ç¦»æ€ï¼‰ï¼š
+ * å¤„äºPersistentæ€çš„å¯¹è±¡ï¼Œå…¶å¯¹åº”çš„sessionå®ä¾‹å…³é—­ä¹‹åï¼Œæ­¤å¯¹è±¡å°±å¤„äºDetachedçŠ¶æ€ã€‚
+ * Sessionå®ä¾‹å¯ä»¥çœ‹ä½œæ˜¯Persistentå¯¹è±¡çš„å®¿ä¸»ï¼Œä¸€æ—¦æ­¤å®¿ä¸»å¤±æ•ˆï¼Œé‚£ä¹ˆå…¶ä»å±çš„Persistentå¯¹è±¡å³è¿›å…¥DetachedçŠ¶æ€ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public class EntityLifecycleTest extends AbstractHibernateTestCase {
 
 	@Override
 	protected void doTest() throws Exception {
-		// ÏÂÃæµÄÁ½¸ö¶ÔÏóÊÇ TransientÌ¬£¬ËüÃÇÓëÊı¾İ¿âµÄ¼ÇÂ¼ÎŞ¹Ø
+		// ä¸‹é¢çš„ä¸¤ä¸ªå¯¹è±¡æ˜¯ Transientæ€ï¼Œå®ƒä»¬ä¸æ•°æ®åº“çš„è®°å½•æ— å…³
 		Entity transientEntity = new Entity("transientEntity");
 		Entity persistentEntity = new Entity("persistentEntity");
 		
-		// µ½ÕâÀï transientEntityºÍ persistentEntity »¹¶¼ÊÇ TransientÌ¬
+		// åˆ°è¿™é‡Œ transientEntityå’Œ persistentEntity è¿˜éƒ½æ˜¯ Transientæ€
 		session.beginTransaction();
-		// ´¦ÓÚ TransientÌ¬µÄÊµÌå¶ÔÏó£¬¿ÉÒÔÍ¨¹ısession.save·½·¨×ª»»Îª PersistentÌ¬
+		// å¤„äº Transientæ€çš„å®ä½“å¯¹è±¡ï¼Œå¯ä»¥é€šè¿‡session.saveæ–¹æ³•è½¬æ¢ä¸º Persistentæ€
 		session.save(persistentEntity);
-		// ´ËÊ± persistentEntity ÒÑ¾­ÓÉHibernateÄÉÈëÁËÊµÌå¹ÜÀíÆ÷£¬´¦ÓÚ PersistentÌ¬£¬¶ø transientEntity ÈÔÈ»ÊÇ TransientÌ¬
+		// æ­¤æ—¶ persistentEntity å·²ç»ç”±Hibernateçº³å…¥äº†å®ä½“ç®¡ç†å™¨ï¼Œå¤„äº Persistentæ€ï¼Œè€Œ transientEntity ä»ç„¶æ˜¯ Transientæ€
 		session.getTransaction().commit();
-		// ÊÂÎñÌá½»Ö®ºó£¬Êı¾İ¿â±íÖĞÔö¼ÓÁËÒ»Ìõ¼ÇÂ¼
+		// äº‹åŠ¡æäº¤ä¹‹åï¼Œæ•°æ®åº“è¡¨ä¸­å¢åŠ äº†ä¸€æ¡è®°å½•
 		
 		session.beginTransaction();
-		transientEntity.setName("transientEntity2");// transientEntity ÈÔÊÇ TransientÌ¬
-		persistentEntity.setName("persistentEntity2");// persistentEntity ÊÇ PersistentÌ¬
+		transientEntity.setName("transientEntity2");// transientEntity ä»æ˜¯ Transientæ€
+		persistentEntity.setName("persistentEntity2");// persistentEntity æ˜¯ Persistentæ€
 		/* 
-		 * ËäÈ»Ã»ÓĞÏÔÊ¾µÄµ÷ÓÃsave·½·¨±£´æEntity¶ÔÏó£¬µ«ÊÂÎñÌá½»Ö®ºó£¬ PersistentÌ¬µÄ¶ÔÏó»á±»×Ô¶¯³Ö¾Ã»¯µ½Êı¾İ¿â¡£
-		 * ¶øtransientEntity ÒòÎªÊÇ TransientÌ¬£¬²»ÊÜHibernate¹ÜÀí£¬ËùÒÔËüµÄÊôĞÔ±ä¸ü²»Ó°ÏìÊı¾İ¿â¡£
+		 * è™½ç„¶æ²¡æœ‰æ˜¾ç¤ºçš„è°ƒç”¨saveæ–¹æ³•ä¿å­˜Entityå¯¹è±¡ï¼Œä½†äº‹åŠ¡æäº¤ä¹‹åï¼Œ Persistentæ€çš„å¯¹è±¡ä¼šè¢«è‡ªåŠ¨æŒä¹…åŒ–åˆ°æ•°æ®åº“ã€‚
+		 * è€ŒtransientEntity å› ä¸ºæ˜¯ Transientæ€ï¼Œä¸å—Hibernateç®¡ç†ï¼Œæ‰€ä»¥å®ƒçš„å±æ€§å˜æ›´ä¸å½±å“æ•°æ®åº“ã€‚
 		 */
 		session.getTransaction().commit();
 		
-		// Èç¹ûÒ»¸öÊµÌå¶ÔÏóÊÇÓÉHibernate¼ÓÔØµÄ£¬ÄÇËüÒ²´¦ÓÚ PersistentÌ¬
-		// ÔÚ·µ»Ø¶ÔÏóÖ®Ç°£¬Hibernate¾ÍÒÑ¾­½«´Ë¶ÔÏóÄÉÈëÊµÌåÈİÆ÷ÖĞ
+		// å¦‚æœä¸€ä¸ªå®ä½“å¯¹è±¡æ˜¯ç”±HibernateåŠ è½½çš„ï¼Œé‚£å®ƒä¹Ÿå¤„äº Persistentæ€
+		// åœ¨è¿”å›å¯¹è±¡ä¹‹å‰ï¼ŒHibernateå°±å·²ç»å°†æ­¤å¯¹è±¡çº³å…¥å®ä½“å®¹å™¨ä¸­
 		Entity loadedEntity = (Entity) session.load(Entity.class, 1L);
 		session.close();
-		// session¹Ø±ÕÖ®ºó£¬loadedEntity ¼´±ä³ÉDetached Ì¬
+		// sessionå…³é—­ä¹‹åï¼ŒloadedEntity å³å˜æˆDetached æ€
 		
-		// ÖØĞÂ´ò¿ªÒ»¸ösession
+		// é‡æ–°æ‰“å¼€ä¸€ä¸ªsession
 		Session newSession = sessionFactory.openSession();
 		newSession.beginTransaction();
-		// DetachedÌ¬µÄloadedEntityÔÙ´Î½èÖúnewSessionÓÉHibernate¼ÓÈëÊµÌåÈİÆ÷£¬ÔÙ´Î½øÈëPersistentÌ¬
+		// Detachedæ€çš„loadedEntityå†æ¬¡å€ŸåŠ©newSessionç”±HibernateåŠ å…¥å®ä½“å®¹å™¨ï¼Œå†æ¬¡è¿›å…¥Persistentæ€
 		newSession.update(loadedEntity);
 		loadedEntity.setName("newSession creates");
 		newSession.getTransaction().commit();
 		
 		newSession.beginTransaction();
-		// ÊµÌå¶ÔÏó´ÓPersistentÌ¬×ª±äÎªTransientÌ¬Ò»°ãÓÉsession.delete·½·¨Íê³É
+		// å®ä½“å¯¹è±¡ä»Persistentæ€è½¬å˜ä¸ºTransientæ€ä¸€èˆ¬ç”±session.deleteæ–¹æ³•å®Œæˆ
 		newSession.delete(loadedEntity);
 		newSession.getTransaction().commit();
-		// ´ËÊ± loadedEntity ±ä³É Transient Ì¬
+		// æ­¤æ—¶ loadedEntity å˜æˆ Transient æ€
 		
 		newSession.close();
 	}

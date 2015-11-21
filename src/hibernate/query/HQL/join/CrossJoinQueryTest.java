@@ -8,22 +8,22 @@ import java.util.List;
 import org.hibernate.Query;
 
 /**
- * ½»²æÁ¬½Ó(cross join)²éÑ¯Ê¾Àı
+ * äº¤å‰è¿æ¥(cross join)æŸ¥è¯¢ç¤ºä¾‹
  * <p>
- * ¼´µÑ¿¨¶ù»ı£¬ÊÇÖ¸Á½¸ö¹ØÏµÖĞËùÓĞÔª×éµÄÈÎÒâ×éºÏ¡£
- * Ò»°ãÇé¿öÏÂ£¬½»²æ²éÑ¯ÊÇÃ»ÓĞÊµ¼ÊÒâÒåµÄ¡£
+ * å³ç¬›å¡å„¿ç§¯ï¼Œæ˜¯æŒ‡ä¸¤ä¸ªå…³ç³»ä¸­æ‰€æœ‰å…ƒç»„çš„ä»»æ„ç»„åˆã€‚
+ * ä¸€èˆ¬æƒ…å†µä¸‹ï¼Œäº¤å‰æŸ¥è¯¢æ˜¯æ²¡æœ‰å®é™…æ„ä¹‰çš„ã€‚
  * <p>
- * ½»²æÁ¬½Ó¶ÔÁ½±í¹ØÏµÃ»ÓĞÒªÇó£¬¶øÄÚÍâÁ¬½ÓÔòÒªÇóÁ½±íÓĞÖ÷Íâ¼ü¹ØÁª¹ØÏµ¡£
+ * äº¤å‰è¿æ¥å¯¹ä¸¤è¡¨å…³ç³»æ²¡æœ‰è¦æ±‚ï¼Œè€Œå†…å¤–è¿æ¥åˆ™è¦æ±‚ä¸¤è¡¨æœ‰ä¸»å¤–é”®å…³è”å…³ç³»ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ30ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ30æ—¥
  */
 public class CrossJoinQueryTest extends AbstractJoinQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() throws Exception {
-		System.out.println("¡¾cross join¡¿");
+		System.out.println("ã€cross joinã€‘");
 		String hql = "from Employee, DebitCard";
 
 		Query query = session.createQuery(hql);

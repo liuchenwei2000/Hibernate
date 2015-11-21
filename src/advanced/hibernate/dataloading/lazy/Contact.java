@@ -4,13 +4,13 @@
 package hibernate.dataloading.lazy;
 
 /**
- * ContactÀà
+ * Contactç±»
  * <p>
- * Ã¿¸öÁªÏµ·½Ê½¶¼ÊôÓÚÒ»¸öStudent
+ * æ¯ä¸ªè”ç³»æ–¹å¼éƒ½å±äºä¸€ä¸ªStudent
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class Contact {
 

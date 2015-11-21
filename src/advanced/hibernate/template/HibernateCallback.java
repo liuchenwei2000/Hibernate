@@ -6,16 +6,16 @@ package hibernate.template;
 import org.hibernate.Session;
 
 /**
- * Hibernate²Ù×÷»Øµ÷½Ó¿Ú
+ * Hibernateæ“ä½œå›è°ƒæ¥å£
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ20ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ20æ—¥
  */
 public interface HibernateCallback {
 
 	/**
-	 * Ö´ĞĞ²Ù×÷
+	 * æ‰§è¡Œæ“ä½œ
 	 */
 	public void execute(Session session);
 }

@@ -6,11 +6,11 @@ package hibernate.template;
 import org.hibernate.Session;
 
 /**
- * DAOÊµÏÖ
+ * DAOå®ç°
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ21ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ21æ—¥
  */
 public class CityDAOImpl implements CityDAO {
 	
@@ -18,7 +18,7 @@ public class CityDAOImpl implements CityDAO {
 
 	public void save(final City city) throws CRUDException {
 		if (city != null) {
-			// Ê¹ÓÃÕâÖÖ·½Ê½£¬´úÂë¼ò½à¶àÁË
+			// ä½¿ç”¨è¿™ç§æ–¹å¼ï¼Œä»£ç ç®€æ´å¤šäº†
 			htemplate.runInTransaction(new HibernateCallback() {
 
 				@Override

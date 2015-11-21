@@ -16,13 +16,13 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
- * Ê¾Àý
+ * ç¤ºä¾‹
  * <p>
  * 
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- *         ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ17ÈÕ
+ *         åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ17æ—¥
  */
 @Entity
 @Table(name="tb_person")

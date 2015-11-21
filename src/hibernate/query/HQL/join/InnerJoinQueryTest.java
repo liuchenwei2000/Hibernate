@@ -9,32 +9,32 @@ import java.util.Set;
 import org.hibernate.Query;
 
 /**
- * ÄÚÁ¬½Ó(inner join)²éÑ¯Ê¾Àı
+ * å†…è¿æ¥(inner join)æŸ¥è¯¢ç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ30ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ30æ—¥
  */
 public class InnerJoinQueryTest extends AbstractJoinQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() throws Exception {
-		System.out.println("¡¾inner join¡¿");
-		// ÕâÀï±ØĞëÒªÓÃ ±í±ğÃû£¬Ö®ËùÒÔÃ»ÓĞ on ×Ó¾äÊÇÒòÎªÓ³Éä¹ØÏµÒÑ¾­ÔÚhbmÎÄ¼şÖĞÖ¸¶¨ÁË¡£
+		System.out.println("ã€inner joinã€‘");
+		// è¿™é‡Œå¿…é¡»è¦ç”¨ è¡¨åˆ«åï¼Œä¹‹æ‰€ä»¥æ²¡æœ‰ on å­å¥æ˜¯å› ä¸ºæ˜ å°„å…³ç³»å·²ç»åœ¨hbmæ–‡ä»¶ä¸­æŒ‡å®šäº†ã€‚
 		String hql = "from Employee employee inner join employee.cards";
 
 		Query query = session.createQuery(hql);
-		// µÃµ½µÄ½á¹û¼¯ÖĞÃ¿¸öÌõÄ¿¶¼ÊÇÒ»¸öObjectÊı×é
+		// å¾—åˆ°çš„ç»“æœé›†ä¸­æ¯ä¸ªæ¡ç›®éƒ½æ˜¯ä¸€ä¸ªObjectæ•°ç»„
 		List<Object[]> result1 = query.list();
 		for (Object[] objects : result1) {
-			// objects[0] ÊÇ Employee£¬objects[1] ÊÇ DebitCard
+			// objects[0] æ˜¯ Employeeï¼Œobjects[1] æ˜¯ DebitCard
 			for (Object object : objects) {
 				System.out.print(object + "  ");
 			}
 			System.out.println();
 		}
 
-		// fetch ¹Ø¼ü×Ö±íÃ÷ DebitCard ¶ÔÏó¶Á³öºóÁ¢¼´Ìî³äµ½¶ÔÓ¦µÄEmployee¶ÔÏóÖĞ
+		// fetch å…³é”®å­—è¡¨æ˜ DebitCard å¯¹è±¡è¯»å‡ºåç«‹å³å¡«å……åˆ°å¯¹åº”çš„Employeeå¯¹è±¡ä¸­
 		hql = "from Employee employee inner join fetch employee.cards";
 
 		query = session.createQuery(hql);

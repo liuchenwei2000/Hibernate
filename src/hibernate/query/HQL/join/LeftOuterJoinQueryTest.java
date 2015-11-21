@@ -9,17 +9,17 @@ import java.util.Set;
 import org.hibernate.Query;
 
 /**
- * ×óÍâÁ¬½Ó(left outer join)²éÑ¯Ê¾Àı
+ * å·¦å¤–è¿æ¥(left outer join)æŸ¥è¯¢ç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ30ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ30æ—¥
  */
 public class LeftOuterJoinQueryTest extends AbstractJoinQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() throws Exception {
-		System.out.println("¡¾left outer join¡¿");
+		System.out.println("ã€left outer joinã€‘");
 		String hql = "from Employee employee left outer join employee.cards";
 
 		Query query = session.createQuery(hql);

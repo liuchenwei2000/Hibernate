@@ -6,13 +6,13 @@ package hibernate.orm.association.one2one.fk2;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * Î¨Ò»Íâ¼ü¹ØÁªÊ¾Àı
+ * å”¯ä¸€å¤–é”®å…³è”ç¤ºä¾‹
  * <p>
- * ÕâÀïÊµÏÖÁËË«Ïòone-to-one¡£
+ * è¿™é‡Œå®ç°äº†åŒå‘one-to-oneã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class ForeignKeyAssociationTest extends AbstractHibernateTestCase {
 
@@ -23,21 +23,21 @@ public class ForeignKeyAssociationTest extends AbstractHibernateTestCase {
 		customer.setAddress(address);
 		address.setCustomer(customer);
 
-		// ±£´æCustomer¶ÔÏóºÍAddress¶ÔÏó
+		// ä¿å­˜Customerå¯¹è±¡å’ŒAddresså¯¹è±¡
 		session.beginTransaction();
 		session.save(customer);
 		session.save(address);
 		session.getTransaction().commit();
 		
-		// ¸ù¾İCustomer¶ÔÏóÒ²ÄÜ»ñµÃ¹ØÁªµÄAddress¶ÔÏóĞÅÏ¢£¨Ë«Ïòone-to-one£©
+		// æ ¹æ®Customerå¯¹è±¡ä¹Ÿèƒ½è·å¾—å…³è”çš„Addresså¯¹è±¡ä¿¡æ¯ï¼ˆåŒå‘one-to-oneï¼‰
 		Customer c2 = (Customer) session.load(Customer.class, 1L);
-		System.out.println("Customer name is ¡¾" + c2.getName() + "¡¿");
-		System.out.println("Customer's address is ¡¾" + c2.getAddress().getCity() + "¡¿");
+		System.out.println("Customer name is ã€" + c2.getName() + "ã€‘");
+		System.out.println("Customer's address is ã€" + c2.getAddress().getCity() + "ã€‘");
 		
-		// ¸ù¾İAddress¶ÔÏóÒ²ÄÜ»ñµÃ¹ØÁªµÄCustomer¶ÔÏóĞÅÏ¢£¨Ë«Ïòone-to-one£©
+		// æ ¹æ®Addresså¯¹è±¡ä¹Ÿèƒ½è·å¾—å…³è”çš„Customerå¯¹è±¡ä¿¡æ¯ï¼ˆåŒå‘one-to-oneï¼‰
 		Address a2 = (Address) session.load(Address.class, 1L);
-		System.out.println("Address is ¡¾" + a2.getCity() + "¡¿");
-		System.out.println("Address is of ¡¾" + a2.getCustomer().getName() + "¡¿");
+		System.out.println("Address is ã€" + a2.getCity() + "ã€‘");
+		System.out.println("Address is of ã€" + a2.getCustomer().getName() + "ã€‘");
 	}
 
 	private static Customer createCustomer() {

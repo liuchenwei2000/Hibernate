@@ -11,34 +11,34 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 /**
- * ConfigurationÊ¾Àı
+ * Configurationç¤ºä¾‹
  * <p>
- * Configuration ¸ºÔğ¹ÜÀíHibernateµÄÅäÖÃĞÅÏ¢£¬¹Ø¼üÊôĞÔ°üÀ¨Êı¾İ¿âURL¡¢ÓÃ»§Ãû¡¢ÃÜÂë¡¢JDBCÇı¶¯ÀàµÈµÈ¡£
- * ÕâĞ©ÊôĞÔ¿ÉÒÔÔÚHibernateÅäÖÃÎÄ¼ş£¨hibernate.cfg.xml»òhibernate.properties£©ÖĞ¼ÓÒÔÉè¶¨¡£
+ * Configuration è´Ÿè´£ç®¡ç†Hibernateçš„é…ç½®ä¿¡æ¯ï¼Œå…³é”®å±æ€§åŒ…æ‹¬æ•°æ®åº“URLã€ç”¨æˆ·åã€å¯†ç ã€JDBCé©±åŠ¨ç±»ç­‰ç­‰ã€‚
+ * è¿™äº›å±æ€§å¯ä»¥åœ¨Hibernateé…ç½®æ–‡ä»¶ï¼ˆhibernate.cfg.xmlæˆ–hibernate.propertiesï¼‰ä¸­åŠ ä»¥è®¾å®šã€‚
  * <p>
- * Configuration ÊµÀı»á¸ù¾İÅäÖÃĞÅÏ¢¹¹ÔìSessionfactoryÊµÀı£¬Ò»µ©¹¹ÔìÍê±Ï£¬¼´±»¸³ÓèÌØ¶¨µÄÅäÖÃĞÅÏ¢¡£
- * Èç¹ûÓ¦ÓÃÖĞĞèÒª·ÃÎÊ¶à¸öÊı¾İ¿â£¬¿ÉÒÔÕë¶ÔÃ¿¸öÊı¾İ¿â£¬·Ö±ğÎªÆä´´½¨¶ÔÓ¦µÄSessionFactoryÊµÀı¡£
+ * Configuration å®ä¾‹ä¼šæ ¹æ®é…ç½®ä¿¡æ¯æ„é€ Sessionfactoryå®ä¾‹ï¼Œä¸€æ—¦æ„é€ å®Œæ¯•ï¼Œå³è¢«èµ‹äºˆç‰¹å®šçš„é…ç½®ä¿¡æ¯ã€‚
+ * å¦‚æœåº”ç”¨ä¸­éœ€è¦è®¿é—®å¤šä¸ªæ•°æ®åº“ï¼Œå¯ä»¥é’ˆå¯¹æ¯ä¸ªæ•°æ®åº“ï¼Œåˆ†åˆ«ä¸ºå…¶åˆ›å»ºå¯¹åº”çš„SessionFactoryå®ä¾‹ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ17ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ17æ—¥
  */
 public class ConfigurationTest {
 	
 	/**
-	 * Í¨¹ıXMLÅäÖÃÎÄ¼ş´´½¨SessionFactory
+	 * é€šè¿‡XMLé…ç½®æ–‡ä»¶åˆ›å»ºSessionFactory
 	 */
 	public static SessionFactory createSessionFactoryFromXML() {
-		// Hibernate 4.xÖ®Ç°°æ±¾µÄSessionFactory´´½¨·½Ê½ÈçÏÂ
+		// Hibernate 4.xä¹‹å‰ç‰ˆæœ¬çš„SessionFactoryåˆ›å»ºæ–¹å¼å¦‚ä¸‹
 		// return new Configuration().configure().buildSessionFactory();
 		
-		// ´Ó4.x°æ±¾¿ªÊ¼£¬ĞèÒªÊ¹ÓÃÏÂÃæÕâÖÖ´´½¨SessionFactoryµÄ·½Ê½
+		// ä»4.xç‰ˆæœ¬å¼€å§‹ï¼Œéœ€è¦ä½¿ç”¨ä¸‹é¢è¿™ç§åˆ›å»ºSessionFactoryçš„æ–¹å¼
 		/*
-		 * Hibernate»á×Ô¶¯ÔÚµ±Ç°µÄclasspathÖĞËÑÑ°hibernate.cfg.xmlÎÄ¼ş²¢½«Æä¼ÓÔØµ½ÄÚ´æÖĞ£¬×÷ÎªºóĞø²Ù×÷µÄ»ù´¡ÅäÖÃ¡£
+		 * Hibernateä¼šè‡ªåŠ¨åœ¨å½“å‰çš„classpathä¸­æœå¯»hibernate.cfg.xmlæ–‡ä»¶å¹¶å°†å…¶åŠ è½½åˆ°å†…å­˜ä¸­ï¼Œä½œä¸ºåç»­æ“ä½œçš„åŸºç¡€é…ç½®ã€‚
 		 */
 		Configuration configuration = new Configuration().configure();
 		
-		// Èç¹û²»ÏëÊ¹ÓÃÄ¬ÈÏµÄhibernate.cfg.xmlÎÄ¼ş×÷ÎªÅäÖÃÎÄ¼ş£¬Ò²¿ÉÒÔÖ¸¶¨ÅäÖÃÎÄ¼şÃû
+		// å¦‚æœä¸æƒ³ä½¿ç”¨é»˜è®¤çš„hibernate.cfg.xmlæ–‡ä»¶ä½œä¸ºé…ç½®æ–‡ä»¶ï¼Œä¹Ÿå¯ä»¥æŒ‡å®šé…ç½®æ–‡ä»¶å
 		// Configuration configuration = new Configuration().configure(new File("C:\\myconfig.xml"));
 
 		ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
@@ -47,11 +47,11 @@ public class ConfigurationTest {
 	}
 	
 	/**
-	 * Í¨¹ıpropertiesÎÄ¼ş´´½¨SessionFactory
+	 * é€šè¿‡propertiesæ–‡ä»¶åˆ›å»ºSessionFactory
 	 */
 	public static SessionFactory createSessionFactoryFromProperties() {
 		/*
-		 * Èç¹ûÑ¡ÓÃÁËpropertiesĞÎÊ½µÄÅäÖÃÎÄ¼ş£¬ÓÉÓÚÈ±·¦ÏàÓ¦µÄÅäÖÃÌõÄ¿£¬ÕâÊ±ºò¾ÍĞèÒªÍ¨¹ı±àÂë½øĞĞ¼ÓÔØ.
+		 * å¦‚æœé€‰ç”¨äº†propertieså½¢å¼çš„é…ç½®æ–‡ä»¶ï¼Œç”±äºç¼ºä¹ç›¸åº”çš„é…ç½®æ¡ç›®ï¼Œè¿™æ—¶å€™å°±éœ€è¦é€šè¿‡ç¼–ç è¿›è¡ŒåŠ è½½.
 		 */
 		Configuration configuration = new Configuration().addFile(
 				"hibernate/PersonVO.hbm.xml").addClass(PersonVO.class);

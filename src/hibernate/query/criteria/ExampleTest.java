@@ -13,32 +13,32 @@ import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Restrictions;
 
 /**
- * ExampleÊ¾Àı
+ * Exampleç¤ºä¾‹
  * <p>
- * ExampleÀàÊµÏÖÁËCriteria½Ó¿Ú£¬¿ÉÒÔÓÃ×÷CriteriaµÄ²éÑ¯Ìõ¼ş£¬ËüµÄ×÷ÓÃÊÇ£º
- * ¸ù¾İÒÑÓĞ¶ÔÏó£¬²éÕÒÊôĞÔÓëÖ®Ïà·ûµÄÆäËü¶ÔÏó¡£
+ * Exampleç±»å®ç°äº†Criteriaæ¥å£ï¼Œå¯ä»¥ç”¨ä½œCriteriaçš„æŸ¥è¯¢æ¡ä»¶ï¼Œå®ƒçš„ä½œç”¨æ˜¯ï¼š
+ * æ ¹æ®å·²æœ‰å¯¹è±¡ï¼ŒæŸ¥æ‰¾å±æ€§ä¸ä¹‹ç›¸ç¬¦çš„å…¶å®ƒå¯¹è±¡ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ28ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ28æ—¥
  */
 public class ExampleTest extends AbstractQueryTestCase {
 
 	@SuppressWarnings("unchecked")
 	protected void doTest() {
-		// ĞÂ½¨ÁËÒ»¸öExample¶ÔÏó£¬²¢ÒÔ´Ë×÷Îª·¶±¾£¬²éÑ¯ËùÓĞnameÊôĞÔÓëÖ®ÏàÍ¬µÄPerson4¼ÇÂ¼¡£
+		// æ–°å»ºäº†ä¸€ä¸ªExampleå¯¹è±¡ï¼Œå¹¶ä»¥æ­¤ä½œä¸ºèŒƒæœ¬ï¼ŒæŸ¥è¯¢æ‰€æœ‰nameå±æ€§ä¸ä¹‹ç›¸åŒçš„Person4è®°å½•ã€‚
 		Person4 p4 = new Person4();
 		p4.setName("Tom");
 		p4.setAge(18);
-		// Ä¬ÈÏÇé¿öÏÂ£¬Hibernate»á¹ıÂËµôÊ¾Àı¶ÔÏóµÄnullÖµÊôĞÔ¡£
+		// é»˜è®¤æƒ…å†µä¸‹ï¼ŒHibernateä¼šè¿‡æ»¤æ‰ç¤ºä¾‹å¯¹è±¡çš„nullå€¼å±æ€§ã€‚
 		Example example = Example.create(p4);
-		// ¿ÉÒÔÍ¨¹ıµ÷ÓÃÏÂÃæµÄ·½·¨À´¶ÔÕâ¸öÌØĞÔ½øĞĞµ÷Õû
+		// å¯ä»¥é€šè¿‡è°ƒç”¨ä¸‹é¢çš„æ–¹æ³•æ¥å¯¹è¿™ä¸ªç‰¹æ€§è¿›è¡Œè°ƒæ•´
 		// example.excludeNone();
-		// »òÕßÍ¨¹ıµ÷ÓÃÏÂÃæµÄ·½·¨½«Ä³¸öÊôĞÔÅÅ³ıÔÚÍâ
+		// æˆ–è€…é€šè¿‡è°ƒç”¨ä¸‹é¢çš„æ–¹æ³•å°†æŸä¸ªå±æ€§æ’é™¤åœ¨å¤–
 		// example.excludeProperty("id");
 
 		Criteria criteria = session.createCriteria(Person4.class);
-		criteria.add(example);// Ìí¼Óµ½Criteria
+		criteria.add(example);// æ·»åŠ åˆ°Criteria
 
 		List<Person4> result = criteria.list();
 		for (Person4 person : result) {
@@ -46,22 +46,22 @@ public class ExampleTest extends AbstractQueryTestCase {
 		}
 
 		/*
-		 * Ê¾Àı²éÑ¯×î³£ÓÃµÄ³¡¾°ÊÇ×éºÏ²éÑ¯£¬±ÈÈçĞèÒªÔÚ½çÃæÉÏÌá¹©Èô¸É²éÑ¯Ñ¡Ïî£¬È»ºó¸ù¾İÓÃ»§µÄÑ¡Ôñ·µ»Ø·ûºÏÌõ¼şµÄ½á¹û¡£
-		 * Èç¹ûÔÚ´úÂëÖĞ½øĞĞÅĞ¶Ï£¬¸ù¾İÓÃ»§ÊäÈëµÄ²éÑ¯Éú³É×îÖÕµÄ²éÑ¯Ìõ¼ş£¬
-		 * ÓÉÓÚ×éºÏÌõ¼şµÄ²»È·¶¨£¬ÍùÍùµ¼ÖÂÂß¼­ÅĞ¶ÏÓï¾äÍÏí³Æğ·ü¡£Èç¹ûÊ¹ÓÃÊ¾Àı²éÑ¯ÔòÄÜÇáËÉºÜ¶à¡£
+		 * ç¤ºä¾‹æŸ¥è¯¢æœ€å¸¸ç”¨çš„åœºæ™¯æ˜¯ç»„åˆæŸ¥è¯¢ï¼Œæ¯”å¦‚éœ€è¦åœ¨ç•Œé¢ä¸Šæä¾›è‹¥å¹²æŸ¥è¯¢é€‰é¡¹ï¼Œç„¶åæ ¹æ®ç”¨æˆ·çš„é€‰æ‹©è¿”å›ç¬¦åˆæ¡ä»¶çš„ç»“æœã€‚
+		 * å¦‚æœåœ¨ä»£ç ä¸­è¿›è¡Œåˆ¤æ–­ï¼Œæ ¹æ®ç”¨æˆ·è¾“å…¥çš„æŸ¥è¯¢ç”Ÿæˆæœ€ç»ˆçš„æŸ¥è¯¢æ¡ä»¶ï¼Œ
+		 * ç”±äºç»„åˆæ¡ä»¶çš„ä¸ç¡®å®šï¼Œå¾€å¾€å¯¼è‡´é€»è¾‘åˆ¤æ–­è¯­å¥æ‹–æ²“èµ·ä¼ã€‚å¦‚æœä½¿ç”¨ç¤ºä¾‹æŸ¥è¯¢åˆ™èƒ½è½»æ¾å¾ˆå¤šã€‚
 		 */
 		criteria = session.createCriteria(Person4.class);
 
 		String name = "";
 		Integer age = 0;
-		// ´«Í³´¦Àí·½Ê½£¬Èç¹ûÊôĞÔ±È½Ï¶àµÄ»°¡­¡­
+		// ä¼ ç»Ÿå¤„ç†æ–¹å¼ï¼Œå¦‚æœå±æ€§æ¯”è¾ƒå¤šçš„è¯â€¦â€¦
 		if (name != null) {
 			criteria.add(Restrictions.eq("name", name));
 		}
 		if (age != null) {
 			criteria.add(Restrictions.eq("age", age));
 		}
-		// Example´¦Àí·½Ê½
+		// Exampleå¤„ç†æ–¹å¼
 		Person4 person = new Person4(name, age);
 		criteria.add(Example.create(person));
 	}

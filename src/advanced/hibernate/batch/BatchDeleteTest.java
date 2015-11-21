@@ -7,13 +7,13 @@ import hibernate.lifecycle.Entity;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * ÅúÁ¿É¾³ıÊ¾Àı
+ * æ‰¹é‡åˆ é™¤ç¤ºä¾‹
  * <p>
- * bulk delete/update ²Ù×÷µÄÔ­Àí£¬¼´Í¨¹ıÒ»Ìõ¶ÀÁ¢µÄSQLÓï¾äÍê³ÉÊı¾İµÄÅúÁ¿É¾³ı/¸üĞÂ²Ù×÷¡£
+ * bulk delete/update æ“ä½œçš„åŸç†ï¼Œå³é€šè¿‡ä¸€æ¡ç‹¬ç«‹çš„SQLè¯­å¥å®Œæˆæ•°æ®çš„æ‰¹é‡åˆ é™¤/æ›´æ–°æ“ä½œã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ17ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ17æ—¥
  */
 public class BatchDeleteTest extends AbstractHibernateTestCase {
 
@@ -24,10 +24,10 @@ public class BatchDeleteTest extends AbstractHibernateTestCase {
 		session.createQuery("delete Entity").executeUpdate();
 		session.getTransaction().commit();
 		long end = System.currentTimeMillis();
-		System.out.println("¡¾Total time¡¿: " + (end - begin)/1000.0 + "s");
+		System.out.println("ã€Total timeã€‘: " + (end - begin)/1000.0 + "s");
 		
-		// bulk delete/update Ö»ÊÇÌá¹©ÁËÃæÏò¸ßĞÔÄÜÅúÁ¿²Ù×÷µÄÒ»ÖÖÊµÏÖÍ¾¾¶£¬µ«ÎŞ·¨±£Ö¤»º´æÊı¾İµÄÓĞĞ§ĞÔºÍÒ»ÖÂĞÔ¡£
-		// ÏÂÃæµÄ¶ÔÏóÈÔÈ»ÄÜ¹»²éÑ¯³öÀ´£¨À´×ÔÄÚ²¿»º´æ£©£¬ËäÈ»ËüÔÚÊı¾İ¿âÖĞÒÑ¾­±»É¾³ıÁË¡£
+		// bulk delete/update åªæ˜¯æä¾›äº†é¢å‘é«˜æ€§èƒ½æ‰¹é‡æ“ä½œçš„ä¸€ç§å®ç°é€”å¾„ï¼Œä½†æ— æ³•ä¿è¯ç¼“å­˜æ•°æ®çš„æœ‰æ•ˆæ€§å’Œä¸€è‡´æ€§ã€‚
+		// ä¸‹é¢çš„å¯¹è±¡ä»ç„¶èƒ½å¤ŸæŸ¥è¯¢å‡ºæ¥ï¼ˆæ¥è‡ªå†…éƒ¨ç¼“å­˜ï¼‰ï¼Œè™½ç„¶å®ƒåœ¨æ•°æ®åº“ä¸­å·²ç»è¢«åˆ é™¤äº†ã€‚
 		Entity entity = (Entity) session.load(Entity.class, 1L);
 		System.out.println(entity);
 	}

@@ -6,27 +6,27 @@ package hibernate.collection.set;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * SetÊ¾Àı
+ * Setç¤ºä¾‹
  * <p>
- * ÓÉÓÚJDK×Ô´øµÄSet¡¢Map¡¢ListÊµÏÖ²»ÄÜÂú×ãĞèÇó£¬Hibernate»ùÓÚÕâĞ©½Ó¿ÚÌá¹©ÁË×Ô¼ºµÄÊµÏÖ¡£
- * ÕâÀïËùËµµÄCollection¾ùÖ¸HibernateÖĞµÄÊµÏÖ°æ±¾¡£
+ * ç”±äºJDKè‡ªå¸¦çš„Setã€Mapã€Listå®ç°ä¸èƒ½æ»¡è¶³éœ€æ±‚ï¼ŒHibernateåŸºäºè¿™äº›æ¥å£æä¾›äº†è‡ªå·±çš„å®ç°ã€‚
+ * è¿™é‡Œæ‰€è¯´çš„Collectionå‡æŒ‡Hibernateä¸­çš„å®ç°ç‰ˆæœ¬ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ18ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ18æ—¥
  */
 public class SetTest extends AbstractHibernateTestCase {
 
 	@Override
 	protected void doTest() throws Exception {
 		session.beginTransaction();
-		// Ö»»á±£´æÒ»ÌõPart¼ÇÂ¼£¬ÕâÍêÈ«È¡¾öÓÚPartÀàµÄ equals ÊµÏÖ·½Ê½
+		// åªä¼šä¿å­˜ä¸€æ¡Partè®°å½•ï¼Œè¿™å®Œå…¨å–å†³äºPartç±»çš„ equals å®ç°æ–¹å¼
 		Product product = new Product("car");
 		product.getParts().add(new Part("tire"));
 		product.getParts().add(new Part("tire"));
 		session.save(product);
-		// ×¢ÒâÕâÀïµÄSetÊµÀıÒÑ¾­±»HibernateÌæ»»ÎªÆä×ÔÉíÊµÏÖ£¬¶ø²»ÔÙÊÇHashSet
-		System.out.println("¡¾Set class is¡¿" + product.getParts().getClass());
+		// æ³¨æ„è¿™é‡Œçš„Setå®ä¾‹å·²ç»è¢«Hibernateæ›¿æ¢ä¸ºå…¶è‡ªèº«å®ç°ï¼Œè€Œä¸å†æ˜¯HashSet
+		System.out.println("ã€Set class isã€‘" + product.getParts().getClass());
 		session.getTransaction().commit();
 	}
 

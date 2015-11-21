@@ -8,13 +8,13 @@ import org.hibernate.Session;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * MapÊ¾Àı
+ * Mapç¤ºä¾‹
  * <p>
- * MapÊÇÒ»¸öÎŞĞò¼¯ºÏÀàĞÍ£¬Ìá¹©ÁË¼üÖµ¶ÔÓ¦¹ØÏµ¡£
+ * Mapæ˜¯ä¸€ä¸ªæ— åºé›†åˆç±»å‹ï¼Œæä¾›äº†é”®å€¼å¯¹åº”å…³ç³»ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ18ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ18æ—¥
  */
 public class MapTest extends AbstractHibernateTestCase {
 
@@ -22,19 +22,19 @@ public class MapTest extends AbstractHibernateTestCase {
 	protected void doTest() throws Exception {
 		session.beginTransaction();
 		Product product = new Product("car");
-		product.getParts().put("×óÇ°ÂÖ", new Part("tire1"));
-		product.getParts().put("ÓÒÇ°ÂÖ", new Part("tire2"));
-		product.getParts().put("×óºóÂÖ", new Part("tire3"));
-		product.getParts().put("ÓÒºóÂÖ", new Part("tire4"));
+		product.getParts().put("å·¦å‰è½®", new Part("tire1"));
+		product.getParts().put("å³å‰è½®", new Part("tire2"));
+		product.getParts().put("å·¦åè½®", new Part("tire3"));
+		product.getParts().put("å³åè½®", new Part("tire4"));
 		session.save(product);
-		// ×¢ÒâÕâÀïµÄMapÊµÀıÒÑ¾­±»HibernateÌæ»»ÎªÆä×ÔÉíÊµÏÖ£¬¶ø²»ÔÙÊÇHashMap
-		System.out.println("¡¾Map class is¡¿" + product.getParts().getClass());
+		// æ³¨æ„è¿™é‡Œçš„Mapå®ä¾‹å·²ç»è¢«Hibernateæ›¿æ¢ä¸ºå…¶è‡ªèº«å®ç°ï¼Œè€Œä¸å†æ˜¯HashMap
+		System.out.println("ã€Map class isã€‘" + product.getParts().getClass());
 		session.getTransaction().commit();
 		
 		Session newSession = sessionFactory.openSession();
 		Product p = (Product) newSession.load(Product.class, 1L);
-		// ÕâÀï¿ÉÒÔÖ±½Ó¸ù¾İkeyÖµ»ñÈ¡¶ÔÓ¦µÄ¶ÔÏó
-		System.out.println(p.getParts().get("×óÇ°ÂÖ"));
+		// è¿™é‡Œå¯ä»¥ç›´æ¥æ ¹æ®keyå€¼è·å–å¯¹åº”çš„å¯¹è±¡
+		System.out.println(p.getParts().get("å·¦å‰è½®"));
 		newSession.close();
 	}
 

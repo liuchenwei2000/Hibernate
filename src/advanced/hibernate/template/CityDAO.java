@@ -4,11 +4,11 @@
 package hibernate.template;
 
 /**
- * DAO½Ó¿Ú
+ * DAOæ¥å£
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ21ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ21æ—¥
  */
 public interface CityDAO {
 

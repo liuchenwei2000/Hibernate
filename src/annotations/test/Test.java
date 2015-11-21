@@ -11,13 +11,13 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 /**
- * Ê¾Àı
+ * ç¤ºä¾‹
  * <p>
  * 
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ17ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ17æ—¥
  */
 public class Test {
 
@@ -28,13 +28,13 @@ public class Test {
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		session.save(createPerson());// insertÓï¾ä
+		session.save(createPerson());// insertè¯­å¥
 		session.getTransaction().commit();
 		session.close();
 		
 		session = sessionFactory.openSession();
 		session.beginTransaction();
-		List<Person> result = session.createQuery( "from Person" ).list();// select from Óï¾ä
+		List<Person> result = session.createQuery( "from Person" ).list();// select from è¯­å¥
 		for ( Person person : result ) {
 		    System.out.println( "Person : " + person.getFirstName() + " " + person.getLastName());
 		}

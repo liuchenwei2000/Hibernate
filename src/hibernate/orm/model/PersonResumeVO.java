@@ -6,11 +6,11 @@ package hibernate.orm.model;
 import java.sql.Clob;
 
 /**
- * ½«ÖØÁ¿¼¶µÄ×Ö¶Î·â×°µ½Ò»¸ö¶ÔÏó¡£
+ * å°†é‡é‡çº§çš„å­—æ®µå°è£…åˆ°ä¸€ä¸ªå¯¹è±¡ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ24ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ24æ—¥
  */
 public class PersonResumeVO extends PersonBaseVO {
 
@@ -19,7 +19,7 @@ public class PersonResumeVO extends PersonBaseVO {
 	 */
 	private static final long serialVersionUID = -9080669966927557728L;
 	
-	private Clob resume;// ¼òÀú£¬CLOB
+	private Clob resume;// ç®€å†ï¼ŒCLOB
 	
 	public PersonResumeVO() {
 		super();

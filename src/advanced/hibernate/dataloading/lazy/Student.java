@@ -7,20 +7,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * StudentÀà
+ * Studentç±»
  * <p>
- * Ã¿¸öÑ§Éú¶¼ÓĞÒ»¸ö»ò¶à¸öÁªÏµ·½Ê½¡£
+ * æ¯ä¸ªå­¦ç”Ÿéƒ½æœ‰ä¸€ä¸ªæˆ–å¤šä¸ªè”ç³»æ–¹å¼ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ25ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ25æ—¥
  */
 public class Student {
 
 	private Long id;
 	private String name;
 	
-	// Ê¹ÓÃÒ»¸ö¼¯ºÏÀ´´æ·Å
+	// ä½¿ç”¨ä¸€ä¸ªé›†åˆæ¥å­˜æ”¾
 	private Set<Contact> contacts;
 	
 	public Student() {

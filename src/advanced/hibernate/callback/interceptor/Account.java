@@ -4,11 +4,11 @@
 package hibernate.callback.interceptor;
 
 /**
- * ÒøĞĞÕË»§
+ * é“¶è¡Œè´¦æˆ·
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public class Account {
 

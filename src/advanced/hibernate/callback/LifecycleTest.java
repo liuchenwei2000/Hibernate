@@ -8,14 +8,14 @@ import org.hibernate.Session;
 import hibernate.util.AbstractHibernateTestCase;
 
 /**
- * Lifecycle ½Ó¿ÚÊ¹ÓÃ Ê¾Àı
+ * Lifecycle æ¥å£ä½¿ç”¨ ç¤ºä¾‹
  * <p>
- * Lifecycle ½Ó¿Ú¶¨ÒåÁËÒ»ÖÖ×ÔÈ»µÄ»Øµ÷»úÖÆ£¬µ«ÊÇÕâÖÖ»úÖÆÒªÇóÊµÌåÀà±ØĞëÊµÏÖHibernateµÄ½Ó¿Ú£¬
- * Hibernate Ô­Éú½Ó¿ÚµÄ½éÈë£¬Ê¹µÃÊµÌåÀàÒÆÖ²ĞÔ´ó´ó½µµÍ£¨Êµ¼ÊÉÏ´ËÊ±µÄÊµÌåÀàÒÑ¾­²»ÔÙÊÇÑÏ¸ñÒâÒåÉÏµÄPOJO£©
+ * Lifecycle æ¥å£å®šä¹‰äº†ä¸€ç§è‡ªç„¶çš„å›è°ƒæœºåˆ¶ï¼Œä½†æ˜¯è¿™ç§æœºåˆ¶è¦æ±‚å®ä½“ç±»å¿…é¡»å®ç°Hibernateçš„æ¥å£ï¼Œ
+ * Hibernate åŸç”Ÿæ¥å£çš„ä»‹å…¥ï¼Œä½¿å¾—å®ä½“ç±»ç§»æ¤æ€§å¤§å¤§é™ä½ï¼ˆå®é™…ä¸Šæ­¤æ—¶çš„å®ä½“ç±»å·²ç»ä¸å†æ˜¯ä¸¥æ ¼æ„ä¹‰ä¸Šçš„POJOï¼‰
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ4ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ4æ—¥
  */
 public class LifecycleTest extends AbstractHibernateTestCase {
 
@@ -33,7 +33,7 @@ public class LifecycleTest extends AbstractHibernateTestCase {
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			session.getTransaction().rollback();
-			System.out.println("¡¾Save failed¡¿ because " + e.getMessage());
+			System.out.println("ã€Save failedã€‘ because " + e.getMessage());
 		}
 	}
 	
@@ -51,7 +51,7 @@ public class LifecycleTest extends AbstractHibernateTestCase {
 			if (newSession != null && newSession.getTransaction().isActive()) {
 				newSession.getTransaction().rollback();
 			}
-			System.out.println("¡¾Update failed¡¿ because " + e.getMessage());
+			System.out.println("ã€Update failedã€‘ because " + e.getMessage());
 		} finally {
 			if(newSession != null) {
 				newSession.close();
@@ -68,7 +68,7 @@ public class LifecycleTest extends AbstractHibernateTestCase {
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			session.getTransaction().rollback();
-			System.out.println("¡¾Delete failed¡¿ because " + e.getMessage());
+			System.out.println("ã€Delete failedã€‘ because " + e.getMessage());
 		}
 	}
 

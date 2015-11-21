@@ -11,14 +11,14 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
 /**
- * Bean validation Ê¹ÓÃÊ¾Àı
+ * Bean validation ä½¿ç”¨ç¤ºä¾‹
  * <p>
- * Õâ¸öÊ¾ÀıÖĞµÄ´úÂë¼È¿ÉÒÔÔÚ³Ö¾Ã²ãÊ¹ÓÃ£¬Ò²¿ÉÒÔÔÚ±íÏÖ²ãÊ¹ÓÃ¡£
- * ÔÚ³Ö¾Ã²ãÊ¹ÓÃµÄÊ±ºò£¬¿ÉÒÔ¸úHibernateÅäºÏ£¬ÔÚCRUD²Ù×÷Ö®Ç°£¬¶Ô´«ÈëµÄBean×öÑéÖ¤¡£
+ * è¿™ä¸ªç¤ºä¾‹ä¸­çš„ä»£ç æ—¢å¯ä»¥åœ¨æŒä¹…å±‚ä½¿ç”¨ï¼Œä¹Ÿå¯ä»¥åœ¨è¡¨ç°å±‚ä½¿ç”¨ã€‚
+ * åœ¨æŒä¹…å±‚ä½¿ç”¨çš„æ—¶å€™ï¼Œå¯ä»¥è·ŸHibernateé…åˆï¼Œåœ¨CRUDæ“ä½œä¹‹å‰ï¼Œå¯¹ä¼ å…¥çš„BeanåšéªŒè¯ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê8ÔÂ21ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´8æœˆ21æ—¥
  */
 public class UserValidation {
 
@@ -36,7 +36,7 @@ public class UserValidation {
 		user.setPhone("");
 		user.setDescription("me");
 		
-		// ÕâÀï¶Ô JavaBean Ö´ĞĞÑéÖ¤£¬²¢·´À¡ÑéÖ¤½á¹û
+		// è¿™é‡Œå¯¹ JavaBean æ‰§è¡ŒéªŒè¯ï¼Œå¹¶åé¦ˆéªŒè¯ç»“æœ
 		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
 		Validator validator = validatorFactory.getValidator();
 		Set<ConstraintViolation<User>> violations = validator.validate(user);
